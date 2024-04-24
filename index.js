@@ -7,8 +7,7 @@ const pg = require('pg');
 const app = express();
 const port = 3000;
 
-const multer = require('multer');
-const upload = multer({ dest: '/images/' }); // Geef de map op waar de afbeelding wordt opgeslagen
+
 
 
 const db = new pg.Client({
