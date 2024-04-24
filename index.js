@@ -12,7 +12,7 @@ const port = 3000;
 
 const db = new pg.Client({
     user: "world_j3vg_user",
-    host: "dpg-cojgia8cmk4c73bqv2mg-a.frankfurt-postgres.render.com",
+    host: "dpg-cojgia8cmk4c73bqv2mg-a",
     database: "world_j3vg",
     password: "LuQNOF0WaL1Hw4LlydE1ZrDqMj24ZPfz",
     port: 5432,
