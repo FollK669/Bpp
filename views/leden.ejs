@@ -14,13 +14,9 @@
 
 <body class="content nav nav-pills container mt-5">
 
+    <form  class="motivation-imgB" action="/leden/addUser" method="POST"  >
 
-
-    <button class="no-wrap" style="align-self: flex-start; width: 200px; background: linear-gradient( #571a13, #170305); "
-        id="theme-toggle" onclick="toggleTheme()">Darktheme</button>
-           <div>
-
-           <div class="poster">
+     <div class="poster">
         <div class="container">
             <div class="logo" id="logo">
                 <img style="transform: scale(0.4);" class="motivation-img" onclick="toggleMenu()" src="images/top8.jpg" />
@@ -33,87 +29,74 @@
                     <li> <button onclick="openPageHome()">Home</button></a></li>
                 </ul>
             </div>
-        </div>
-
-     <h1 style="transform: scale(0.8);" class="motivation-img">Voeg een nieuwe gebruiker toe</h1>
-    <form style="width: 150%" class="motivation-imgC" action="/leden/addUser" method="POST"  >
-     <br>
-  <div>
+        </div><br>     <br> <h1 style="transform: scale(0.8);" >Voeg een nieuwe gebruiker toe</h1>
+  
         <button class="motivation-imgB" type="submit">Gebruiker Toevoegen</button> <br> <br><br>
-    </div>
-    <div>
+    
+   
         <label class="motivation-imgB" for="voornaam">Voornaam:</label>
         <input class="motivation-imgB" type="text" id="voornaam" name="voornaam" required><br><br>
-    </div>
-    <div>
+   
         <label class="motivation-imgB" for="achternaam">Achternaam:</label>
         <input class="motivation-imgB" type="text" id="achternaam" name="achternaam" required><br><br>
-    </div>
-    <div>
+    
         <label class="motivation-imgB" for="email">Email:</label>
         <input class="motivation-imgB" type="email" id="email" name="email" required><br><br>
-    </div>
-    <div>
+    
         <label class="motivation-imgB" for="gsm">GSM:</label>
         <input class="motivation-imgB" type="tel" id="gsm" name="gsm"><br><br>
-    </div>
-    <div>
+   
         <label class="motivation-imgB" for="straat">Straat:</label>
         <input class="motivation-imgB" type="text" id="straat" name="straat"><br><br>
-    </div>
-    <div>
+   
         <label class="motivation-imgB" for="postcode">Postcode:</label>
         <input class="motivation-imgB" type="text" id="postcode" name="postcode"><br><br>
-    </div>
-    <div>
+   
         <label class="motivation-imgB" for="woonplaats">Woonplaats:</label>
         <input class="motivation-imgB" type="text" id="woonplaats" name="woonplaats"><br><br>
-    </div>
-    <div>
+    
         <label class="motivation-imgB" for="geboortedatum">Geboortedatum:</label>
         <input class="motivation-imgB" type="date" id="geboortedatum" name="geboortedatum"><br><br>
-    </div>
-    <div>
+   
         <label class="motivation-imgB" for="lid_sinds_datum">Lid Sinds Datum:</label>
         <input class="motivation-imgB" type="date" id="lid_sinds_datum" name="lid_sinds_datum"><br><br>
-    </div>
-    <div>
+    
         <label class="motivation-imgB" for="rek_nr">Rekeningnummer:</label>
         <input class="motivation-imgB" type="text" id="rek_nr" name="rek_nr"><br><br>
-    </div>
-    <div>
+   
         <label class="motivation-imgB" for="afbeelding">AfbeeldingPad :</label>
         <input class="motivation-imgB" type="file" id="afbeeldingPad" name="afbeeldingPad"><br><br>
-    </div>
-    <div>
+   
         <label class="motivation-imgB" for="afbeelding2">Afbeelding 2:</label>
         <input class="motivation-imgB" type="file" id="afbeelding2" name="afbeelding2"><br><br>
-    </div>
-    <div>
+    
         <label class="motivation-imgB" for="afbeelding3">Afbeelding 3:</label>
         <input class="motivation-imgB" type="file" id="afbeelding3" name="afbeelding3"><br><br>
-    </div>
-    <div>
+   
         <label class="motivation-imgB" for="instrument">Instrument:</label>
         <input class="motivation-imgB" type="text" id="instrument" name="instrument"><br><br><br>
-    </div>
-    <div>
+   
         <label class="motivation-imgB" for="helper">Helper:</label>
         <input class="motivation-imgB" type="checkbox" id="helper" name="helper" value="1"><br><br><br>
-    </div>
-    <div>
+    
         <label class="motivation-imgB" for="gebruikersnaam">Gebruikersnaam:</label>
         <input class="motivation-imgB" type="text" id="gebruikersnaam" name="gebruikersnaam"><br><br>
-    </div>
-    <div>
+   
         <label class="motivation-imgB" for="commentaar">Commentaar:</label>
         <textarea class="motivation-imgB" id="commentaar" name="commentaar"></textarea><br><br>
-    </div>
-   
+    
           </form>
   
 
    </div>
+
+
+    
+           <div>
+
+           
+
+    
 
 
 
@@ -121,6 +104,9 @@
 
 
     <ul class="motivation-img">
+     <form action="/leden/deleteMembers" method="post" onsubmit="return confirm('Weet je zeker dat je alle leden wilt verwijderen? Dit kan niet ongedaan worden gemaakt.');">
+        <button type="submit">Delete All Members</button>
+    </form>  
     <% users.forEach(function(user) { %>
     <br><br>
       <li class="motivation-imgC"> <br><br>User nummer :  <%= user.lid_nr %> <br> Naam : <%= user.lid_vnaam %> Achternaam :  <%= user.lid_anaam %><br> email : <%= user.lid_email %><br>GSM nr : <%= user.lid_gsm %><br> straat : <%= user.lid_straat %><br>Postcode <%= user.lid_postode%><br>plaats : <%= user.lid_woonplaats %><br>Geboortedatum : <%= user.lid_geboortedatum %><br>Lid sinds : <%= user.lid_sinds_datum %><br>Rek nr : <%= user.lid_rek_nr %><br> Instrument :<%= user.lid_instrument %><br> Helper j/n : <%= user.lid_helper %><br>    <br><br><br></li>
@@ -128,8 +114,8 @@
     <br><br><br>
   </ul>
 
- 
-        
+
+      
     </div>
  
     
