@@ -18,14 +18,16 @@ body {
     border-style: ridge;
     border-radius: 50px;
     width: 100%;
+    margin: 0 auto;
 }
 
 
 .motivation-img {
-    border: 11px solid white;
+    border: 13px solid white;
     border-style: ridge;
     border-radius: 50px;
-    width: 150%;
+    width: 100%;
+    margin: 0 auto;
 }
 
 
@@ -35,13 +37,14 @@ body {
     border-radius: 50px;
     width: 120%;
     color: black;
+    float: left;
     align-items: end;
     padding: 5px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 17px;
 }
 /* Voor schermen kleiner dan 650px */
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 550px) {
     /* CSS-regels hier */
     body {
         margin: auto;
@@ -81,8 +84,7 @@ body {
 
     /* Container */
     .container {
-        display: flex;
-     
+        /* display: flex;*/
     }
 
 
@@ -113,7 +115,7 @@ body {
         /* Stijl voor de vergrote knop bij hover */
         button:hover,
         button:focus {
-            width: 120px; /* Vergroot de breedte naar 150px bij hover */
+            width: 110%;/* Vergroot de breedte naar 150px bij hover */
             color: grey;
             border: medium;
             border-color: white;
@@ -160,17 +162,17 @@ body {
     /* Inhoudscontainer */
     .content {
         width: 100%;
-        max-width: 1200px;
-        margin: 15px;
+
+        margin: 1px;
 
     }
 
 
     /* Posterstijlen */
     .poster {
-        width: 50%;
-        margin-left: 15%;
-        margin-top: 100px;
+        width: 60%;
+        margin-left: 5%;
+        margin-top: 10px;
 
         font-family: "Libre Baskerville", serif;
         text-align: center;
@@ -182,12 +184,12 @@ body {
         border: 11px solid white;
         border-style: ridge;
         border-radius: 50px;
-        width: 150%;
+        width: 100%;
 
     }
 
     .content {
-        width: 90%;
+        width: 100%;
         height: 100%;
 
     }
@@ -247,7 +249,8 @@ body {
         border: 5px solid white;
         border-style: ridge;
         border-radius: 50px;
-        width: 90%;
+        width: 100%;
+        margin: 0 auto;
     }
 }
 .sidebar {
@@ -256,6 +259,7 @@ body {
     overflow-x: hidden;
     transition: 0.5s;
     max-width: 100%;
+
 }
 
     .sidebar ul {
@@ -303,11 +307,11 @@ body {
 }
 
 /* Voor schermen tussen 901px en 8px */
-@media only screen and (min-width: 901px) and (max-width: 1250px) {
+@media only screen and (min-width: 551px) and (max-width: 1250px) {
     /* CSS-regels hier */
     body {
-        margin: 0;
-        padding: 0;
+        margin: 5px;
+        padding: 5px;
         background: radial-gradient(circle, #571a13, #170305);
         height: 100vh;
         display: flex;
@@ -364,7 +368,7 @@ body {
         /* Stijl voor de vergrote knop bij hover */
         button:hover,
         button:focus {
-            width: 120px; /* Vergroot de breedte naar 150px bij hover */
+            width: 110%; /* Vergroot de breedte naar 150px bij hover */
             color: grey;
             border: medium;
             border-color: white;
@@ -407,7 +411,7 @@ body {
         font-family: "Libre Baskerville", serif;
         font-weight: bold;
         width: auto;
-        text-align: left;
+     
     }
 
     /* Gekleurde rechthoek */
@@ -424,17 +428,17 @@ body {
     /* Inhoudscontainer */
     .content {
         width: 100%;
-        max-width: 1200px;
-        margin:  15px;
+
+        margin:  5px;
 
     }
 
 
     /* Posterstijlen */
     .poster {
-        width: 50%;
-        margin-left: 15%;
-        margin-top: 100px;
+        width: 70%;
+        margin-left: 5%;
+        margin-top: 40px;
 
         font-family: "Libre Baskerville", serif;
         text-align: center;
@@ -574,7 +578,7 @@ body {
         /* Stijl voor de vergrote knop bij hover */
         button:hover,
         button:focus {
-            width: 120px; /* Vergroot de breedte naar 150px bij hover */
+            width: 110%; /* Vergroot de breedte naar 150px bij hover */
             color: grey;
             border: medium;
             border-color: white;

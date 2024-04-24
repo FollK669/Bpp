@@ -12,9 +12,7 @@
 </head>
 
 <body class="content nav nav-pills container mt-5">
-    <button class="no-wrap" style="align-self: flex-start; width: 200px; background: linear-gradient( #571a13, #170305); "
-        id="theme-toggle" onclick="toggleTheme()">Darktheme</button>
-
+  
     <div class="poster">
         <div class="container">
             <div class="logo" id="logo">
@@ -33,11 +31,7 @@
         <img class="motivation-img" src="images/greop.jpg" />
 
 
-    <ul>
-    <% users.forEach(function(user) { %>
-      <li> <img src="<%= user.lid_afbeelding1 %>"><%= user.lid_nr %>: <%= user.lid_vnaam %> <%= user.lid_anaam %><%= user.lid_email %><%= user.lid_gsm %><%= user.lid_straat %><%= user.lid_postode%><%= user.lid_woonplaats %><%= user.lid_geboortedatum %><%= user.lid_sinds_datum %><%= user.lid_rek_nr %><%= user.lid_instrument %><%= user.lid_helper %></li>
-    <% }); %>
-  </ul>
+
 
  
         
