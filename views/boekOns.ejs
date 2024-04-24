@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bsharp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="styles/main.css" rel="stylesheet">
+
+</head>
+
+<body class="content nav nav-pills container mt-5">
+    <button class="no-wrap" style="align-self: flex-start; width: 200px; background: linear-gradient( #571a13, #170305); "
+        id="theme-toggle" onclick="toggleTheme()">Darktheme</button>
+
+    <div class="poster">
+        <div class="container">
+            <div class="logo" id="logo">
+                <img class="motivation-img" onclick="toggleMenu()" src="images/top8.jpg" />
+            </div>
+            <div class="sidebar" id="sidebar">
+                <ul>
+                    <li> <button onclick="openPageLeden()">Leden</button></a></li>
+                    <li> <button onclick="openPageBoek()">Boek-ons</button></a></li>
+                    <li> <button onclick="openPageBezoekers()">Bezoekers</button></a></li>
+                    <li> <button onclick="openPageHome()">Home</button></a></li>
+                </ul>
+            </div>
+        </div>
+        <br /> <br />
+        <img class="motivation-img" src="images/greop.jpg" />
+    </div>
+
+    <script src="scripts/buttonLeden.js"></script>
+    <script src="scripts/sidemenu.js"></script>
+    <script src="scripts/menuding.js"></script>
+    <script src="scripts/responseButton.js"></script>
+    <script src="scripts/responseButton2.js"></script>
+    <script src="scripts/lastone.js"></script>
+</body>
+
+</html>
