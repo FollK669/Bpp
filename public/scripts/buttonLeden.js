@@ -15,12 +15,12 @@ function openPageBezoekers() {
 
 function openPageHome() {
     // Vervang 'andere_pagina.html' door de URL van de pagina die je wilt openen
-    window.location.href = '/';
+    window.location.href = '/index';
 }
 
 function openPageLogin() {
     // Vervang 'andere_pagina.html' door de URL van de pagina die je wilt openen
-    window.location.href = '/login';
+    window.location.href = '/login2';
 }
 
 
@@ -34,7 +34,7 @@ function login() {
     if (username && password) {
         // Simuleer een geslaagde inlogpoging
         alert('Inloggen gelukt!');
-        window.location.href = '/leden';
+        window.location.href = '/ledenKeuzeMenu';
         // Hier zou je de gebruiker naar een andere pagina kunnen doorsturen, of iets anders kunnen doen na het inloggen
     } else {
         // Toon een foutmelding als een van de velden leeg is

@@ -7,38 +7,74 @@
     <title>Bsharp</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/main.css"rel="stylesheet">
 
 </head>
 
-<body class="content nav nav-pills container mt-5">
-    <button class="no-wrap" style="align-self: flex-start; width: 200px; background: linear-gradient( #571a13, #170305); "
-        id="theme-toggle" onclick="toggleTheme()">Darktheme</button>
 
-    <div class="poster">
-        <div class="container">
-            <div class="logo" id="logo">
-                <img class="motivation-img" onclick="toggleMenu()" src="images/top8.jpg" />
-            </div>
-            <div class="sidebar" id="sidebar">
-                <ul>
-                    <li> <button onclick="openPageLeden()">Leden</button></a></li>
-                    <li> <button onclick="openPageBoek()">Boek-ons</button></a></li>
-                    <li> <button onclick="openPageBezoekers()">Bezoekers</button></a></li>
-                    <li> <button onclick="openPageHome()">Home</button></a></li>
-                </ul>
-            </div>
-        </div>
-        <br /> <br />
-        <img class="motivation-img" src="images/greop.jpg" />
+<body class="content nav nav-pills container mt-5">
+
+     <div class="poster">
+  <%- include('NavigatieMenuLogin.ejs') %>
+    <br /> <br />
+      <p>
+      Al meer dan 100 jaar bestond de fanfare van Vechmaal, tot ze geconfronteerd werd met een steeds kleinere bezetting, te weinig om nog te concerteren. In een ultieme poging om muziek in het dorp te houden ontstond het idee om samen met enkele muzikanten versterking te zoeken buiten de fanfare. Een gitarist werd gevonden in Vechmaal zelf. Samen met trompet, altsax en tenorsax was dit de aanzet om voor een bigband te gaan.
+
+Al snel kwam er vanuit een nabij dorp versterking in vorm van een basgitaar en drum alsook twee trombones en een extra trompet uit Tongeren en Rijkhoven-Bilzen. De trend was gezet dankzij de goede begeleiding van trombonist Alain. Na een geslaagd openluchtconcert kwam er zomaar een toetsenist aangewaaid met de vraag om mee te doen. Ondertussen zijn de trombones en toetsen andere oorden gaan opzoeken.
+
+Hoe zijn de muzikanten op de naam van de band gekomen?
+
+“Omdat we allemaal van Jazz en blues houden kwamen we al snel op blue note (een term in de blues voor speciale tonen) maar zo waren er al veel. Uiteindelijk kwam Bsharp (B#) uit de bus. Het Engels voor si kruis, voor de leken: een noot die technisch niet bestaat. Achteraf bleek dat ook dit niet zo uniek was maar zolang we niet “te” beroemd worden in het buitenland zitten we goed”, aldus één van de leden.
+
+Ondertussen is Bsharp een Jazzcombo geworden.
+Het is onze bedoeling om ons publiek minstens op zijn stoel te laten mee swingen op onze nummers. De algemene stijl kan het best omschreven worden als easy listening Music.
+
+We brengen ons repertoire met veel plezier naar andere plaatsen in Haspengouw en omgeving! Misschien binnenkort bij u…?
+</p><a href="/boekOns"><button>Boek-ons</button></a>
+         <br /> <br /> <br /> <br />
+          <% const randomVar = Math.floor(Math.random() * 4) + 1; %>
+
+          <%- include('weetje' + randomVar + '.ejs') %>
+      
+
+      
+     
     </div>
 
+
+
+
+
+        
+       
+  
+
+
+           
+
+    
+
+
+
+    
+
+
+    
+
+
+      
+ 
+ 
+    
+
+
+
+
+
+
     <script src="scripts/buttonLeden.js"></script>
-    <script src="scripts/sidemenu.js"></script>
-    <script src="scripts/menuding.js"></script>
-    <script src="scripts/responseButton.js"></script>
-    <script src="scripts/responseButton2.js"></script>
-    <script src="scripts/lastone.js"></script>
+
+
 </body>
 
 </html>

@@ -15,27 +15,19 @@
       <button onclick="window.location.href='https://follk669.github.io/simonGuess/';">Simon</button>
 
     <div class="poster">
-        <div class="container">
-            <div class="logo" id="logo">
-                <img class="motivation-img" onclick="toggleMenu()" src="images/top8.jpg" />
-            </div>
-            <div class="sidebar" id="sidebar">
-                <ul>
-                    <li> <button onclick="openPageLogin()">Leden</button></a></li>
-                    <li> <button onclick="openPageBoek()">Boek-ons</button></a></li>
-                    <li> <button onclick="openPageBezoekers()">Bezoekers</button></a></li>
-                    <li> <button onclick="openPageHome()">Home</button></a></li>
-                </ul>
-            </div>
-        </div>
-        <br /> <br />
+  <%- include('NavigatieMenuLogin.ejs') %>
+    <br /> <br />
         <img class="motivation-img" src="images/greop.jpg" />
 
 
+         <br /> <br /> <br /> <br />
+          <% const randomVar = Math.floor(Math.random() * 4) + 1; %>
 
+          <%- include('weetje' + randomVar + '.ejs') %>
+      
 
- 
-        
+      
+     
     </div>
 
     
