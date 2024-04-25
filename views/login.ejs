@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bsharp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="styles/main.css"rel="stylesheet">
+
+</head>
+
+
+<body class="content nav nav-pills container mt-5">
+
+    <form  class="motivation-imgB" action="/leden/addUser" method="POST"  >
+
+     <div class="poster">
+        <div class="container">
+            <div class="logo" id="logo">
+                <img " class="motivation-img" onclick="toggleMenu()" src="images/top8.jpg" />
+            </div>
+            <div  style="transform: scale(0.8);" class="sidebar" id="sidebar">
+                <ul>
+                    <li> <button onclick="openPageLeden()">Leden</button></a></li>
+                    <li> <button onclick="openPageBoek()">Boek-ons</button></a></li>
+                    <li> <button onclick="openPageBezoekers()">Bezoekers</button></a></li>
+                    <li> <button onclick="openPageHome()">Home</button></a></li>
+                </ul>
+            </div>
+        </div><br>       <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="username">Gebruikersnaam:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Wachtwoord:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+           <button type="button" onclick="login()">Inloggen</button>
+        </form>
+        <p id="error-message" class="error-message"></p>
+    </div>
+    <script src="script.js"></script>
+  
+
+
+
+
+    <script src="scripts/buttonLeden.js"></script>
+
+
+</body>
+
+</html>

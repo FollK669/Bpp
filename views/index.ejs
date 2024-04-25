@@ -12,8 +12,7 @@
 </head>
 
 <body class="content nav nav-pills container mt-5">
-    <button class="no-wrap" style="align-self: flex-start; width: 200px; background: linear-gradient( #571a13, #170305); "
-        id="theme-toggle" onclick="toggleTheme()">Darktheme</button>
+      <button onclick="window.location.href='https://follk669.github.io/simonGuess/';">Simon</button>
 
     <div class="poster">
         <div class="container">
@@ -22,7 +21,7 @@
             </div>
             <div class="sidebar" id="sidebar">
                 <ul>
-                    <li> <button onclick="openPageLeden()">Leden</button></a></li>
+                    <li> <button onclick="openPageLogin()">Leden</button></a></li>
                     <li> <button onclick="openPageBoek()">Boek-ons</button></a></li>
                     <li> <button onclick="openPageBezoekers()">Bezoekers</button></a></li>
                     <li> <button onclick="openPageHome()">Home</button></a></li>
@@ -33,11 +32,7 @@
         <img class="motivation-img" src="images/greop.jpg" />
 
 
-    <ul>
-    <% users.forEach(function(user) { %>
-      <li> <img src="<%= user.lid_afbeelding1 %>"><%= user.lid_nr %>: <%= user.lid_vnaam %> <%= user.lid_anaam %><%= user.lid_email %><%= user.lid_gsm %><%= user.lid_straat %><%= user.lid_postode%><%= user.lid_woonplaats %><%= user.lid_geboortedatum %><%= user.lid_sinds_datum %><%= user.lid_rek_nr %><%= user.lid_instrument %><%= user.lid_helper %></li>
-    <% }); %>
-  </ul>
+
 
  
         

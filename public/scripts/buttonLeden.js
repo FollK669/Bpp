@@ -18,6 +18,31 @@ function openPageHome() {
     window.location.href = '/';
 }
 
+function openPageLogin() {
+    // Vervang 'andere_pagina.html' door de URL van de pagina die je wilt openen
+    window.location.href = '/login';
+}
+
+
+function login() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    // Hier zou je normaal gesproken de inloggegevens naar een server sturen voor verificatie
+    // Voor dit voorbeeld controleren we gewoon of beide velden zijn ingevuld
+
+    if (username && password) {
+        // Simuleer een geslaagde inlogpoging
+        alert('Inloggen gelukt!');
+        window.location.href = '/leden';
+        // Hier zou je de gebruiker naar een andere pagina kunnen doorsturen, of iets anders kunnen doen na het inloggen
+    } else {
+        // Toon een foutmelding als een van de velden leeg is
+        document.getElementById('error-message').innerText = 'Vul zowel gebruikersnaam als wachtwoord in.';
+    }
+}
+
+
 function toggleMenu() {
     var sidebar = document.getElementById("sidebar");
     sidebar.classList.toggle("show-sidebar");
