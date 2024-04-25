@@ -44,14 +44,13 @@ body {
     font-size: 17px;
 }
 /* Voor schermen kleiner dan 650px */
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 150px) {
     /* CSS-regels hier */
     body {
         margin: auto;
-        background: radial-gradient(circle, #571a13, #170305);
+        background: radial-gradient(circle, #571a13, #eb4034);
         height: 100vh;
         display: flex;
-
         font-family: Arial, sans-serif;
     }
 
@@ -102,7 +101,7 @@ body {
 
     /* Knopstijl */
     button {
-        background: linear-gradient(to left, pink,red);
+        background: linear-gradient(to left, #eb4034,red);
         border-top-right-radius: 50px; /* Afgeronde hoek voor de rechterbovenhoek */
         border-bottom-right-radius: 50px;
         color: white;
@@ -307,15 +306,14 @@ body {
 }
 
 /* Voor schermen tussen 901px en 8px */
-@media only screen and (min-width: 551px) and (max-width: 1250px) {
+@media only screen and (min-width: 151px) and (max-width: 8250px) {
     /* CSS-regels hier */
     body {
         margin: 5px;
         padding: 5px;
-        background: radial-gradient(circle, #571a13, #170305);
+        background: radial-gradient(circle, #571a13, #eb4034);
         height: 100vh;
         display: flex;
-
         font-family: Arial, sans-serif;
     }
     .dark-theme {
@@ -355,7 +353,8 @@ body {
 
     /* Knopstijl */
     button {
-        background: linear-gradient(to left, pink,red);
+        background: radial-gradient(circle, #571a13, #eb4034);
+
         border-top-right-radius: 50px; /* Afgeronde hoek voor de rechterbovenhoek */
         border-bottom-right-radius: 50px;
         color: white;
@@ -512,10 +511,10 @@ body {
 }
 
 /* Voor schermen groter dan 850px */
-@media only screen and (min-width: 1251px) {
+@media only screen and (min-width: 8251px) {
     /* CSS-regels hier */
     body {
-        background: radial-gradient(circle, #571a13, #170305);
+        background: radial-gradient(circle, darkgrey, #eb4034);
         height: 100vh;
         display: flex;
         font-family: Arial, sans-serif;
@@ -565,7 +564,7 @@ body {
     /* Knopstijl */
     button {
         margin-left: 4px;
-        background: linear-gradient(to left, pink,red);
+        background: radial-gradient(circle, #571a13, #eb4034);
         border-top-right-radius: 50px; /* Afgeronde hoek voor de rechterbovenhoek */
         border-bottom-right-radius: 50px;
         color: white;
