@@ -1,16 +1,31 @@
-<!-- navigatieMenu.ejs -->
-
-    <div class="container">
-        <div class="logo" id="logo">
-            <img class="motivation-img" onclick="toggleMenu()" src="images/top8.jpg" />
-        </div>
-        <div  class="sidebar" id="sidebar">
-            <ul>
-                <li><a href="/leden"><button>Leden</button></a></li>
-                <li><a href="/boekOns"><button>Boek-ons</button></a></li>
-                <li><a href="/bezoekers"><button>Bezoekers</button></a></li>
-                <li><a href="/index"><button>Home</button></a></li>
-            </ul>
-        </div>
-    </div>
-
+<!-- menu.ejs -->
+<div class="container">
+	<div class="logo" id="logo">
+		<img class="motivation-img" onclick="toggleMenu()" src="images/top8.jpg" />
+	</div>
+	<div  class="sidebar" id="sidebar">
+		<ul>
+			<li>
+				<form action="/leden" method="post">
+					<input type="text" id="lidnummer" name="lidnummer" placeholder="Voer lidnummer in">
+						<button type="submit" class="button">Bekijk Lid</button>
+					</form>
+			</li>
+			<li>
+				<a href="/boekOns">
+					<button class="button">Boek-ons"</button>
+				</a>
+			</li>
+			<li>
+				<a href="/bezoekers">
+					<button class="button">Bezoekers</button>
+				</a>
+			</li>
+			<li>
+				<a href="/index">
+					<button class="button">Home</button>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>

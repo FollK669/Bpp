@@ -20,7 +20,7 @@ function openPageHome() {
 
 function openPageLogin() {
     // Vervang 'andere_pagina.html' door de URL van de pagina die je wilt openen
-    window.location.href = '/login2';
+    window.location.href = '/login';
 }
 
 

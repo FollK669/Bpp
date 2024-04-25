@@ -14,30 +14,20 @@
 
 <body class="content nav nav-pills container mt-5">
 
-    <form  class="motivation-imgB" action="/leden/addUser" method="POST"  >
-
-     <div class="poster">
-        <div class="container">
-            <div class="logo" id="logo">
-                <img " class="motivation-img" onclick="toggleMenu()" src="images/top8.jpg" />
-            </div>
-            <div  style="transform: scale(0.8);" class="sidebar" id="sidebar">
-                <ul>
-                    <li> <button onclick="openPageLeden()">Leden</button></a></li>
-                    <li> <button onclick="openPageBoek()">Boek-ons</button></a></li>
-                    <li> <button onclick="openPageBezoekers()">Bezoekers</button></a></li>
-                    <li> <button onclick="openPageHome()">Home</button></a></li>
-                </ul>
-            </div>
-        </div><br>     
-  
-       <div>
+   <div class="poster">
+  <%- include('NavigatieMenuLogin.ejs') %>
+    <br /> <br />
 
        <ol>
 
-       <li> <a href="ledenOverzicht">Leden overzicht</a></li>
-
-
+       <li> <a href="Ledenlijst">Leden lijst</a></li>
+        <li> <a href="Ledenlijst">Lid Details</a></li>
+         <li> <a href="Ledenlijst">Leden lijst</a></li>
+          <li><form action="/leden" method="post">
+          <p> zoek een lid op nummer</p>
+					<input type="text" id="lidnummer" name="lidnummer" placeholder="Voer lidnummer in">
+						<button type="submit" class="button">Bekijk Lid</button>
+					</form></li>
        </ol>
 
 

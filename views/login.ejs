@@ -13,7 +13,10 @@
 
 
 <body class="content nav nav-pills container mt-5">
-  <% include NavigatieMenu.ejs %>  
+
+ <div class="poster">
+  <%- include('NavigatieMenuBezoeker.ejs') %>
+    <br /> <br />
     <form  class="motivation-imgB" action="/leden/addUser" method="POST"  >
 
      
@@ -22,14 +25,20 @@
         <h2>Login</h2>
         <form id="login-form">
             <div class="form-group">
-                <label for="username">Gebruikersnaam:</label>
-                <input type="text" id="username" name="username" required>
+                <label style="float: left;" class="small-img2 " for="username">Gebruikersnaam:</label>
+                <input style="float: right;" class="small-img2 " type="text" id="username" name="username" required>
+                
+                
             </div>
             <div class="form-group">
-                <label for="password">Wachtwoord:</label>
-                <input type="password" id="password" name="password" required>
+            <label  style="float: left; visibility: hidden;"  class="small-img2 " for="username">Gebruikersnaam:</label>
+            <label style="float: left;" class="small-img2 "  for="password">Wachtwoord:</label><br>
+            <input style="float: right;" class="small-img2 " type="password" id="password" name="password" required><br><br><br><br><b
+                
             </div>
-           <button type="button" onclick="login()">Inloggen</button>
+                
+                
+           <br><br><button style="float: inherit;" class="small-img2 " type="button" onclick="login()">Inloggen</button>
         </form>
         <p id="error-message" class="error-message"></p>
     </div>

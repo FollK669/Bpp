@@ -16,7 +16,7 @@ const port = 3000;
 const db = new pg.Client({
     user: "world_j3vg_user",
     host: "dpg-cojgia8cmk4c73bqv2mg-a",  ///string voor op render.com
-    //host: "dpg-cojgia8cmk4c73bqv2mg-a.frankfurt-postgres.render.com", // string voor via local host
+   // host: "dpg-cojgia8cmk4c73bqv2mg-a.frankfurt-postgres.render.com", // string voor via local host
     database: "world_j3vg",
     password: "LuQNOF0WaL1Hw4LlydE1ZrDqMj24ZPfz",
     port: 5432,
@@ -86,8 +86,21 @@ app.get('/ledenAdresBeheer', (req, res) => {
     res.render('ledenAdresBeheer.ejs');
 });
 
+app.get("/Ledenlijst", async (req, res) => {
+    try {
+        const result = await db.query("SELECT * FROM leden");
+        const users = result.rows; // Gebruik de rijen die zijn opgehaald uit de database
+        res.render("ledenlijst.ejs", { users: users }); // Geef de variabele users door aan de weergave
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
 
 
+app.get('/', (req, res) => {
+    res.render('numberPicker', { initialValue: 0 }); // Initial value
+});
 
 
 app.get("/ledenBeheer", async (req, res) => {
@@ -104,16 +117,24 @@ app.get("/ledenBeheer", async (req, res) => {
 
 
 
-app.get("/leden", async (req, res) => {
+
+app.get("/leden/:lid_nr", async (req, res) => {
     try {
-        const result = await db.query("SELECT * FROM leden");
-        const users = result.rows; // Gebruik de rijen die zijn opgehaald uit de database
-        res.render("leden.ejs", { users: users }); // Geef de variabele users door aan de weergave
+        const lid_nr = req.params.lid_nr; // Haal het lidnummer op uit de URL-parameter
+        const result = await db.query("SELECT * FROM leden WHERE lid_nr = $1", [lid_nr]);
+        if (result.rows.length === 0) {
+            // Geen gebruiker gevonden met het opgegeven lidnummer
+            res.status(404).send("Geen gebruiker gevonden met het opgegeven lidnummer.");
+            return;
+        }
+        const user = result.rows[0]; // Gebruik de eerste rij die is opgehaald uit de database
+        res.render("leden", { user: user}); // Geef de gebruikersgegevens door aan de weergave
     } catch (error) {
-        console.error("Error fetching data:", error);
-        res.status(500).send("Internal Server Error");
+        console.error("Fout bij het ophalen van gegevens:", error);
+        res.status(500).send("Interne serverfout");
     }
 });
+
 
 /////////////////////////////////////
 /************* POST routes ************ */
@@ -136,6 +157,11 @@ app.post("/addUser", async (req, res) => {
         console.error("Fout bij toevoegen van gebruiker:", error);
         res.status(500).send("Interne serverfout: " + error.message); // Stuur het specifieke foutbericht terug
     }
+});
+
+app.post("/leden", (req, res) => {
+    const lidnummer = req.body.lidnummer;
+    res.redirect(`/leden/${lidnummer}`);
 });
 
 

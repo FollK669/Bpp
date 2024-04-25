@@ -14,40 +14,32 @@
 
 <body class="content nav nav-pills container mt-5">
 
+   <div class="poster">
+  <%- include('NavigatieMenuLogin.ejs') %>
+    <br /> <br />
+
+       <ol>
+
+       <li> <a href="ledenOverziBeheercht">Leden Beheer</a></li>
 
 
-    <!-- Comment:  dit is het vaste navigatie menu  -->
-
-     <div class="poster">
-        <div class="container">
-            <div class="logo" id="logo">
-                <img " class="motivation-img" onclick="toggleMenu()" src="images/top8.jpg" />
-            </div>
-            <div  style="transform: scale(0.8);" class="sidebar" id="sidebar">
-                <ul>
-                    <li> <button onclick="openPageLeden()">Leden</button></a></li>
-                    <li> <button onclick="openPageBoek()">Boek-ons</button></a></li>
-                    <li> <button onclick="openPageBezoekers()">Bezoekers</button></a></li>
-                    <li> <button onclick="openPageHome()">Home</button></a></li>
-                </ul>
-
-            </div>
-  
-     </div>
+       </ol>
 
 
 
 
-        
+       </div>
 
-                         <ul class="motivation-img">
- 
-    <% users.forEach(function(user) { %>
-    <br><br>
-      <li class="motivation-imgC"> <br><br>User nummer :  <%= user.lid_nr %> <br> Naam : <%= user.lid_vnaam %> Achternaam :  <%= user.lid_anaam %><br> email : <%= user.lid_email %><br>GSM nr : <%= user.lid_gsm %><br> straat : <%= user.lid_straat %><br>Postcode <%= user.lid_postode%><br>plaats : <%= user.lid_woonplaats %><br>Geboortedatum : <%= user.lid_geboortedatum %><br>Lid sinds : <%= user.lid_sinds_datum %><br>Rek nr : <%= user.lid_rek_nr %><br> Instrument :<%= user.lid_instrument %><br> Helper j/n : <%= user.lid_helper %><br>    <br><br><br></li>
-    <% }); %>
-    <br><br><br>
-  </ul>
+
+
+
+
+    <script src="scripts/buttonLeden.js"></script>
+
+
+</body>
+
+</html>
 
     
 

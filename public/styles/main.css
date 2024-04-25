@@ -4,17 +4,12 @@
 
 */
 
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
 
 
 /* Style the links inside the sidenav */
 body {
     overflow: auto;
+    color: burlywood;
 }
 
 .no-wrap {
@@ -27,6 +22,7 @@ body {
     border-radius: 50px;
     width: 100%;
     margin: 0 auto;
+    color: burlywood;
 }
 .small-img {
     border: 11px solid white;
@@ -34,6 +30,15 @@ body {
     border-radius: 50px;
     width: 15%;
     margin: 0 auto;
+    color: burlywood;
+}
+
+.button2 {
+    border: 11px solid white;
+    border-style: ridge;
+    border-radius: 10px;
+    color: burlywood;
+    font-family: "Libre Baskerville", serif;
 }
 
 .small-img2 {
@@ -42,6 +47,7 @@ body {
     border-radius: 50px;
     width: 35%;
     margin: 0 auto;
+    color: burlywood;
 }
 
 .motivation-img {
@@ -50,6 +56,7 @@ body {
     border-radius: 50px;
     width: 100%;
     margin: 0 auto;
+    color: burlywood;
 }
 
 
@@ -62,8 +69,9 @@ body {
     float: left;
     align-items: end;
     padding: 5px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Libre Baskerville", serif;
     font-size: 17px;
+    color: burlywood;
 }
 /* Voor schermen kleiner dan 650px */
 @media only screen and (max-width: 150px) {
@@ -74,6 +82,7 @@ body {
         height: 100vh;
         display: flex;
         font-family: Arial, sans-serif;
+        color: burlywood;
     }
 
     .dark-theme {
@@ -88,13 +97,13 @@ body {
 
 
     /* Kopstijl */
-    h1, .ppp, .pp3, .pp, .pp2 {
+    h1, h2, .ppp, .pp3, .pp, .pp2 {
         text-transform: uppercase;
         font-size: 3rem;
         font-family: "Libre Baskerville", serif;
         font-weight: bold;
         text-shadow: 2px 2px 4px gray;
-
+        color: burlywood;
     }
 
     /* Paragraafstijlen */
@@ -122,7 +131,7 @@ body {
     }
 
     /* Knopstijl */
-    button {
+    .button {
         background: linear-gradient(to left, #eb4034,red);
         border-top-right-radius: 50px; /* Afgeronde hoek voor de rechterbovenhoek */
         border-bottom-right-radius: 50px;
@@ -130,32 +139,36 @@ body {
         padding: 2px, 2px, 2px, 2px;
         border: inherit;
         cursor: pointer;
+        font-family: "Libre Baskerville", serif;
         width: 0; /* Begin met een breedte van 0 */
         transition: width 0.7s ease; /* Voeg een overgang toe voor een vloeiende animatie */
+        color: burlywood;
     }
         /* Stijl voor de vergrote knop bij hover */
-        button:hover,
-        button:focus {
-            width: 110%;/* Vergroot de breedte naar 150px bij hover */
+        .button:hover,
+        .button:focus {
+            width: 110%; /* Vergroot de breedte naar 150px bij hover */
             color: grey;
             border: medium;
             border-color: white;
+            color: burlywood;
+            font-family: "Libre Baskerville", serif;
             border-width: 3px;
             transform: scale(1.1); /* Bij hover vergroot de grootte */
         }
 
-        button:nth-child(1):hover,
-        button:nth-child(1):focus {
+        .button:nth-child(1):hover,
+        .button:nth-child(1):focus {
             transition-delay: 0s; /* Geen vertraging voor het eerste element */
         }
 
-        button:nth-child(2):hover,
-        button:nth-child(2):focus {
+        .button:nth-child(2):hover,
+       .button:nth-child(2):focus {
             transition-delay: 0.5s; /* Geen vertraging voor het eerste element */
         }
 
-        button:nth-child(3):hover,
-        button:nth-child(3):focus {
+        .button:nth-child(3):hover,
+        .button:nth-child(3):focus {
             transition-delay: 0.8s; /* Geen vertraging voor het eerste element */
         }
 
@@ -342,13 +355,21 @@ body {
         background-color: black; /* Dark background color */
     }
     /* Kopstijl */
-    h1, .ppp, .pp3, .pp, .pp2 {
+    h1, h2, .ppp, .pp3, .pp, .pp2 {
         text-transform: uppercase;
         font-size: 3rem;
         font-family: "Libre Baskerville", serif;
         font-weight: bold;
         text-shadow: 2px 2px 4px gray;
+        color: burlywood;
+    }
 
+    p {
+        font-size: 1rem;
+        font-family: "Libre Baskerville", serif;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px gray;
+        color: burlywood;
     }
 
     /* Paragraafstijlen */
@@ -374,41 +395,45 @@ body {
         }
 
     /* Knopstijl */
-    button {
-        background: radial-gradient(circle, #571a13, #eb4034);
-
+    .button {
+        background: linear-gradient(to left, #eb4034,red);
         border-top-right-radius: 50px; /* Afgeronde hoek voor de rechterbovenhoek */
         border-bottom-right-radius: 50px;
         color: white;
+        color: burlywood;
         padding: 2px, 2px, 2px, 2px;
         border: inherit;
+        font-family: "Libre Baskerville", serif;
         cursor: pointer;
         width: 0; /* Begin met een breedte van 0 */
         transition: width 0.7s ease; /* Voeg een overgang toe voor een vloeiende animatie */
     }
         /* Stijl voor de vergrote knop bij hover */
-        button:hover,
-        button:focus {
+        .button:hover,
+        .button:focus {
             width: 110%; /* Vergroot de breedte naar 150px bij hover */
             color: grey;
             border: medium;
             border-color: white;
+            color: burlywood;
             border-width: 3px;
+            font-family: "Libre Baskerville", serif;
+            color: burlywood;
             transform: scale(1.1); /* Bij hover vergroot de grootte */
         }
 
-        button:nth-child(1):hover,
-        button:nth-child(1):focus {
+        .button:nth-child(1):hover,
+        .button:nth-child(1):focus {
             transition-delay: 0s; /* Geen vertraging voor het eerste element */
         }
 
-        button:nth-child(2):hover,
-        button:nth-child(2):focus {
+        .button:nth-child(2):hover,
+        .button:nth-child(2):focus {
             transition-delay: 0.5s; /* Geen vertraging voor het eerste element */
         }
 
-        button:nth-child(3):hover,
-        button:nth-child(3):focus {
+        .button:nth-child(3):hover,
+        .button:nth-child(3):focus {
             transition-delay: 0.8s; /* Geen vertraging voor het eerste element */
         }
 
@@ -459,7 +484,7 @@ body {
     .poster {
         width: 70%;
         margin-left: 5%;
-        margin-top: 40px;
+        margin-top: 10px;
 
         font-family: "Libre Baskerville", serif;
         text-align: center;
@@ -476,7 +501,7 @@ body {
     }
 
     .content {
-        width: 120%;
+        width: 100%;
         height: 100%;
     }
     /* Zijbalk */
@@ -493,13 +518,13 @@ body {
             list-style: none;
             padding: 10px;
 
-            width: 500px;
+            width: 100px;
             max-width: 100%;
         }
 
             .sidebar ul li {
                 padding: 15px;
-                width: 500px;
+                width: 100px;
                 max-width: 100%;
             }
 
@@ -512,7 +537,7 @@ body {
                     text-decoration-color: white;
                     text-shadow: 2px 2px 4px gray;
                     text-decoration: none;
-                    width: 500px;
+                    width: 100px;
                     max-width: 100%;
                 }
 
@@ -531,6 +556,34 @@ body {
         display: block;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Voor schermen groter dan 850px */
 @media only screen and (min-width: 8251px) {
@@ -590,7 +643,9 @@ body {
         border-top-right-radius: 50px; /* Afgeronde hoek voor de rechterbovenhoek */
         border-bottom-right-radius: 50px;
         color: white;
+        color: burlywood;
         border: inherit;
+        font-family: "Libre Baskerville", serif;
         padding: 2px, 2px, 2px, 2px;
         cursor: pointer;
         width: 0; /* Begin met een breedte van 0 */
@@ -602,6 +657,7 @@ body {
             width: 110%; /* Vergroot de breedte naar 150px bij hover */
             color: grey;
             border: medium;
+            font-family: "Libre Baskerville", serif;
             border-color: white;
             border-width: 3px;
             transform: scale(1.1); /* Bij hover vergroot de grootte */

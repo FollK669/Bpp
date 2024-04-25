@@ -17,26 +17,12 @@
      <div class="poster">
   <%- include('NavigatieMenuLogin.ejs') %>
     <br /> <br />
-         <ul class="motivation-img">
-  <br><br>
-  <li class="motivation-imgC">
+            <% users.forEach(function(user) { %>
     <br><br>
-    User nummer : <%= user.lid_nr %> <br>
-    Naam : <%= user.lid_vnaam %> Achternaam : <%= user.lid_anaam %><br>
-    email : <%= user.lid_email %><br>
-    GSM nr : <%= user.lid_gsm %><br>
-    straat : <%= user.lid_straat %><br>
-    Postcode <%= user.lid_postode %><br>
-    plaats : <%= user.lid_woonplaats %><br>
-    Geboortedatum : <%= user.lid_geboortedatum %><br>
-    Lid sinds : <%= user.lid_sinds_datum %><br>
-    Rek nr : <%= user.lid_rek_nr %><br>
-    Instrument :<%= user.lid_instrument %><br>
-    Helper j/n : <%= user.lid_helper %><br>
+      <li class="motivation-imgC"> <br><br>User nummer :  <%= user.lid_nr %> <br> Naam : <%= user.lid_vnaam %> Achternaam :  <%= user.lid_anaam %><br> email : <%= user.lid_email %><br>GSM nr : <%= user.lid_gsm %><br> straat : <%= user.lid_straat %><br>Postcode <%= user.lid_postode%><br>plaats : <%= user.lid_woonplaats %><br>Geboortedatum : <%= user.lid_geboortedatum %><br>Lid sinds : <%= user.lid_sinds_datum %><br>Rek nr : <%= user.lid_rek_nr %><br> Instrument :<%= user.lid_instrument %><br> Helper j/n : <%= user.lid_helper %><br>    <br><br><br></li>
+    <% }); %>
     <br><br><br>
-  </li>
-  <br><br><br>
-</ul>
+  </ul>
 
          <br /> <br /> <br /> <br />
           <% const randomVar = Math.floor(Math.random() * 4) + 1; %>
