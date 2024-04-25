@@ -15,8 +15,8 @@ const port = 3000;
 
 const db = new pg.Client({
     user: "world_j3vg_user",
-    host: "dpg-cojgia8cmk4c73bqv2mg-a",  ///string voor op render.com
-   // host: "dpg-cojgia8cmk4c73bqv2mg-a.frankfurt-postgres.render.com", // string voor via local host
+    //host: "dpg-cojgia8cmk4c73bqv2mg-a",  ///string voor op render.com
+    host: "dpg-cojgia8cmk4c73bqv2mg-a.frankfurt-postgres.render.com", // string voor via local host
     database: "world_j3vg",
     password: "LuQNOF0WaL1Hw4LlydE1ZrDqMj24ZPfz",
     port: 5432,
@@ -76,6 +76,18 @@ app.get('/login', (req, res) => {
 
 app.get('/ledenKeuzeMenu', (req, res) => {
     res.render('ledenKeuzeMenu.ejs');
+});
+
+app.get('/instellingen', (req, res) => {
+    res.render('WebsiteInstellingen.ejs');
+});
+
+app.get('/inventaris', (req, res) => {
+    res.render('inventaris.ejs');
+});
+
+app.get('/doodle', (req, res) => {
+    res.render('doodle.ejs');
 });
 
 app.get('/ledenLoginBeheer', (req, res) => {

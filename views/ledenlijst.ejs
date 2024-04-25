@@ -30,17 +30,20 @@
           <%- include('weetje' + randomVar + '.ejs') %>
       
 
-      
-     
-    </div>
-
-     <div  >
-    <label  class="button2"id="valueLabel"></label>
-    <button class="button2" onclick="increment()">+</button>
-    <button class="button2" onclick="decrement()">-</button>
+       <div  >
+  
+    
+    
+    <button class="button2" onclick="decrement()"><<<</button>
+    <label  class="button2"id="valueLabel">1</label>
+    <button class="button2" onclick="increment()">>>></button> 
   </div>
 
 
+     
+    </div>
+
+    
 
         
        
@@ -70,25 +73,7 @@
 
 
     <script src="scripts/buttonLeden.js"></script>
-      <script>
-    // JavaScript code to handle incrementing and decrementing the value
-    let value = 1; // Initial value from EJS
-    const valueLabel = document.getElementById('valueLabel');
-
-    function increment() {
-      value++;
-      updateLabel();
-    }
-
-    function decrement() {
-      value--;
-      updateLabel();
-    }
-
-    function updateLabel() {
-      valueLabel.textContent = value;
-    }
-  </script>
+ 
 
 </body>
 

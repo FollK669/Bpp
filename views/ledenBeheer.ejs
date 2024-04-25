@@ -18,13 +18,66 @@
   <%- include('NavigatieMenuLogin.ejs') %>
     <br /> <br />
 
-       <ol>
+       <form  class="motivation-imgB" action="/leden/addUser" method="POST"  >
 
-       <li> <a href="ledenOverziBeheercht">Leden Beheer</a></li>
+      <h1 style="transform: scale(0.8);" >Voeg een nieuwe gebruiker toe</h1>
+  
+        <button class="motivation-imgB" type="submit">Gebruiker Toevoegen</button> <br> <br><br>
+    
+   
+        <label class="motivation-imgB" for="voornaam">Voornaam:</label><br> <br>
 
-
-       </ol>
-
+        <input class="motivation-imgB" type="text" id="voornaam" name="voornaam" required><br><br>
+   
+        <label class="motivation-imgB" for="achternaam">Achternaam:</label><br> <br>
+        <input class="motivation-imgB" type="text" id="achternaam" name="achternaam" required><br><br>
+    
+        <label class="motivation-imgB" for="email">Email:</label><br> <br>
+        <input class="motivation-imgB" type="email" id="email" name="email" required><br><br>
+    
+        <label class="motivation-imgB" for="gsm">GSM:</label><br> <br>
+        <input class="motivation-imgB" type="tel" id="gsm" name="gsm"><br><br>
+   
+        <label class="motivation-imgB" for="straat">Straat:</label><br> <br>
+        <input class="motivation-imgB" type="text" id="straat" name="straat"><br><br>
+   
+        <label class="motivation-imgB" for="postcode">Postcode:</label><br> <br>
+        <input class="motivation-imgB" type="text" id="postcode" name="postcode"><br><br>
+   
+        <label class="motivation-imgB" for="woonplaats">Woonplaats:</label><br> <br>
+        <input class="motivation-imgB" type="text" id="woonplaats" name="woonplaats"><br><br>
+    
+        <label class="motivation-imgB" for="geboortedatum">Geboortedatum:</label><br> <br>
+        <input class="motivation-imgB" type="date" id="geboortedatum" name="geboortedatum"><br><br>
+   
+        <label class="motivation-imgB" for="lid_sinds_datum">Lid Sinds Datum:</label><br> <br>
+        <input class="motivation-imgB" type="date" id="lid_sinds_datum" name="lid_sinds_datum"><br><br>
+    
+        <label class="motivation-imgB" for="rek_nr">Rekeningnummer:</label><br> <br>
+        <input class="motivation-imgB" type="text" id="rek_nr" name="rek_nr"><br><br>
+   
+        <label class="motivation-imgB" for="afbeelding">AfbeeldingPad :</label><br> <br>
+        <input class="motivation-imgB" type="file" id="afbeeldingPad" name="afbeeldingPad"><br><br>
+   
+        <label class="motivation-imgB" for="afbeelding2">Afbeelding 2:</label><br> <br>
+        <input class="motivation-imgB" type="file" id="afbeelding2" name="afbeelding2"><br><br>
+    
+        <label class="motivation-imgB" for="afbeelding3">Afbeelding 3:</label><br> <br>
+        <input class="motivation-imgB" type="file" id="afbeelding3" name="afbeelding3"><br><br>
+   
+        <label class="motivation-imgB" for="instrument">Instrument:</label><br> <br>
+        <input class="motivation-imgB" type="text" id="instrument" name="instrument"><br><br><br>
+   
+        <label class="motivation-imgB" for="helper">Helper:</label><br> <br>
+        <input class="motivation-imgB" type="checkbox" id="helper" name="helper" value="1"><br><br><br>
+    
+        <label class="motivation-imgB" for="gebruikersnaam">Gebruikersnaam:</label><br> <br>
+        <input class="motivation-imgB" type="text" id="gebruikersnaam" name="gebruikersnaam"><br><br>
+   
+        <label class="motivation-imgB" for="commentaar">Commentaar:</label><br> <br>
+        <textarea class="motivation-imgB" id="commentaar" name="commentaar"></textarea><br><br>
+    
+          </form>
 
 
 

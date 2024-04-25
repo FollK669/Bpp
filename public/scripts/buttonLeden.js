@@ -23,7 +23,30 @@ function openPageLogin() {
     window.location.href = '/login';
 }
 
+// JavaScript code to handle incrementing and decrementing the value
+let value = 1; // Initial value from EJS
+const valueLabel = document.getElementById('valueLabel');
 
+function increment() {
+
+
+
+    value++;
+    updateLabel();
+}
+
+function decrement() {
+
+    if (value > 1) {
+        value--;
+    }
+
+    updateLabel();
+}
+
+function updateLabel() {
+    valueLabel.textContent = value;
+}
 function login() {
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
@@ -152,3 +175,4 @@ function updateButton() {
         button.textContent = "DarkTheme";
     }
 }
+

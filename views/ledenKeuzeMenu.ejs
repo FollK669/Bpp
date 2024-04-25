@@ -18,17 +18,26 @@
   <%- include('NavigatieMenuLogin.ejs') %>
     <br /> <br />
 
-       <ol>
+       
 
-       <li> <a href="Ledenlijst">Leden lijst</a></li>
-        <li> <a href="Ledenlijst">Lid Details</a></li>
-         <li> <a href="Ledenlijst">Leden lijst</a></li>
-          <li><form action="/leden" method="post">
-          <p> zoek een lid op nummer</p>
-					<input type="text" id="lidnummer" name="lidnummer" placeholder="Voer lidnummer in">
-						<button type="submit" class="button">Bekijk Lid</button>
-					</form></li>
-       </ol>
+     <br> <a  href="Ledenlijst" class="motivation-imgB">Leden Overzicht</a><br>
+        <br><br><br> <a href="ledenBeheer" class="motivation-imgB">Leden Beheer</a><br>
+         <br><br><br> <a href="inventaris" class="motivation-imgB">Inventaris</a><br>
+     
+               <br><br><br> <a href="doodle" class="motivation-imgB">Doodle</a><br>
+                  <br><br><br> <a href="Ledenlijst" class="motivation-imgB">Financiën</a><br>
+                      <br><br><br> <a href="instellingen" class="motivation-imgB">Website instellingen</a><br>
+              <br><br><br> <a href="Ledenlijst" class="motivation-imgB">Playlist</a><br>
+                  <br><br><br> <a href="Ledenlijst" class="motivation-imgB">Activiteiten/Taken</a><br>
+                      <br><br><br> <a href="Ledenlijst" class="motivation-imgB">Partituren</a><br>
+                       <br><br><br><br><br><br>
+          
+          <form action="/leden" method="post">
+          <p class="motivation-imgB" > zoek een lid op nummer</p>
+					<input class="motivation-imgB" type="text" id="lidnummer" name="lidnummer" placeholder="Voer lidnummer in">
+						<button type="submit" class="motivation-imgB">Bekijk Lid</button>
+					</form>
+     
 
 
 
