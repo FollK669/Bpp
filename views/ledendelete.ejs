@@ -18,17 +18,14 @@
   <%- include('NavigatieMenuLogin.ejs') %>
     <br /> <br />
 
-        <h1 class="motivation-imgB">Activiteiten</h1><br><br><br>
-
-     <br> <br><br><br><br><br><br><a  href="Ledenlijst" class="motivation-imgB">Repetities</a><br>
-        <br><br><br> <a href="Ledenlijst" class="motivation-imgB">Evenementen</a><br>
-         <br><br><br> <a href="Ledenlijst" class="motivation-imgB">Taken</a><br>
-     
-            
-                 
-
-
-
+      
+<h1>Delete Members</h1>
+ 
+    <form action="/leden/deleteMembers" method="post" onsubmit="return confirmCheck()">
+        <label for="confirmation">Voer het controlegetal in om te bevestigen:</label>
+        <input type="text" id="confirmation" name="confirmation" required>
+        <button type="submit">Delete All Members</button>
+    </form>
 
 
     <script src="scripts/buttonLeden.js"></script>

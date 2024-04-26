@@ -105,7 +105,16 @@ async function deleteAllMembers() {
 // Voeg een event listener toe aan de knop om de functie te activeren wanneer erop wordt geklikt
 document.getElementById("deleteMembersButton").addEventListener("click", deleteAllMembers);
 
-
+function confirmCheck() {
+    var confirmationInput = document.getElementById("confirmation").value;
+    // Hier kun je de controle uitvoeren, bijvoorbeeld vergelijken met een vooraf gedefinieerd controlegetal
+    var controlNumber = "1234"; // Dit is slechts een voorbeeld, vervang dit met je eigen controlegetal
+    if (confirmationInput !== controlNumber) {
+        alert("Het ingevoerde controlegetal is onjuist.");
+        return false; // Voorkom dat het formulier wordt verzonden
+    }
+    return true; // Laat het formulier verzenden als het controlegetal overeenkomt
+}
 
 function Darktheme() {
     // Vervang 'andere_pagina.html' door de URL van de pagina die je wilt openen

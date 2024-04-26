@@ -82,6 +82,14 @@ app.get('/instellingen', (req, res) => {
     res.render('WebsiteInstellingen.ejs');
 });
 
+app.get('/ledenzoeknr', (req, res) => {
+    res.render('ledenzoeknr.ejs');
+});
+
+app.get('/ledendelete', (req, res) => {
+    res.render('ledendelete.ejs');
+});
+
 app.get('/inventaris', (req, res) => {
     res.render('inventaris.ejs');
 });

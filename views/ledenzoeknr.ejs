@@ -18,14 +18,20 @@
   <%- include('NavigatieMenuLogin.ejs') %>
     <br /> <br />
 
-        <h1 class="motivation-imgB">Activiteiten</h1><br><br><br>
+       
 
-     <br> <br><br><br><br><br><br><a  href="Ledenlijst" class="motivation-imgB">Repetities</a><br>
-        <br><br><br> <a href="Ledenlijst" class="motivation-imgB">Evenementen</a><br>
-         <br><br><br> <a href="Ledenlijst" class="motivation-imgB">Taken</a><br>
+          
+          <form action="/leden" method="post">
+          <p class="motivation-imgB" > zoek een lid op nummer</p><br /> <br /><br /> <br /><br /> <br /><br /> <br /><button type="submit" class="button3">Zoek Lid...</button>
+					<input class="button3" type="text" id="lidnummer" name="lidnummer" placeholder="Voer lidnummer in">
+						
+					</form>
      
-            
-                 
+
+
+
+
+       </div>
 
 
 

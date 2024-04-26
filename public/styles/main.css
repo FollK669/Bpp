@@ -10,7 +10,9 @@
 body {
     overflow: auto;
     color: burlywood;
-    font-family: "Libre Baskerville", serif;
+    font-family: "Yu Gothic", serif;
+   
+    transform: scale(0.85);
 }
 
 .no-wrap {
@@ -24,7 +26,7 @@ body {
     width: 100%;
     margin: 0 auto;
     color: burlywood;
-    font-family: "Libre Baskerville", serif;
+    font-family: "Yu Gothic", serif;
 }
 .small-img {
     border: 11px solid white;
@@ -33,7 +35,7 @@ body {
     width: 15%;
     margin: 0 auto;
     color: burlywood;
-    font-family: "Libre Baskerville", serif;
+    font-family: "Yu Gothic", serif;
 }
 
 .button2 {
@@ -43,10 +45,25 @@ body {
     font-size: 18px;
     font-weight: bolder;
     color: burlywood;
-    font-family: "Libre Baskerville", serif;
+    font-family: "Yu Gothic", serif;
     background: radial-gradient(circle,#eb4034,#571a13);
     white-space: nowrap;
     margin-right: 5%;
+}
+.button3 {
+    border: 9px solid white;
+    border-style: ridge;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: bolder;
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
+    background: radial-gradient(circle,#eb4034,#571a13);
+    white-space: nowrap;
+    margin-right: 5%;
+    text-decoration:wavy;
+    width: 40%;
+    float: right;
 }
 
 .small-img2 {
@@ -56,7 +73,7 @@ body {
     width: 35%;
     margin: 0 auto;
     color: burlywood;
-    font-family: "Libre Baskerville", serif;
+    font-family: "Yu Gothic", serif;
 }
 
 .motivation-img {
@@ -66,11 +83,10 @@ body {
     width: 100%;
     margin: 0 auto;
     color: burlywood;
-    font-family: "Libre Baskerville", serif;
+    font-family: "Yu Gothic", serif;
     white-space: nowrap;
     position: relative;
-    z-index: 100;
-    margin-right: 5%;
+   
 }
 
 
@@ -85,7 +101,7 @@ body {
     align-items: end;
     padding: 5px;
     margin: 10px;
-    font-family: "Libre Baskerville", serif;
+    font-family: "Yu Gothic", serif;
     font-size: 22px;
     color: burlywood;
     font-weight: bolder;
@@ -118,7 +134,7 @@ body {
     h1, h2, .ppp, .pp3, .pp, .pp2 {
         text-transform: uppercase;
         font-size: 3rem;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         font-weight: bold;
         text-shadow: 2px 2px 4px gray;
         color: burlywood;
@@ -142,7 +158,7 @@ body {
         font-size: 0.8rem;
         width: 150px;
         text-align: right;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         font-weight: bold;
         text-shadow: 2px 2px 4px gray;
      
@@ -157,7 +173,7 @@ body {
         padding: 2px, 2px, 2px, 2px;
         border: inherit;
         cursor: pointer;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         width: 0; /* Begin met een breedte van 0 */
         transition: width 0.7s ease; /* Voeg een overgang toe voor een vloeiende animatie */
         color: burlywood;
@@ -170,7 +186,7 @@ body {
             border: medium;
             border-color: white;
             color: burlywood;
-            font-family: "Libre Baskerville", serif;
+            font-family: "Yu Gothic", serif;
             border-width: 3px;
             transform: scale(1.1); /* Bij hover vergroot de grootte */
         }
@@ -194,7 +210,7 @@ body {
     li {
 
         font-size: 1rem;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         font-weight: bold;
         width: auto;
         text-align: left;
@@ -226,7 +242,7 @@ body {
         margin-left: 5%;
         margin-top: 10px;
 
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         text-align: center;
 
     }
@@ -257,7 +273,7 @@ body {
     }
 
         .dropdown-content, .sidebar ul li a {
-            font-family: "Libre Baskerville", serif;
+            font-family: "Yu Gothic", serif;
             font-weight: bold;
 
             width : 500px;
@@ -327,7 +343,7 @@ body {
 
             .sidebar ul li a {
                 font-size: 1rem;
-                font-family: "Libre Baskerville", serif;
+                font-family: "Yu Gothic", serif;
                 font-weight: normal;
                 text-decoration: underline;
                 text-decoration-color: white;
@@ -345,7 +361,7 @@ body {
     width: 190%;
     text-decoration: underline;
     font-size: 1rem;
-    font-family: "Libre Baskerville", serif;
+    font-family: "Yu Gothic", serif;
     font-weight: normal;
     text-decoration-color: white;
     text-shadow: 2px 2px 4px gray;
@@ -378,12 +394,10 @@ body {
 @media only screen and (min-width: 151px) and (max-width: 8250px) {
     /* CSS-regels hier */
     body {
- 
         background: radial-gradient(circle, #571a13, #eb4034);
-
+        transform: scale(0.85);
         display: flex;
-        font-family: "Libre Baskerville", serif;
-
+        font-family: "Yu Gothic", serif;
     }
     .dark-theme {
         background-color: black; /* Dark background color */
@@ -392,16 +406,16 @@ body {
     h1, h2, .ppp, .pp3, .pp, .pp2 {
         text-transform: uppercase;
         font-size: 3rem;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         font-weight: bold;
         text-shadow: 2px 2px 4px gray;
         color: burlywood;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
     }
 
     p {
         font-size: 1rem;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         font-weight: bold;
         text-shadow: 2px 2px 4px gray;
         color: burlywood;
@@ -410,7 +424,7 @@ body {
     /* Paragraafstijlen */
     .ppp {
         font-size: 1rem;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
     }
 
     /* Container */
@@ -438,7 +452,7 @@ body {
         color: burlywood;
         padding: 2px, 2px, 2px, 2px;
         border: inherit;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         cursor: pointer;
         width: 0; /* Begin met een breedte van 0 */
         transition: width 0.7s ease; /* Voeg een overgang toe voor een vloeiende animatie */
@@ -452,7 +466,7 @@ body {
             border-color: white;
             color: burlywood;
             border-width: 3px;
-            font-family: "Libre Baskerville", serif;
+            font-family: "Yu Gothic", serif;
             color: burlywood;
             transform: scale(1.1); /* Bij hover vergroot de grootte */
         }
@@ -477,7 +491,7 @@ body {
         font-size: 0.8rem;
         width: 150px;
         text-align: right;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         font-weight: bold;
         text-shadow: 2px 2px 4px gray;
 
@@ -488,7 +502,7 @@ body {
 
     li {
         font-size: 1rem;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         font-weight: bold;
         width: auto;
        
@@ -520,7 +534,7 @@ body {
         margin-left: 5%;
         margin-right: 5%;
         margin-top: 10px;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         text-align: center;
     }
 
@@ -530,7 +544,7 @@ body {
         border-style: ridge;
         border-radius: 50px;
         width: 100%;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
     }
 
     .content {
@@ -543,7 +557,7 @@ body {
         height: auto;
         overflow-x: hidden;
         transition: 0.5s;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         max-width: 100%;
        
     }
@@ -551,7 +565,7 @@ body {
         .sidebar ul {
             list-style: none;
             padding: 10px;
-            font-family: "Libre Baskerville", serif;
+            font-family: "Yu Gothic", serif;
             width: 100px;
             max-width: 100%;
             
@@ -561,13 +575,13 @@ body {
                 padding: 15px;
                 width: 100px;
                 max-width: 100%;
-                font-family: "Libre Baskerville", serif;
+                font-family: "Yu Gothic", serif;
                 
             }
 
                 .sidebar ul li a {
                     font-size: 1rem;
-                    font-family: "Libre Baskerville", serif;
+                    font-family: "Yu Gothic", serif;
                     font-weight: normal;
                     text-decoration: underline;
                     text-decoration-color: white;
@@ -583,7 +597,7 @@ body {
         width: 190%;
         text-decoration: underline;
         font-size: 1rem;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         font-weight: normal;
         text-decoration-color: white;
         text-shadow: 2px 2px 4px gray;
@@ -632,7 +646,7 @@ body {
         height: 100vh;
         display: flex;
         font-family: Arial, sans-serif;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
     }
 
     .dark-theme {
@@ -650,22 +664,22 @@ body {
     h1, .ppp, .pp3, .pp, .pp2 {
         text-transform: uppercase;
         font-size: 3rem;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         font-weight: bold;
         text-shadow: 2px 2px 4px gray;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
     }
 
     /* Paragraafstijlen */
     .ppp {
         font-size: 1rem;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
     }
 
     /* Container */
     .container {
         display: flex;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
     }
 
 
@@ -675,7 +689,7 @@ body {
         font-size: 0.8rem;
         width: 150px;
         text-align: right;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         font-weight: bold;
         text-shadow: 2px 2px 4px gray;
     }
@@ -688,7 +702,7 @@ body {
         color: white;
         color: burlywood;
         border: inherit;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         padding: 2px, 2px, 2px, 2px;
         cursor: pointer;
         width: 0; /* Begin met een breedte van 0 */
@@ -700,7 +714,7 @@ body {
             width: 110%; /* Vergroot de breedte naar 150px bij hover */
             color: grey;
             border: medium;
-            font-family: "Libre Baskerville", serif;
+            font-family: "Yu Gothic", serif;
             border-color: white;
             border-width: 3px;
             transform: scale(1.1); /* Bij hover vergroot de grootte */
@@ -725,7 +739,7 @@ body {
 
     li {
         font-size: 1rem;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         font-weight: bold;
         width: auto;
         text-align: left;
@@ -755,7 +769,7 @@ body {
         width: 50%;
         margin-left: 15%;
         margin-top: 100px;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         text-align: center;
     }
 
@@ -765,7 +779,7 @@ body {
         border-style: ridge;
         border-radius: 50px;
         width: 100%;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         position: relative;
         z-index: 1;
     }
@@ -781,25 +795,25 @@ body {
         overflow-x: hidden;
         transition: 0.5s;
         max-width: 100%;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
     }
 
         .sidebar ul {
             list-style: none;
             padding: 10px;
             max-width: 100%;
-            font-family: "Libre Baskerville", serif;
+            font-family: "Yu Gothic", serif;
         }
 
             .sidebar ul li {
                 padding: 15px;
                 max-width: 100%;
-                font-family: "Libre Baskerville", serif;
+                font-family: "Yu Gothic", serif;
             }
 
                 .sidebar ul li a {
                     font-size: 1rem;
-                    font-family: "Libre Baskerville", serif;
+                    font-family: "Yu Gothic", serif;
                     font-weight: normal;
                     text-decoration: underline;
                     text-decoration-color: white;
@@ -817,7 +831,7 @@ body {
         width: 190%;
         text-decoration: underline;
         font-size: 1rem;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         font-weight: normal;
         text-decoration-color: white;
         text-shadow: 2px 2px 4px gray;
