@@ -15,20 +15,20 @@
 <body class="content nav nav-pills container mt-5">
 
      <div class="poster">
-  <%- include('NavigatieMenuLogin.ejs') %>
+  <%- include('NavigatieMenuBezoeker.ejs') %>
     <br /> <br />
-      <h1>Contact Formulier</h1>
+      <h1 class="motivation-imgB">Contact Formulier</h1><br><br><br><br><br><br><br><br><br>
 
 
 
     <form action="/submit" method="post">
-        <label for="name">Naam:</label><br>
-        <input type="text" id="name" name="name" required><br>
-        <label for="email">E-mail:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        <label for="message">Bericht:</label><br>
-        <textarea id="message" name="message" required></textarea><br>
-        <button class="button" type="submit">Verzenden</button>
+        <label class="button2" for="name">&nbsp;&nbsp;Naam:&nbsp;&nbsp;</label>
+        <input class="button2"  type="text" id="name" name="name" required><br><br>
+        <label class="button2"  for="email">&nbsp;&nbsp;E-mail:&nbsp;&nbsp;</label>
+        <input class="button2" type="email" id="email" name="email" required><br><br><br>
+        <label class="button2" for="message">&nbsp;&nbsp;Bericht:&nbsp;&nbsp;</label><br><br>
+        <textarea style="height: 250px; width: 320px;"class="button2"  id="message" name="message" required></textarea><br>
+        <button class="button2"  class="button" type="submit">&nbsp;&nbsp;Verzenden&nbsp;&nbsp;</button>
     </form>
 
 

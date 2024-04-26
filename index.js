@@ -94,8 +94,24 @@ app.get('/ledenLoginBeheer', (req, res) => {
     res.render('ledenLoginBeheer.ejs');
 });
 
+app.get('/muziek', (req, res) => {
+    res.render('muziek.ejs');
+});
+app.get('/taken', (req, res) => {
+    res.render('taken.ejs');
+});
+
+app.get('/Partituren', (req, res) => {
+    res.render('Partituren.ejs');
+});
+
+
 app.get('/ledenAdresBeheer', (req, res) => {
     res.render('ledenAdresBeheer.ejs');
+});
+
+app.get('/financ', (req, res) => {
+    res.render('financ.ejs');
 });
 
 app.get("/Ledenlijst", async (req, res) => {
