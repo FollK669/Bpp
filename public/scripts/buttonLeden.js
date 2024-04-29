@@ -121,13 +121,7 @@ function Darktheme() {
     window.location.href = 'index.html';
 }
 
-window.addEventListener('resize', function () {
-    var button = document.getElementById('bottomLeftButton');
-    var windowHeight = window.innerHeight;
-    var windowWidth = window.innerWidth;
-    button.style.bottom = '0';
-    button.style.left = '0';
-});
+
 
 // JavaScript source code
 window.addEventListener('resize', function () {
@@ -153,65 +147,16 @@ function toggleDropdown() {
 
 
 
-let darkMode = false;
-
-function toggleTheme() {
-    const body = document.body;
-    darkMode = !darkMode;
-    body.classList.toggle("dark-theme");
-    updateButton();
-}
-
-
-$(document).ready(function () {
-    // Wanneer de knop wordt geklikt
-    $("#toggleThemeRandom").click(function () {
-        // Genereer een willekeurige kleur in hexadecimal formaat
-        var randomColor = '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
-        // Verander de achtergrondkleur van de body naar de willekeurige kleur
-        $("body").css("background-color", randomColor);
+function changeBackground() {
+    document.body.style.background = "radial-gradient(circle, #571a13, #eb4034,#ffffff)"; // Verander de achtergrond naar een radiale gradiënt
+    var divsWithImageBStyle = document.querySelectorAll('.motivation-img, .motivation-img3');
+    divsWithImageBStyle.forEach(function (div) {
+        div.style.borderColor = 'red';
+        div.style.border = '15px';
     });
-});
 
-
-
-
-function updateButton() {
-    const button = document.getElementById("theme-toggle");
-    if (darkMode) {
-        button.textContent = "LightTheme";
-    } else {
-        button.textContent = "DarkTheme";
-    }
-} 
-const swipeImage = document.getElementById('swipeImage');
-let startX;
-const swipeImage = document.getElementById('swipeImage');
-let startX;
-
-function handleSwipe(event) {
-    const endX = event.clientX || event.changedTouches[0].clientX;
-    const deltaX = endX - startX;
-
-    // Check if swipe is towards the right
-    if (deltaX > 50) {
-        // Execute the action to open the members page
-        window.location.href = "link-naar-je-ledenpagina.html";
-    }
 }
 
-function startSwipe(event) {
-    startX = event.clientX || event.touches[0].clientX;
-    document.addEventListener('mousemove', handleSwipe);
-    document.addEventListener('touchmove', handleSwipe);
-}
 
-function endSwipe() {
-    document.removeEventListener('mousemove', handleSwipe);
-    document.removeEventListener('touchmove', handleSwipe);
-}
 
-swipeImage.addEventListener('mousedown', startSwipe);
-swipeImage.addEventListener('mouseup', endSwipe);
-swipeImage.addEventListener('touchstart', startSwipe);
-swipeImage.addEventListener('touchend', endSwipe);
+

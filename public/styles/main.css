@@ -3,43 +3,30 @@
     bepaalde delen kunnen voor alle 3 gelden, dit moet nadien aangepast worden
 
 */
-.container2 {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.image2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-}
 
 
 
 
 
-ul {
+.ul {
     list-style-type: none; /* Verwijder de standaardlijststijl */
     padding: 0;
     margin: 0;
 }
 
-    ul li {
+    .ul li {
         display: inline-block; /* Weergeven als inline-block om naast elkaar te plaatsen */
         margin-right: 10px; /* Optionele marge tussen de knoppen */
     }
 
 /* Style the links inside the sidenav */
+
 body {
-    overflow: auto;
     color: burlywood;
     font-family: "Yu Gothic", serif;
-   
-    transform: scale(0.85);
+    transform: scale(0.9);
+    background: radial-gradient(circle, #ffffff, #eb4034,#571a13); /* Correcte gradial-gradient naar radial-gradient */
+
 }
 
 .no-wrap {
@@ -155,7 +142,7 @@ body {
     border: 11px solid white;
     border-style: ridge;
     border-radius: 20px;
-    width: 95%;
+    width: 100%;
     color: black;
     float: left;
     align-items: end;
@@ -187,15 +174,11 @@ body {
 
 
 
-    body {
-        background: radial-gradient(circle, #571a13, #eb4034);
-        transform: scale(0.85);
-        display: flex;
-        font-family: "Yu Gothic", serif;
-    }
+    
     .dark-theme {
         background-color: black; /* Dark background color */
     }
+
     /* Kopstijl */
     h1, h2, .ppp, .pp3, .pp, .pp2 {
         text-transform: uppercase;
@@ -254,7 +237,7 @@ body {
         /* Stijl voor de vergrote knop bij hover */
         .button:hover,
         .button:focus {
-            width: 110%; /* Vergroot de breedte naar 150px bij hover */
+            width: 100%; /* Vergroot de breedte naar 150px bij hover */
             color: grey;
             border: medium;
             border-color: white;
@@ -324,7 +307,7 @@ body {
 
     /* Posterstijlen */
     .poster {
-        width: 95%;
+        width: 100%;
         margin-left: 5%;
         margin-right: 5%;
         margin-top: 10px;
@@ -397,7 +380,7 @@ body {
         text-shadow: 2px 2px 4px gray;
         color: darkgray;
         position: relative;
-        z-index: 1;
+    
     }
     .show {
         display: block;
