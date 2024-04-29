@@ -13,15 +13,10 @@
 
 <body>
     
-    <div class="poster">
- 
- 
+
+
+        <div style=" text-align: center;" >
      
-    <br /> 
-
-
-        <div  class="motivation-img3" >
-         <%- include('NavigatieMenuBezoeker.ejs') %>
          <br /> 
         <ul class="ul li">
               <li><a href="/bezoekers"><button  class="button2 ">      &nbsp;&nbsp;Wie is bsharp?&nbsp;&nbsp;</button></a></li>
@@ -30,15 +25,13 @@
               <li><a href="/index"><button      class="button2">       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Home &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</button></a></li>
             </ul>
 
-             <br /> 
-        </div>
-        
-
+ 
 
         <br />
         <br /> 
-        <h1 class="motivation-img3B">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Beste bezoeker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1><br>       
-
+      
+        <p class="motivation-img3B">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Beste bezoeker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><br>       
+      
     
     <marquee class="motivation-img3B" behavior="alternate" direction="left"scrollamount="5"> 
     <br> 
@@ -55,9 +48,10 @@
                                  <br> <br>
 </marquee>
 <br> <br> 
- <h1 class="motivation-img3B">&nbsp;&nbsp;&nbsp;&nbsp;Klik hier voor meer info &nbsp;&nbsp;&nbsp;&nbsp;</h1><br>
+
+
 <br> 
- <p>
+ <p class="motivation-img3B">
       Al meer dan 100 jaar bestond de fanfare van Vechmaal, tot ze geconfronteerd werd met een steeds kleinere bezetting, te weinig om nog te concerteren. In een ultieme poging om muziek in het dorp te houden ontstond het idee om samen met enkele muzikanten versterking te zoeken buiten de fanfare. Een gitarist werd gevonden in Vechmaal zelf. Samen met trompet, altsax en tenorsax was dit de aanzet om voor een bigband te gaan.
 
 Al snel kwam er vanuit een nabij dorp versterking in vorm van een basgitaar en drum alsook twee trombones en een extra trompet uit Tongeren en Rijkhoven-Bilzen. De trend was gezet dankzij de goede begeleiding van trombonist Alain. Na een geslaagd openluchtconcert kwam er zomaar een toetsenist aangewaaid met de vraag om mee te doen. Ondertussen zijn de trombones en toetsen andere oorden gaan opzoeken.
@@ -69,32 +63,26 @@ Hoe zijn de muzikanten op de naam van de band gekomen?
 Ondertussen is Bsharp een Jazzcombo geworden.
 Het is onze bedoeling om ons publiek minstens op zijn stoel te laten mee swingen op onze nummers. De algemene stijl kan het best omschreven worden als easy listening Music.
 
-We brengen ons repertoire met veel plezier naar andere plaatsen in Haspengouw en omgeving! Misschien binnenkort bij u…?
+We brengen ons repertoire met veel plezier naar andere plaatsen in Haspengouw en omgeving! Misschien binnenkort bij u…?   &nbsp;&nbsp
+<br>   <br> <br>    
+<a href="/index"><button class="motivation-img3B smaller">&nbsp;&nbsp; Meer info &nbsp;&nbsp;</button></a>   <br> <br> 
+<a href="/boekOns"><button class="motivation-img3B smaller">&nbsp;&nbsp;Boek ons&nbsp;&nbsp;</button></a>
 
+</p>
 
    <br> <br> 
-</p><a href="/boekOns"><button class="button2">&nbsp;&nbsp;Boek ons&nbsp;&nbsp;</button></a>
+
 
 
          <br /> 
 
-          <% const randomVar = Math.floor(Math.random() * 4) + 1; %>
-
-          <%- include('weetje' + randomVar + '.ejs') %>
-      
-
       
      
 
-</div>
 
-    </div>
 
   
 
-<marquee>
-   src="images/greop.jpg"
-</marquee>
 
 
  
@@ -105,6 +93,8 @@ We brengen ons repertoire met veel plezier naar andere plaatsen in Haspengouw en
 
 
 </body>
+
+
 
 
 

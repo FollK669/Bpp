@@ -67,7 +67,7 @@ app.get('/index', (req, res) => {
 });
 
 app.get('/boekOns', (req, res) => {
-    res.render('boekOns.ejs');
+    res.render('boekons2.ejs');
 });
 
 app.get('/login', (req, res) => {
