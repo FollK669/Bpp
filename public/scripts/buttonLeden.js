@@ -15,56 +15,8 @@ function openPageBezoekers() {
 
 function openPageHome() {
     // Vervang 'andere_pagina.html' door de URL van de pagina die je wilt openen
-    window.location.href = '/index';
+    window.location.href = '/';
 }
-
-function openPageLogin() {
-    // Vervang 'andere_pagina.html' door de URL van de pagina die je wilt openen
-    window.location.href = '/login';
-}
-
-// JavaScript code to handle incrementing and decrementing the value
-let value = 1; // Initial value from EJS
-const valueLabel = document.getElementById('valueLabel');
-
-function increment() {
-
-
-
-    value++;
-    updateLabel();
-}
-
-function decrement() {
-
-    if (value > 1) {
-        value--;
-    }
-
-    updateLabel();
-}
-
-function updateLabel() {
-    valueLabel.textContent = value;
-}
-function login() {
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
-
-    // Hier zou je normaal gesproken de inloggegevens naar een server sturen voor verificatie
-    // Voor dit voorbeeld controleren we gewoon of beide velden zijn ingevuld
-
-    if (username && password) {
-        // Simuleer een geslaagde inlogpoging
-        alert('Inloggen gelukt!');
-        window.location.href = '/ledenKeuzeMenu';
-        // Hier zou je de gebruiker naar een andere pagina kunnen doorsturen, of iets anders kunnen doen na het inloggen
-    } else {
-        // Toon een foutmelding als een van de velden leeg is
-        document.getElementById('error-message').innerText = 'Vul zowel gebruikersnaam als wachtwoord in.';
-    }
-}
-
 
 function toggleMenu() {
     var sidebar = document.getElementById("sidebar");
@@ -105,16 +57,7 @@ async function deleteAllMembers() {
 // Voeg een event listener toe aan de knop om de functie te activeren wanneer erop wordt geklikt
 document.getElementById("deleteMembersButton").addEventListener("click", deleteAllMembers);
 
-function confirmCheck() {
-    var confirmationInput = document.getElementById("confirmation").value;
-    // Hier kun je de controle uitvoeren, bijvoorbeeld vergelijken met een vooraf gedefinieerd controlegetal
-    var controlNumber = "1234"; // Dit is slechts een voorbeeld, vervang dit met je eigen controlegetal
-    if (confirmationInput !== controlNumber) {
-        alert("Het ingevoerde controlegetal is onjuist.");
-        return false; // Voorkom dat het formulier wordt verzonden
-    }
-    return true; // Laat het formulier verzenden als het controlegetal overeenkomt
-}
+
 
 function Darktheme() {
     // Vervang 'andere_pagina.html' door de URL van de pagina die je wilt openen
@@ -183,72 +126,4 @@ function updateButton() {
     } else {
         button.textContent = "DarkTheme";
     }
-} 
-const swipeButton = document.getElementById('swipeButton');
-
-let startX = 0;
-let startY = 0;
-let isSwiping = false;
-
-function handleTouchStart(event) {
-    startX = event.touches[0].clientX;
-    startY = event.touches[0].clientY;
-    isSwiping = true;
 }
-
-function handleTouchMove(event) {
-    if (!isSwiping) return;
-
-    const currentX = event.touches[0].clientX;
-    const currentY = event.touches[0].clientY;
-    const deltaX = currentX - startX;
-    const deltaY = currentY - startY;
-
-    if (Math.abs(deltaX) > Math.abs(deltaY) && deltaX > 0) {
-        const swipeProgress = Math.min(deltaX, swipeButton.offsetWidth); // Limit swipe progress to button width
-        swipeButton.style.transform = `translateX(${swipeProgress}px)`;
-    }
-}
-
-function handleTouchEnd() {
-    if (isSwiping) {
-        swipeButton.style.transform = ''; // Reset transformation
-        swipeButton.classList.add('swiped');
-        isSwiping = false;
-        window.location.href = '/login'
-    }
-}
-
-function handleMouseDown(event) {
-    startX = event.clientX;
-    isSwiping = true;
-}
-
-function handleMouseMove(event) {
-    if (!isSwiping) return;
-
-    const currentX = event.clientX;
-    const deltaX = currentX - startX;
-    const swipeProgress = Math.min(deltaX, swipeButton.offsetWidth); // Limit swipe progress to button width
-
-    if (deltaX > 0) {
-        swipeButton.style.transform = `translateX(${swipeProgress}px)`;
-    }
-}
-
-function handleMouseUp() {
-    if (isSwiping) {
-        swipeButton.style.transform = ''; // Reset transformation
-        swipeButton.classList.add('swiped');
-        isSwiping = false;
-    }
-    window.location.href = '/login'
-}
-
-swipeButton.addEventListener('touchstart', handleTouchStart);
-swipeButton.addEventListener('touchmove', handleTouchMove);
-swipeButton.addEventListener('touchend', handleTouchEnd);
-
-swipeButton.addEventListener('mousedown', handleMouseDown);
-document.addEventListener('mousemove', handleMouseMove);
-document.addEventListener('mouseup', handleMouseUp);
