@@ -7,38 +7,75 @@
     <title>Bsharp</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/main.css"rel="stylesheet">
 
 </head>
 
-<body class="content nav nav-pills container mt-5">
-    <button class="no-wrap" style="align-self: flex-start; width: 200px; background: linear-gradient( #571a13, #170305); "
-        id="theme-toggle" onclick="toggleTheme()">Darktheme</button>
 
-    <div class="poster">
-        <div class="container">
-            <div class="logo" id="logo">
-                <img class="motivation-img" onclick="toggleMenu()" src="images/top8.jpg" />
-            </div>
-            <div class="sidebar" id="sidebar">
-                <ul>
-                    <li> <button onclick="openPageLeden()">Leden</button></a></li>
-                    <li> <button onclick="openPageBoek()">Boek-ons</button></a></li>
-                    <li> <button onclick="openPageBezoekers()">Bezoekers</button></a></li>
-                    <li> <button onclick="openPageHome()">Home</button></a></li>
-                </ul>
-            </div>
-        </div>
-        <br /> <br />
-        <img class="motivation-img" src="images/greop.jpg" />
+<body class="content nav nav-pills container mt-5">
+
+     <div class="poster">
+  <%- include('NavigatieMenuBezoeker.ejs') %>
+    <br /> <br />
+      <h1 class="motivation-imgB">Contact Formulier</h1><br><br><br><br><br><br><br><br><br>
+
+
+
+    <form action="/submit" method="post">
+        <label class="button2" for="name">&nbsp;&nbsp;Naam:&nbsp;&nbsp;</label>
+        <input class="button2"  type="text" id="name" name="name" required><br><br>
+        <label class="button2"  for="email">&nbsp;&nbsp;E-mail:&nbsp;&nbsp;</label>
+        <input class="button2" type="email" id="email" name="email" required><br><br><br>
+        <label class="button2" for="message">&nbsp;&nbsp;Bericht:&nbsp;&nbsp;</label><br><br>
+        <textarea style="height: 250px; width: 320px;"class="button2"  id="message" name="message" required></textarea><br>
+        <button class="button2"  class="button" type="submit">&nbsp;&nbsp;Verzenden&nbsp;&nbsp;</button>
+    </form>
+
+
+         <br /> <br /> <br /> <br />
+          <% const randomVar = Math.floor(Math.random() * 4) + 1; %>
+
+          <%- include('weetje' + randomVar + '.ejs') %>
+      
+
+      
+     
     </div>
 
+
+
+
+
+        
+       
+  
+
+
+           
+
+    
+
+
+
+    
+
+
+    
+
+
+      
+ 
+ 
+    
+
+
+
+
+
+
     <script src="scripts/buttonLeden.js"></script>
-    <script src="scripts/sidemenu.js"></script>
-    <script src="scripts/menuding.js"></script>
-    <script src="scripts/responseButton.js"></script>
-    <script src="scripts/responseButton2.js"></script>
-    <script src="scripts/lastone.js"></script>
+
+
 </body>
 
 </html>

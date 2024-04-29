@@ -3,283 +3,222 @@
     bepaalde delen kunnen voor alle 3 gelden, dit moet nadien aangepast worden
 
 */
+.container2 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.image2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+
+
+
+
+ul {
+    list-style-type: none; /* Verwijder de standaardlijststijl */
+    padding: 0;
+    margin: 0;
+}
+
+    ul li {
+        display: inline-block; /* Weergeven als inline-block om naast elkaar te plaatsen */
+        margin-right: 10px; /* Optionele marge tussen de knoppen */
+    }
 
 /* Style the links inside the sidenav */
 body {
     overflow: auto;
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
+   
+    transform: scale(0.85);
 }
 
 .no-wrap {
     white-space: nowrap;
 }
 
-.motivation-imgC {
+.motivation-imgf {
     border: 11px solid white;
     border-style: ridge;
     border-radius: 50px;
-
+    width: 100%;
+    margin: 0 auto;
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
+}
+.small-img {
+    border: 11px solid white;
+    border-style: ridge;
+    border-radius: 50px;
+    width: 15%;
+    margin: 0 auto;
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
 }
 
+.button2 {
+    border: 11px solid white;
+    border-style: ridge;
+    border-radius: 40px;
+    font-size: 29px;
+    font-weight: bolder;
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
+    background: radial-gradient(circle,#eb4034,#571a13);
+    white-space: nowrap;
+    margin-right: 7%;
+    display: inline-block;
+}
+.button3 {
+    border: 9px solid white;
+    border-style: ridge;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: bolder;
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
+    background: radial-gradient(circle,#eb4034,#571a13);
+    white-space: nowrap;
+    margin-right: 5%;
+    text-decoration:wavy;
+    width: 40%;
+    float: right;
+}
 
-.motivation-img {
+.small-img2 {
     border: 11px solid white;
     border-style: ridge;
     border-radius: 50px;
-    width: 150%;
+    width: 35%;
+    margin: 0 auto;
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
+}
+
+.myButton {
+    background-color: #4CAF50; /* Groene achtergrondkleur */
+    color: white; /* Witte tekstkleur */
+    padding: 15px 32px; /* Padding */
+    text-align: center; /* Centreren van de tekst */
+    text-decoration: none; /* Geen onderstreping */
+    display: inline-block; /* Blokelement */
+    font-size: 16px; /* Tekstgrootte */
+    margin: 4px 2px; /* Marge */
+    transition-duration: 0.4s; /* Overgangsduur */
+    cursor: pointer; /* Cursor op knop */
+    position: absolute; /* Positie absoluut zodat we het kunnen verplaatsen */
+}
+
+    .myButton:hover {
+        background-color: #45a049; /* Groene achtergrondkleur bij hover */
+    }
+
+.swipe-button {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+    .swipe-button.swiped {
+        transform: translateX(100%);
+    }
+.motivation-img {
+    border: 13px solid white;
+    border-style: ridge;
+    border-radius: 50px;
+    width: 100%;
+    margin: 0 auto;
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
+    white-space: nowrap;
+    position: relative;
+  
+   
 }
 
 
 .motivation-imgB {
-    border: 9px solid white;
+    background: radial-gradient(circle,#eb4034,#571a13);
+    border: 11px solid white;
+    border-style: ridge;
+    border-radius: 20px;
+    width: 95%;
+    color: black;
+    float: left;
+    align-items: end;
+    padding: 5px;
+    margin: 10px;
+    font-family: "Yu Gothic", serif;
+    font-size: 22px;
+    color: burlywood;
+    font-weight: bolder;
+  
+}
+
+.motivation-img3 {
+    background: radial-gradient(circle,#eb4034,#571a13);
+    border: 13px solid white;
     border-style: ridge;
     border-radius: 50px;
-    width: 55%;
-    color: black;
-    align-items: end;
-    padding: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 22px;
-}
-/* Voor schermen kleiner dan 650px */
-@media only screen and (max-width: 500px) {
-    /* CSS-regels hier */
-    body {
-        margin: auto;
-        background: radial-gradient(circle, #571a13, #170305);
-        height: 100vh;
-        display: flex;
-
-        font-family: Arial, sans-serif;
-    }
-
-    .dark-theme {
-        background: black; /* Dark background color */
-        border-color: dimgray;
-    }
-
-        .dark-theme img {
-            border: 15px solid dimgray; /* Border color for images in dark mode */
-            border-style: ridge;
-        }
-
-
-    /* Kopstijl */
-    h1, .ppp, .pp3, .pp, .pp2 {
-        text-transform: uppercase;
-        font-size: 3rem;
-        font-family: "Libre Baskerville", serif;
-        font-weight: bold;
-        text-shadow: 2px 2px 4px gray;
-
-    }
-
-    /* Paragraafstijlen */
-    .ppp {
-        font-size: 1rem;
- 
-    }
-
-    /* Container */
-    .container {
-        display: flex;
-     
-    }
-
-
-
-    /* Selecteerstijlen */
-    select {
-        font-size: 0.8rem;
-        width: 150px;
-        text-align: right;
-        font-family: "Libre Baskerville", serif;
-        font-weight: bold;
-        text-shadow: 2px 2px 4px gray;
-     
-    }
-
-    /* Knopstijl */
-    button {
-        background: linear-gradient(to left, pink,red);
-        border-top-right-radius: 50px; /* Afgeronde hoek voor de rechterbovenhoek */
-        border-bottom-right-radius: 50px;
-        color: white;
-        padding: 2px, 2px, 2px, 2px;
-        border: inherit;
-        cursor: pointer;
-        width: 0; /* Begin met een breedte van 0 */
-        transition: width 0.7s ease; /* Voeg een overgang toe voor een vloeiende animatie */
-    }
-        /* Stijl voor de vergrote knop bij hover */
-        button:hover,
-        button:focus {
-            width: 120px; /* Vergroot de breedte naar 150px bij hover */
-            color: grey;
-            border: medium;
-            border-color: white;
-            border-width: 3px;
-            transform: scale(1.1); /* Bij hover vergroot de grootte */
-        }
-
-        button:nth-child(1):hover,
-        button:nth-child(1):focus {
-            transition-delay: 0s; /* Geen vertraging voor het eerste element */
-        }
-
-        button:nth-child(2):hover,
-        button:nth-child(2):focus {
-            transition-delay: 0.5s; /* Geen vertraging voor het eerste element */
-        }
-
-        button:nth-child(3):hover,
-        button:nth-child(3):focus {
-            transition-delay: 0.8s; /* Geen vertraging voor het eerste element */
-        }
-
-
-    li {
-
-        font-size: 1rem;
-        font-family: "Libre Baskerville", serif;
-        font-weight: bold;
-        width: auto;
-        text-align: left;
-    }
-
-    /* Gekleurde rechthoek */
-    .gekleurde-rechthoek {
-        width: 100%;
-        height: auto;
-        background-color: ghostwhite;
-        color: white;
-        text-align: center;
-        padding: 20px;
-        border-radius: 10px;
-    }
-
-    /* Inhoudscontainer */
-    .content {
-        width: 100%;
-        max-width: 1200px;
-        margin: auto;
-
-    }
-
-
-    /* Posterstijlen */
-    .poster {
-        width: 50%;
-        margin-left: 15%;
-        margin-top: 100px;
-
-        font-family: "Libre Baskerville", serif;
-        text-align: center;
-
-    }
-
-    /* Motivatieafbeelding */
-    .motivation-img {
-        border: 11px solid white;
-        border-style: ridge;
-        border-radius: 50px;
-        width: 150%;
-
-    }
-
-    .content {
-        width: 90%;
-        height: 100%;
-
-    }
-
-    p, .pp {
-        font-size: 2rem;
-
-    }
-
-    .dropdown, .sidebar {
-        position: relative;
-        display: inline-block;
-    }
-
-        .dropdown-content, .sidebar ul li a {
-            font-family: "Libre Baskerville", serif;
-            font-weight: bold;
-
-            width : 500px;
-        }
-
-    .dropdown-content {
-
-        display: none;
-        position: fixed;
-        bottom: 100px;
-        left: 100px;
-        margin: 20px;
-        z-index: 999;
-        background-color: gray;
-        min-width: 160px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-
-    }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px 40px 40px;
-            border-image-width: 3px;
-            border-width: thick;
-            border-color: indianred;
-            text-decoration: none;
-            display: block;
-            width: 500px;
-        }
-
-            .dropdown-content a:hover {
-                background-color: indianred;
-            }
-
-    .show {
-        display: block;
-
-    }
-
-    .motivation-img {
-        border: 5px solid white;
-        border-style: ridge;
-        border-radius: 50px;
-        width: 90%;
-    }
+    height: 6%;
+    width: 100%;
+    margin: 0 auto;
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
+    white-space: nowrap;
+    position: relative;
 }
 
-/* Voor schermen tussen 650px en 850px */
-@media only screen and (min-width: 501px) and (max-width: 850px) {
-    /* CSS-regels hier */
-    body {
-        margin: 0;
-        padding: 0;
-        background: radial-gradient(circle, #571a13, #170305);
-        height: 100vh;
-        display: flex;
 
-        font-family: Arial, sans-serif;
+
+
+
+
+    body {
+        background: radial-gradient(circle, #571a13, #eb4034);
+        transform: scale(0.85);
+        display: flex;
+        font-family: "Yu Gothic", serif;
     }
     .dark-theme {
         background-color: black; /* Dark background color */
     }
     /* Kopstijl */
-    h1, .ppp, .pp3, .pp, .pp2 {
+    h1, h2, .ppp, .pp3, .pp, .pp2 {
         text-transform: uppercase;
         font-size: 3rem;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         font-weight: bold;
         text-shadow: 2px 2px 4px gray;
+        color: burlywood;
+        font-family: "Yu Gothic", serif;
+    }
 
+    p {
+        font-size: 1rem;
+        font-family: "Yu Gothic", serif;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px gray;
+        color: burlywood;
     }
 
     /* Paragraafstijlen */
     .ppp {
         font-size: 1rem;
-
+        font-family: "Yu Gothic", serif;
     }
 
     /* Container */
@@ -299,40 +238,45 @@ body {
         }
 
     /* Knopstijl */
-    button {
-        background: linear-gradient(to left, pink,red);
+    .button {
+        background: linear-gradient(to left, #eb4034,red);
         border-top-right-radius: 50px; /* Afgeronde hoek voor de rechterbovenhoek */
         border-bottom-right-radius: 50px;
         color: white;
+        color: burlywood;
         padding: 2px, 2px, 2px, 2px;
         border: inherit;
+        font-family: "Yu Gothic", serif;
         cursor: pointer;
         width: 0; /* Begin met een breedte van 0 */
         transition: width 0.7s ease; /* Voeg een overgang toe voor een vloeiende animatie */
     }
         /* Stijl voor de vergrote knop bij hover */
-        button:hover,
-        button:focus {
-            width: 120px; /* Vergroot de breedte naar 150px bij hover */
+        .button:hover,
+        .button:focus {
+            width: 110%; /* Vergroot de breedte naar 150px bij hover */
             color: grey;
             border: medium;
             border-color: white;
+            color: burlywood;
             border-width: 3px;
+            font-family: "Yu Gothic", serif;
+            color: burlywood;
             transform: scale(1.1); /* Bij hover vergroot de grootte */
         }
 
-        button:nth-child(1):hover,
-        button:nth-child(1):focus {
+        .button:nth-child(1):hover,
+        .button:nth-child(1):focus {
             transition-delay: 0s; /* Geen vertraging voor het eerste element */
         }
 
-        button:nth-child(2):hover,
-        button:nth-child(2):focus {
+        .button:nth-child(2):hover,
+        .button:nth-child(2):focus {
             transition-delay: 0.5s; /* Geen vertraging voor het eerste element */
         }
 
-        button:nth-child(3):hover,
-        button:nth-child(3):focus {
+        .button:nth-child(3):hover,
+        .button:nth-child(3):focus {
             transition-delay: 0.8s; /* Geen vertraging voor het eerste element */
         }
 
@@ -341,7 +285,7 @@ body {
         font-size: 0.8rem;
         width: 150px;
         text-align: right;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         font-weight: bold;
         text-shadow: 2px 2px 4px gray;
 
@@ -351,12 +295,11 @@ body {
 
 
     li {
-    
         font-size: 1rem;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         font-weight: bold;
         width: auto;
-        text-align: left;
+       
     }
 
     /* Gekleurde rechthoek */
@@ -373,21 +316,20 @@ body {
     /* Inhoudscontainer */
     .content {
         width: 100%;
-        max-width: 1200px;
-        margin:  auto;
+
+     
 
     }
 
 
     /* Posterstijlen */
     .poster {
-        width: 50%;
-        margin-left: 15%;
-        margin-top: 100px;
-
-        font-family: "Libre Baskerville", serif;
+        width: 95%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 10px;
+        font-family: "Yu Gothic", serif;
         text-align: center;
-
     }
 
     /* Motivatieafbeelding */
@@ -396,211 +338,7 @@ body {
         border-style: ridge;
         border-radius: 50px;
         width: 100%;
-
-    }
-
-    .content {
-        width: 120%;
-        height: 100%;
-    }
-    /* Zijbalk */
-    .sidebar {
-        width: 0;
-        height: auto;
-        overflow-x: auto;
-        transition: 0.5s;
-
-        max-width: 100%;
-    }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 10px;
-
-            width: 500px;
-            max-width: 100%;
-        }
-
-            .sidebar ul li {
-                padding: 15px;
-                width: 500px;
-                max-width: 100%;
-            }
-
-                .sidebar ul li a {
-
-                    font-size: 1rem;
-                    font-family: "Libre Baskerville", serif;
-                    font-weight: normal;
-                    text-decoration: underline;
-                    text-decoration-color: white;
-                    text-shadow: 2px 2px 4px gray;
-                    text-decoration: none;
-                    width: 500px;
-                    max-width: 100%;
-                }
-
-    /* Toon zijbalk */
-    .show-sidebar, .show {
-        width: 190%;
-        text-decoration: underline;
-        font-size: 1rem;
-        font-family: "Libre Baskerville", serif;
-        font-weight: normal;
-        text-decoration-color: white;
-        text-shadow: 2px 2px 4px gray;
-        color: darkgray;
-    }
-    .show {
-        display: block;
-    }
-}
-
-/* Voor schermen groter dan 850px */
-@media only screen and (min-width: 851px) {
-    /* CSS-regels hier */
-    body {
-
-        background: radial-gradient(circle, #571a13, #170305);
-        height: 100vh;
-        display: flex;
-
-        font-family: Arial, sans-serif;
-    }
-    .dark-theme {
-        background: black; /* Dark background color */
-        border-color: dimgray;
-        
-    }
-
-        .dark-theme img {
-            border: 15px solid dimgray; /* Border color for images in dark mode */
-            border-style: ridge;
-        }
-
-
-    /* Kopstijl */
-    h1, .ppp, .pp3, .pp, .pp2 {
-        text-transform: uppercase;
-        font-size: 3rem;
-        font-family: "Libre Baskerville", serif;
-        font-weight: bold;
-        text-shadow: 2px 2px 4px gray;
-
-    }
-
-    /* Paragraafstijlen */
-    .ppp {
-        font-size: 1rem;
-
-    }
-
-    /* Container */
-    .container {
-        display: flex;
-
-    }
-
-
-
-    /* Selecteerstijlen */
-    select {
-        font-size: 0.8rem;
-        width: 150px;
-        text-align: right;
-        font-family: "Libre Baskerville", serif;
-        font-weight: bold;
-        text-shadow: 2px 2px 4px gray;
-
-    }
-    /* Knopstijl */
-    button {
-        margin-left: 4px;
-        background: linear-gradient(to left, pink,red);
-        border-top-right-radius: 50px; /* Afgeronde hoek voor de rechterbovenhoek */
-        border-bottom-right-radius: 50px;
-        color: white;
-        border: inherit;
-        padding: 2px, 2px, 2px, 2px;
-        cursor: pointer;
-        width: 0; /* Begin met een breedte van 0 */
-        transition: width 0.7s ease; /* Voeg een overgang toe voor een vloeiende animatie */
-    }
-        /* Stijl voor de vergrote knop bij hover */
-        button:hover,
-        button:focus{
-            width: 120px; /* Vergroot de breedte naar 150px bij hover */
-            color: grey;
-            border: medium;
-            border-color: white;
-            border-width: 3px;
-            transform: scale(1.1); /* Bij hover vergroot de grootte */
-        }
-
-        button:nth-child(1):hover,
-        button:nth-child(1):focus {
-            transition-delay: 0s; /* Geen vertraging voor het eerste element */
-        }
-
-        button:nth-child(2):hover,
-        button:nth-child(2):focus {
-            transition-delay: 0.5s; /* Geen vertraging voor het eerste element */
-        }
-
-        button:nth-child(3):hover,
-        button:nth-child(3):focus {
-            transition-delay: 0.8s; /* Geen vertraging voor het eerste element */
-        }
-
-    /* Knopstijl */
-
-    li {
-
-        font-size: 1rem;
-        font-family: "Libre Baskerville", serif;
-        font-weight: bold;
-        width: auto;
-        text-align: left;
-    }
-
-    /* Gekleurde rechthoek */
-    .gekleurde-rechthoek {
-        width: 100%;
-        height: auto;
-        background-color: ghostwhite;
-        color: white;
-        text-align: center;
-        padding: 20px;
-        border-radius: 10px;
-    }
-
-    /* Inhoudscontainer */
-    .content {
-        width: 100%;
-        max-width: 1200px;
-        margin: auto;
-
-    }
-
-
-    /* Posterstijlen */
-    .poster {
-        width: 50%;
-        margin-left: 15%;
-        margin-top: 100px;
-
-        font-family: "Libre Baskerville", serif;
-        text-align: center;
-
-    }
-
-    /* Motivatieafbeelding */
-    .motivation-img {
-        border: 11px solid white;
-        border-style: ridge;
-        border-radius: 50px;
-        width: 100%;
-
+        font-family: "Yu Gothic", serif;
     }
 
     .content {
@@ -611,52 +349,84 @@ body {
     .sidebar {
         width: 0;
         height: auto;
-        overflow-x: auto;
+        overflow-x: hidden;
         transition: 0.5s;
+        font-family: "Yu Gothic", serif;
         max-width: 100%;
+       
     }
 
         .sidebar ul {
             list-style: none;
             padding: 10px;
+            font-family: "Yu Gothic", serif;
+            width: 100px;
             max-width: 100%;
+            
         }
 
             .sidebar ul li {
                 padding: 15px;
+                width: 100px;
                 max-width: 100%;
+                font-family: "Yu Gothic", serif;
+                
             }
 
                 .sidebar ul li a {
-        
                     font-size: 1rem;
-                    font-family: "Libre Baskerville", serif;
+                    font-family: "Yu Gothic", serif;
                     font-weight: normal;
                     text-decoration: underline;
                     text-decoration-color: white;
                     text-shadow: 2px 2px 4px gray;
                     text-decoration: none;
+                    width: 100px;
                     max-width: 100%;
+                   
                 }
-                    .sidebar ul li a:hover {
-                        color: red; /* Verander de kleur naar geel wanneer erover wordt gehoverd */
-                    }
 
     /* Toon zijbalk */
     .show-sidebar, .show {
         width: 190%;
         text-decoration: underline;
         font-size: 1rem;
-        font-family: "Libre Baskerville", serif;
+        font-family: "Yu Gothic", serif;
         font-weight: normal;
         text-decoration-color: white;
         text-shadow: 2px 2px 4px gray;
         color: darkgray;
-        max-width: 100%;
+        position: relative;
+        z-index: 1;
     }
-
     .show {
         display: block;
-        max-width: 100%;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

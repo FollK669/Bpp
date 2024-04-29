@@ -15,8 +15,56 @@ function openPageBezoekers() {
 
 function openPageHome() {
     // Vervang 'andere_pagina.html' door de URL van de pagina die je wilt openen
-    window.location.href = '/';
+    window.location.href = '/index';
 }
+
+function openPageLogin() {
+    // Vervang 'andere_pagina.html' door de URL van de pagina die je wilt openen
+    window.location.href = '/login';
+}
+
+// JavaScript code to handle incrementing and decrementing the value
+let value = 1; // Initial value from EJS
+const valueLabel = document.getElementById('valueLabel');
+
+function increment() {
+
+
+
+    value++;
+    updateLabel();
+}
+
+function decrement() {
+
+    if (value > 1) {
+        value--;
+    }
+
+    updateLabel();
+}
+
+function updateLabel() {
+    valueLabel.textContent = value;
+}
+function login() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    // Hier zou je normaal gesproken de inloggegevens naar een server sturen voor verificatie
+    // Voor dit voorbeeld controleren we gewoon of beide velden zijn ingevuld
+
+    if (username && password) {
+        // Simuleer een geslaagde inlogpoging
+        alert('Inloggen gelukt!');
+        window.location.href = '/ledenKeuzeMenu';
+        // Hier zou je de gebruiker naar een andere pagina kunnen doorsturen, of iets anders kunnen doen na het inloggen
+    } else {
+        // Toon een foutmelding als een van de velden leeg is
+        document.getElementById('error-message').innerText = 'Vul zowel gebruikersnaam als wachtwoord in.';
+    }
+}
+
 
 function toggleMenu() {
     var sidebar = document.getElementById("sidebar");
@@ -57,7 +105,16 @@ async function deleteAllMembers() {
 // Voeg een event listener toe aan de knop om de functie te activeren wanneer erop wordt geklikt
 document.getElementById("deleteMembersButton").addEventListener("click", deleteAllMembers);
 
-
+function confirmCheck() {
+    var confirmationInput = document.getElementById("confirmation").value;
+    // Hier kun je de controle uitvoeren, bijvoorbeeld vergelijken met een vooraf gedefinieerd controlegetal
+    var controlNumber = "1234"; // Dit is slechts een voorbeeld, vervang dit met je eigen controlegetal
+    if (confirmationInput !== controlNumber) {
+        alert("Het ingevoerde controlegetal is onjuist.");
+        return false; // Voorkom dat het formulier wordt verzonden
+    }
+    return true; // Laat het formulier verzenden als het controlegetal overeenkomt
+}
 
 function Darktheme() {
     // Vervang 'andere_pagina.html' door de URL van de pagina die je wilt openen
@@ -126,4 +183,35 @@ function updateButton() {
     } else {
         button.textContent = "DarkTheme";
     }
+} 
+const swipeImage = document.getElementById('swipeImage');
+let startX;
+const swipeImage = document.getElementById('swipeImage');
+let startX;
+
+function handleSwipe(event) {
+    const endX = event.clientX || event.changedTouches[0].clientX;
+    const deltaX = endX - startX;
+
+    // Check if swipe is towards the right
+    if (deltaX > 50) {
+        // Execute the action to open the members page
+        window.location.href = "link-naar-je-ledenpagina.html";
+    }
 }
+
+function startSwipe(event) {
+    startX = event.clientX || event.touches[0].clientX;
+    document.addEventListener('mousemove', handleSwipe);
+    document.addEventListener('touchmove', handleSwipe);
+}
+
+function endSwipe() {
+    document.removeEventListener('mousemove', handleSwipe);
+    document.removeEventListener('touchmove', handleSwipe);
+}
+
+swipeImage.addEventListener('mousedown', startSwipe);
+swipeImage.addEventListener('mouseup', endSwipe);
+swipeImage.addEventListener('touchstart', startSwipe);
+swipeImage.addEventListener('touchend', endSwipe);
