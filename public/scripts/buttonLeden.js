@@ -147,16 +147,36 @@ function toggleDropdown() {
 
 
 
-function changeBackground() {
-    document.body.style.background = "radial-gradient(circle, #571a13, #eb4034,#ffffff)"; // Verander de achtergrond naar een radiale gradiënt
-    var divsWithImageBStyle = document.querySelectorAll('.motivation-img, .motivation-img3');
-    divsWithImageBStyle.forEach(function (div) {
-        div.style.borderColor = 'red';
-        div.style.border = '15px';
-    });
 
+
+
+
+
+const image = document.getElementById('image');
+let isDragging = false;
+let startX;
+let offsetX = 0;
+
+image.addEventListener('mousedown', startDragging);
+image.addEventListener('mousemove', drag);
+image.addEventListener('mouseup', stopDragging);
+image.addEventListener('mouseleave', stopDragging);
+
+function startDragging(e) {
+    isDragging = true;
+    startX = e.clientX - offsetX;
 }
 
+function drag(e) {
+    if (isDragging) {
+        const newX = e.clientX - startX;
+        offsetX = newX;
+        image.style.left = `${newX}px`;
+    }
+}
 
+function stopDragging() {
+    isDragging = false;
+}
 
 
