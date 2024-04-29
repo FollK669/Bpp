@@ -76,6 +76,37 @@ body {
     font-family: "Yu Gothic", serif;
 }
 
+.myButton {
+    background-color: #4CAF50; /* Groene achtergrondkleur */
+    color: white; /* Witte tekstkleur */
+    padding: 15px 32px; /* Padding */
+    text-align: center; /* Centreren van de tekst */
+    text-decoration: none; /* Geen onderstreping */
+    display: inline-block; /* Blokelement */
+    font-size: 16px; /* Tekstgrootte */
+    margin: 4px 2px; /* Marge */
+    transition-duration: 0.4s; /* Overgangsduur */
+    cursor: pointer; /* Cursor op knop */
+    position: absolute; /* Positie absoluut zodat we het kunnen verplaatsen */
+}
+
+    .myButton:hover {
+        background-color: #45a049; /* Groene achtergrondkleur bij hover */
+    }
+
+.swipe-button {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+    .swipe-button.swiped {
+        transform: translateX(100%);
+    }
 .motivation-img {
     border: 13px solid white;
     border-style: ridge;

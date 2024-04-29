@@ -183,5 +183,72 @@ function updateButton() {
     } else {
         button.textContent = "DarkTheme";
     }
+} 
+const swipeButton = document.getElementById('swipeButton');
+
+let startX = 0;
+let startY = 0;
+let isSwiping = false;
+
+function handleTouchStart(event) {
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+    isSwiping = true;
 }
 
+function handleTouchMove(event) {
+    if (!isSwiping) return;
+
+    const currentX = event.touches[0].clientX;
+    const currentY = event.touches[0].clientY;
+    const deltaX = currentX - startX;
+    const deltaY = currentY - startY;
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && deltaX > 0) {
+        const swipeProgress = Math.min(deltaX, swipeButton.offsetWidth); // Limit swipe progress to button width
+        swipeButton.style.transform = `translateX(${swipeProgress}px)`;
+    }
+}
+
+function handleTouchEnd() {
+    if (isSwiping) {
+        swipeButton.style.transform = ''; // Reset transformation
+        swipeButton.classList.add('swiped');
+        isSwiping = false;
+        window.location.href = '/login'
+    }
+}
+
+function handleMouseDown(event) {
+    startX = event.clientX;
+    isSwiping = true;
+}
+
+function handleMouseMove(event) {
+    if (!isSwiping) return;
+
+    const currentX = event.clientX;
+    const deltaX = currentX - startX;
+    const swipeProgress = Math.min(deltaX, swipeButton.offsetWidth); // Limit swipe progress to button width
+
+    if (deltaX > 0) {
+        swipeButton.style.transform = `translateX(${swipeProgress}px)`;
+    }
+}
+
+function handleMouseUp() {
+    if (isSwiping) {
+        swipeButton.style.transform = ''; // Reset transformation
+        swipeButton.classList.add('swiped');
+        isSwiping = false;
+    }
+    window.location.href = '/login'
+}
+
+swipeButton.addEventListener('touchstart', handleTouchStart);
+swipeButton.addEventListener('touchmove', handleTouchMove);
+swipeButton.addEventListener('touchend', handleTouchEnd);
+
+swipeButton.addEventListener('mousedown', handleMouseDown);
+document.addEventListener('mousemove', handleMouseMove);
+document.addEventListener('mouseup', handleMouseUp);
