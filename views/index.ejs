@@ -14,13 +14,33 @@
 <body class="content nav nav-pills container mt-5">
     
     <div class="poster">
+ 
   <%- include('NavigatieMenuBezoeker.ejs') %>
-  
-    <br /> <br />
-        <img class="motivation-img" src="images/greop.jpg" />
+     
+    <br /> 
 
 
-         <br /> <br /> <br /> <br />
+        <div class="motivation-img3" >
+         <br /> 
+        <ul style=" display: inline-block;">
+              <li><a href="/boekOns"><button   class="button2"> &nbsp;&nbsp; Boek-ons &nbsp;&nbsp;</button></a></li>
+                <li><a href="/bezoekers"><button  class="button2">&nbsp;&nbsp; Bezoekers &nbsp;&nbsp;</button></a></li>
+                <li><a href="/index"><button  class="button2">&nbsp;&nbsp; Home &nbsp;&nbsp;</button></a></li>
+            </ul>
+
+             <br /> 
+        </div>
+        
+
+
+        <br />
+        <br /> 
+
+
+ <img class="motivation-img" src="images/greop.jpg" />
+
+         <br /> 
+
           <% const randomVar = Math.floor(Math.random() * 4) + 1; %>
 
           <%- include('weetje' + randomVar + '.ejs') %>

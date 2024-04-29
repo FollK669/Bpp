@@ -4,7 +4,16 @@
 
 */
 
+ul {
+    list-style-type: none; /* Verwijder de standaardlijststijl */
+    padding: 0;
+    margin: 0;
+}
 
+    ul li {
+        display: inline-block; /* Weergeven als inline-block om naast elkaar te plaatsen */
+        margin-right: 10px; /* Optionele marge tussen de knoppen */
+    }
 
 /* Style the links inside the sidenav */
 body {
@@ -39,16 +48,17 @@ body {
 }
 
 .button2 {
-    border: 9px solid white;
+    border: 11px solid white;
     border-style: ridge;
-    border-radius: 10px;
-    font-size: 18px;
+    border-radius: 40px;
+    font-size: 29px;
     font-weight: bolder;
     color: burlywood;
     font-family: "Yu Gothic", serif;
     background: radial-gradient(circle,#eb4034,#571a13);
     white-space: nowrap;
-    margin-right: 5%;
+    margin-right: 7%;
+    display: inline-block;
 }
 .button3 {
     border: 9px solid white;
@@ -117,6 +127,7 @@ body {
     font-family: "Yu Gothic", serif;
     white-space: nowrap;
     position: relative;
+  
    
 }
 
@@ -137,6 +148,20 @@ body {
     color: burlywood;
     font-weight: bolder;
   
+}
+
+.motivation-img3 {
+    background: radial-gradient(circle,#eb4034,#571a13);
+    border: 13px solid white;
+    border-style: ridge;
+    border-radius: 50px;
+    height: 6%;
+    width: 100%;
+    margin: 0 auto;
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
+    white-space: nowrap;
+    position: relative;
 }
 /* Voor schermen kleiner dan 650px */
 @media only screen and (max-width: 150px) {
