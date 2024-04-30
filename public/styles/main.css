@@ -44,9 +44,6 @@ body {
     left: 0;
     transition: left 0.3s ease; /* Voeg een soepele overgang toe aan de beweging */
 }
-.no-wrap {
-    white-space: nowrap;
-}
 
 .motivation-imgf {
     border: 11px solid #333333;
@@ -63,14 +60,25 @@ body {
     border-radius: 50px;
     width: 15%;
     margin: 0 auto;
+
     color: burlywood;
     font-family: "Yu Gothic", serif;
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
 }
+.small-img7 {
+    border: 11px solid #333333;
+    border-radius: 50px;
+    width: 15%;
+    margin: 0 auto;
+    color: burlywood;
+    animation: marquee-scrollDown 15s linear infinite;
+    font-family: "Yu Gothic", serif;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
+}
+
 
 .small-img {
     border: 11px solid #333333;
-
     border-radius: 50px;
     width: 150px;
     height: 100px;
@@ -78,17 +86,30 @@ body {
     color: burlywood;
     font-family: "Yu Gothic", serif;
 }
-
+.small-img5 {
+    width: calc(100% / 3 - 10px); /* Bereken de breedte van elke afbeelding (1/3 van de container breedte met wat marge) */
+    margin-right: 10px; /* Voeg wat ruimte toe tussen de afbeeldingen */
+    margin-bottom: 10px; /* Voeg wat ruimte toe onder de afbeeldingen */
+    float: left; /* Laat de afbeeldingen naast elkaar zweven */
+    border: 11px solid #333333;
+    border-radius: 50px;
+    width: 150px;
+    height: 100px;
+    margin: 0 auto;
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
+}
 .button2 {
     border: 11px solid #333333;
-
     border-radius: 40px;
-    font-size: 29px;
+    white-space: nowrap;
+    font-size: 35px;
     font-weight: bolder;
     color: burlywood;
     font-family: "Yu Gothic", serif;
-    background: radial-gradient(circle, #333333, #eb4034,#333333);
-    white-space: nowrap;
+    background: radial-gradient(circle,#333333,#eb4034 );
+    /*background: radial-gradient(circle, #333333, #eb4034,#333333);*/
+
     margin-right: 7%;
     display: inline-block;
     box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.2);
@@ -102,7 +123,7 @@ body {
 
 @media only screen and (max-width: 1080px) {
     .button2 {
-        font-size: 20px;
+        font-size: 22px;
         animation: slide-out 1.5s ease forwards;
     }
         .button2.large {
@@ -125,12 +146,12 @@ body {
 @media only screen and (max-width: 920px) {
     .button2 {
         font-size: 12px;
-        animation: slide-out 1.5s ease forwards;
+        animation: slide-out 2s ease forwards;
     }
         .button2.large {
             font-size: 26px; /* Stel de gewenste grootte in */
             border-radius: 65px;
-            animation: slide-in 1.5s ease forwards;
+            animation: slide-in 2s ease forwards;
         }
 
      
@@ -146,30 +167,48 @@ body{
     .button2 {
         font-size: 12px;
         transform: scale(0.9);
-        animation: slide-out 1.5s ease forwards;
+        animation: slide-out 2s ease forwards;
     }
 
         .button2.large {
             transform: scale(0.9);
             font-size: 18px; /* Stel de gewenste grootte in */
             border-radius: 65px;
-            animation: slide-in 1.5s ease forwards;
+            animation: slide-in 2s ease forwards;
         }
 }
 
+@media only screen and (min-width: 921px) {
+    body {
+        padding-right: 30%;
+        padding-left: 30%;
+    }
 
+    .button2 {
+        font-size: 12px;
+        transform: scale(0.9);
+        animation: slide-out 2s ease forwards;
+    }
+
+        .button2.large {
+            transform: scale(0.9);
+            font-size: 18px; /* Stel de gewenste grootte in */
+            border-radius: 65px;
+            animation: slide-in 2s ease forwards;
+        }
+}
 @media only screen and (max-width: 580px) {
     .button2 {
         font-size: 12px;
         transform: scale(0.9);
-        animation: slide-out 1.5s ease forwards;
+        animation: slide-out 2s ease forwards;
     }
 
         .button2.large {
             transform: scale(0.9);
             font-size: 18px; /* Stel de gewenste grootte in */
             border-radius: 65px;
-            animation: slide-in 1.5s ease forwards;
+            animation: slide-in 2s ease forwards;
         }
  
 }
@@ -178,14 +217,14 @@ body{
     .button2 {
         font-size: 10px;
         transform: scale(0.7);
-        animation: slide-out 1.5s ease forwards;
+        animation: slide-out 2s ease forwards;
     }
 
         .button2.large {
             transform: scale(0.9);
             font-size: 16px; /* Stel de gewenste grootte in */
             border-radius: 65px;
-            animation: slide-in 1.5s ease forwards;
+            animation: slide-in 2s ease forwards;
         }
   
     
@@ -212,8 +251,98 @@ body{
         transform: translateX(0);
     }
 }
+@keyframes slide-down {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100);
+    }
+}
 
 
+.scrolling-images {
+    position: relative;
+    overflow: hidden; /* Verberg eventuele overflow van de afbeeldingen */
+    height: 200px; /* Hoogte van het container element */
+}
+
+    .scrolling-images img {
+        position: absolute;
+        animation: scroll-down 50s linear infinite; /* Verander de 10s om de snelheid aan te passen */
+    }
+
+@keyframes scroll-down {
+    0% {
+        top: -100%; /* Beginpositie van boven */
+    }
+
+    100% {
+        top: 100%; /* Eindpositie van onder */
+    }
+}
+
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%; /* Vergroot de breedte van de container */
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee-scroll 15s linear infinite alternate; /* Duur van 10 seconden */
+}
+
+    .marquee-content span {
+        padding-right: 40px; /* Vergroot de ruimte tussen items */
+    }
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(40%);
+    }
+
+    100% {
+        transform: translateX(-40%);
+    }
+}
+
+.marquee2 {
+    overflow: hidden;
+
+   height: 550px; /* Vergroot de breedte van de container */
+}
+
+.marquee-content2 {
+    display: block;
+    animation: marquee-scrollDown 15s linear infinite alternate; /* Duur van 10 seconden */
+}
+
+    .marquee-content2 span {
+        padding-right: 40px; /* Vergroot de ruimte tussen items */
+    }
+
+@keyframes marquee-scrollDown {
+    0% {
+        transform: translateY(40%);
+    }
+
+    100% {
+        transform: translateY(-40%);
+    }
+}
+
+
+.container3 {
+    width: 100%;
+}
+
+.box3 {
+    display: inline-block;
+    width: 45%; /* Stel de breedte in zoals gewenst */
+    margin-right: 5%; /* Voeg wat ruimte toe tussen de divs */
+}
 
 .button3 {
     border: 9px solid #333333;
@@ -224,7 +353,7 @@ body{
     color: burlywood;
     font-family: "Yu Gothic", serif;
     background: radial-gradient(circle,#eb4034,#571a13);
-    white-space: nowrap;
+   
     margin-right: 5%;
     text-decoration: wavy;
     width: 40%;
@@ -243,6 +372,26 @@ body{
     box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
 }
+
+.container4 {
+    display: flex;
+
+}
+
+.column {
+    flex: 1; /* Laat de kolommen groeien om beschikbare ruimte in te nemen */
+}
+
+.small-img4 {
+    width: 250px;
+    height: 250px; /* Zorg ervoor dat de afbeeldingen de volledige breedte van de kolom innemen */
+}
+
+    .small-img4 + p {
+        margin-top: 1px; /* Voeg wat ruimte toe tussen de afbeelding en de paragraaf */
+    }
+
+
 
 .myButton {
     background-color: #4CAF50; /* Groene achtergrondkleur */
@@ -283,7 +432,7 @@ body{
     margin: 0 auto;
     color: burlywood;
     font-family: "Yu Gothic", serif;
-    white-space: nowrap;
+
     position: relative;
     box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
@@ -320,7 +469,7 @@ body{
     margin: 0 auto;
     color: burlywood;
     font-family: "Yu Gothic", serif;
-    white-space: nowrap;
+   
     position: relative;
     background-image: url('/images/top8.jpg');
     background-size: cover; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
@@ -341,16 +490,34 @@ body{
     color: burlywood;
     font-family: "Yu Gothic", serif;
     font-size: 1em;
-    text-align:center;
+    text-align: center;
     position: center;
     background-size: cover; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
-   
+    animation: slide-down 1s ease forwards;
 }
 
+.motivation-img3L {
+    background: #333333;
+    border: 30px solid #333333;
+    border-radius: 50px;
+    height: 6%;
+    width: 100%;
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
+    font-size: 1em;
+    text-align: center;
+    position: center;
+    background-size: cover; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
+    animation: slide-down 1s ease forwards;
+}
 .motivation-img3k {
     background: #333333;
     border: 20px solid #333333;
