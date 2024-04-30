@@ -27,7 +27,9 @@ body {
     padding: 1%;
     padding-right: 12%;
     padding-left: 12%;
-    background: radial-gradient(circle, #ffffff, #eb4034,#571a13); /* Correcte gradial-gradient naar radial-gradient */
+    background-image: url('/images/rock.png'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
+    background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige achtergrond bedekt */
+    background-position: center; /* Correcte gradial-gradient naar radial-gradient */
 }
 
 #container2 {
@@ -44,8 +46,7 @@ body {
 }
 
 .motivation-imgf {
-    border: 8px solid #333333;
-
+    border: 5px solid black;
     border-radius: 30px;
     width: 100%;
     margin: 0 auto;
@@ -53,17 +54,16 @@ body {
     font-family: "Yu Gothic", serif;
 }
 .small-img {
-    border: 8px solid #333333;
+    border: 8px solid black;
     border-radius: 30px;
     display: block;
- 
     color: burlywood;
     font-family: "Yu Gothic", serif;
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
 }
 
 .small-imgLeft {
-    border: 8px solid #333333;
+    border: 8px solid black;
     border-radius: 50px;
     width: 1%;
     margin: 0 auto;
@@ -73,7 +73,7 @@ body {
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
 }
 .small-img7 {
-    border: 8px solid #333333;
+    border: 8px solid black;
     border-radius: 30px;
     width: 15%;
     margin: 0 auto;
@@ -84,7 +84,7 @@ body {
 }
 
 .small-img45 {
-    border: 8px solid #333333;
+    border: 8px solid black;
     border-radius: 30px;
     width: 35%;
     height: 35%;
@@ -95,12 +95,11 @@ body {
 }
 
 .small-img {
-    border: 8px solid #333333;
+    border: 8px solid black;
     border-radius: 30px;
-   width:35%;
-   height:15%;
-   display: block;
-
+    width: 35%;
+    height: 15%;
+    display: block;
     color: burlywood;
     font-family: "Yu Gothic", serif;
 }
@@ -109,7 +108,7 @@ body {
     margin-right: 10px; /* Voeg wat ruimte toe tussen de afbeeldingen */
     margin-bottom: 10px; /* Voeg wat ruimte toe onder de afbeeldingen */
     float: left; /* Laat de afbeeldingen naast elkaar zweven */
-    border: 11px solid #333333;
+    border: 11px solid black;
     border-radius: 30px;
     width: 150px;
     height: 100px;
@@ -118,7 +117,7 @@ body {
     font-family: "Yu Gothic", serif;
 }
 .button2 {
-    border: 5px solid #333333;
+    border: 5px solid black;
     border-radius: 30px;
     white-space: nowrap;
     font-size: 35px;
@@ -329,7 +328,7 @@ body{
     }
 
     100% {
-        transform: translateX(-50%);
+        transform: translateX(-100%);
     }
 }
 
@@ -337,7 +336,7 @@ body{
     overflow: hidden;
     white-space: nowrap;
     height: 250px;
-    width: 300px;
+    width: 400px;
     /* Je kunt dit aanpassen aan de gewenste breedte */
 }
 
@@ -356,12 +355,13 @@ body{
     overflow: hidden;
     float: revert-layer;
     white-space: nowrap;
+    height: 100%;
     width: 100%; /* Vergroot de breedte van de container */
- 
 }
 
 .marquee-content {
-   
+    height: 100%;
+    width: 100%;
     animation: marquee-scroll 9s linear infinite alternate; /* Duur van 10 seconden */
 }
 
@@ -383,6 +383,7 @@ body{
     overflow: hidden;
     white-space: normal;
     width: 20%;
+    float: inherit;
     height: 900px;
     display: block;
 }
@@ -390,14 +391,15 @@ body{
 .marquee-content2 {
     animation: marquee-scrollUp 9s linear infinite alternate; /* Duur van 10 seconden */
     height: 300px;
+    float: inherit;
     width: 250px;
     display: block;
 }
 
     .marquee-content2 span {
         display: block;
-       
-       /* Vergroot de ruimte tussen items */
+        float: inherit;
+        /* Vergroot de ruimte tussen items */
     }
 
 @keyframes marquee-scrollDown {
@@ -410,7 +412,6 @@ body{
     }
 }
 .marquee3 {
-
     overflow: hidden;
     width: 10%;
     height: 10%;
@@ -449,24 +450,22 @@ body{
 }
 
 .button3 {
-    border: 9px solid #333333;
-
+    border: 9px solid black;
     border-radius: 10px;
     font-size: 22px;
     font-weight: bolder;
     color: burlywood;
     font-family: "Yu Gothic", serif;
     background: radial-gradient(circle,#eb4034,#571a13);
-   
     margin-right: 5%;
     text-decoration: wavy;
     width: 40%;
-    float: right;
+    float: inherit;
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
 }
 
 .small-img2 {
-    border: 8px solid #333333;
+    border: 8px solid black;
     float: inline-end;
     border-radius: 30px;
     width: 35%;
@@ -529,7 +528,7 @@ body{
         transform: translateX(100%);
     }
 .motivation-img {
-    border: 8px solid #333333;
+    border: 8px solid black;
     border-radius: 30px;
     width: 100%;
     margin: 0 auto;
@@ -544,7 +543,7 @@ body{
 
 .motivation-imgB {
     background: radial-gradient(circle,#eb4034,#571a13);
-    border: 8px solid #333333;
+    border: 8px solid black;
     float: inline-end;
     border-radius: 20px;
     width: 100%;
@@ -563,7 +562,7 @@ body{
 
 .motivation-img3 {
     background: black;
-    border: 8px solid #333333;
+    border: 8px solid black;
     float: inline-end;
     border-radius: 30px;
     height: 6%;
@@ -583,9 +582,8 @@ body{
 
 
 .motivation-img3B {
-
     background: #333333;
-    border: 8px solid #333333;
+    border: 8px solid black;
     border-radius: 30px;
     height: 1%;
     float: right;
@@ -602,11 +600,29 @@ body{
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
     animation: slide-down 1s ease forwards;
 }
-
+.motivation-img3Buu {
+    background: #333333;
+    border: 8px solid black;
+    border-radius: 30px;
+    height: 1%;
+  
+   
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
+    font-size: 1.2em;
+    text-align: center;
+    position: center;
+    background-size: initial; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
+    animation: slide-down 1s ease forwards;
+}
 .motivation-img3L {
     background: #333333;
     float: inline-end;
-    border: 8px solid #333333;
+    border: 8px solid black;
     border-radius: 30px;
     height: 6%;
     width: 100%;
@@ -624,7 +640,7 @@ body{
 }
 .motivation-img3k {
     background: #333333;
-    border: 8px solid #333333;
+    border: 8px solid black;
     border-radius: 35px;
     height: 200px;
     font-weight: bolder;
@@ -645,18 +661,22 @@ body{
 
 .motivation-img3M {
     background: #333333;
-    border: 8px solid #333333;
+    border: 8px solid black;
     border-radius: 35px;
     height: 120px;
     margin: 15px;
+    padding: 25px;
+    width: 95%;
+    margin:25px;
     font-weight: bolder;
     float: inline-end;
-    width: 110%;
+
     color: burlywood;
-    padding-left: 15px;
+    padding-left: 55px;
+
     font-family: "Yu Gothic", serif;
     font-size: 1.5em;
-    width:100%;
+
     background-size: cover; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
     background-position: center;
     background-repeat: no-repeat;
@@ -680,7 +700,7 @@ body{
 
 .motivation-img3B2 {
     background: #333333;
-    border: 8px solid #333333;
+    border: 8px solid black;
     border-radius: 30px;
     height: 6%;
     width: 50%;
@@ -908,24 +928,61 @@ p {
     .show {
         display: block;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container7 {
+    background-image: url('/images/rock.png');
+    background-size: contain;
+    background-position: center;
+    height: 350px;
+    background-repeat: no-repeat;
+    font-size: 1.2em;
+    text-align: center;
+    position: center;
+    background-size: initial; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
+
+    border: 5px solid black;
+    border-radius: 30px;
+    display: flex; /* Gebruik flexbox om de knoppen te positioneren */
+    flex-direction: column; /* Plaats de knoppen in een kolom */
+    justify-content: flex-end; /* Plaats de knoppen onderaan de div */
+    align-items: center; /* Horizontaal centreren */
+    padding: 20px; /* Ruimte binnen de container */
 }
 
+.button-container7 {
+    /* Verwijder float: right; */
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.button7 {
+    border: 5px solid black;
+    border-radius: 30px;
+    font-size: 25px;
+    font-weight: bolder;
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
+    background: radial-gradient(circle, #333333, #eb4034);
+    margin-top: 10px; /* Ruimte tussen de knoppen */
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
+}
 
 
 
