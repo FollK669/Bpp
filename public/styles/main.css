@@ -24,9 +24,9 @@
 body {
     color: burlywood;
     font-family: "Yu Gothic", serif;
-    padding: 5%;
-    padding-right: 18%;
-    padding-left: 18%;
+    padding: 1%;
+    padding-right: 12%;
+    padding-left: 12%;
     background: radial-gradient(circle, #ffffff, #eb4034,#571a13); /* Correcte gradial-gradient naar radial-gradient */
 }
 
@@ -44,28 +44,26 @@ body {
 }
 
 .motivation-imgf {
-    border: 11px solid #333333;
+    border: 8px solid #333333;
 
-    border-radius: 50px;
+    border-radius: 30px;
     width: 100%;
     margin: 0 auto;
     color: burlywood;
     font-family: "Yu Gothic", serif;
 }
 .small-img {
-    border: 11px solid #333333;
-    border-radius: 50px;
-    
-    margin: 0 auto;
-   
-   
+    border: 8px solid #333333;
+    border-radius: 30px;
+    display: block;
+ 
     color: burlywood;
     font-family: "Yu Gothic", serif;
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
 }
 
 .small-imgLeft {
-    border: 11px solid #333333;
+    border: 8px solid #333333;
     border-radius: 50px;
     width: 1%;
     margin: 0 auto;
@@ -75,8 +73,8 @@ body {
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
 }
 .small-img7 {
-    border: 11px solid #333333;
-    border-radius: 50px;
+    border: 8px solid #333333;
+    border-radius: 30px;
     width: 15%;
     margin: 0 auto;
     color: burlywood;
@@ -85,14 +83,24 @@ body {
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
 }
 
+.small-img45 {
+    border: 8px solid #333333;
+    border-radius: 30px;
+    width: 35%;
+    height: 35%;
+    display: inline;
+    margin: 0 auto;
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
+}
 
 .small-img {
-    border: 11px solid #333333;
-    border-radius: 50px;
-    width: 250px;
-    height: 100px;
- 
-    margin: 0 auto;
+    border: 8px solid #333333;
+    border-radius: 30px;
+   width:35%;
+   height:15%;
+   display: block;
+
     color: burlywood;
     font-family: "Yu Gothic", serif;
 }
@@ -102,7 +110,7 @@ body {
     margin-bottom: 10px; /* Voeg wat ruimte toe onder de afbeeldingen */
     float: left; /* Laat de afbeeldingen naast elkaar zweven */
     border: 11px solid #333333;
-    border-radius: 50px;
+    border-radius: 30px;
     width: 150px;
     height: 100px;
     margin: 0 auto;
@@ -110,8 +118,8 @@ body {
     font-family: "Yu Gothic", serif;
 }
 .button2 {
-    border: 11px solid #333333;
-    border-radius: 40px;
+    border: 5px solid #333333;
+    border-radius: 30px;
     white-space: nowrap;
     font-size: 35px;
     font-weight: bolder;
@@ -122,23 +130,23 @@ body {
 
     margin-right: 7%;
     display: inline-block;
-    box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
 }
 
     .button2.large {
-        font-size: 56px; /* Stel de gewenste grootte in */
-        border-radius: 65px;
+        font-size: 48px; /* Stel de gewenste grootte in */
+        border-radius: 35px;
     }
 
 @media only screen and (max-width: 1080px) {
     .button2 {
-        font-size: 22px;
+        font-size: 35px;
         animation: slide-out 1.5s ease forwards;
     }
         .button2.large {
-            font-size: 36px; /* Stel de gewenste grootte in */
-            border-radius: 65px;
+            font-size: 48px; /* Stel de gewenste grootte in */
+            border-radius: 35px;
             animation: slide-in 1.5s ease forwards;
         }
 
@@ -155,12 +163,12 @@ body {
 }
 @media only screen and (max-width: 920px) {
     .button2 {
-        font-size: 12px;
+        font-size: 35px;
         animation: slide-out 2s ease forwards;
     }
         .button2.large {
-            font-size: 26px; /* Stel de gewenste grootte in */
-            border-radius: 65px;
+            font-size: 48px; /* Stel de gewenste grootte in */
+            border-radius: 35px;
             animation: slide-in 2s ease forwards;
         }
 
@@ -171,42 +179,64 @@ body {
 @media only screen and (min-width: 1180px) {
 body{
 
-   padding-right: 30%;
-   padding-left: 30%;
+   padding-right: 15%;
+   padding-left: 15%;
 }
     .button2 {
-        font-size: 12px;
+        font-size: 35px;
         transform: scale(0.9);
         animation: slide-out 2s ease forwards;
     }
 
         .button2.large {
             transform: scale(0.9);
-            font-size: 18px; /* Stel de gewenste grootte in */
-            border-radius: 65px;
+            font-size: 48px; /* Stel de gewenste grootte in */
+            border-radius: 35px;
             animation: slide-in 2s ease forwards;
         }
 }
 
 @media only screen and (min-width: 921px) {
     body {
-        padding-right: 30%;
-        padding-left: 30%;
+        padding-right: 15%;
+        padding-left: 15%;
     }
 
     .button2 {
-        font-size: 12px;
+        font-size: 35px;
         transform: scale(0.9);
         animation: slide-out 2s ease forwards;
     }
 
         .button2.large {
             transform: scale(0.9);
-            font-size: 18px; /* Stel de gewenste grootte in */
-            border-radius: 65px;
+            font-size: 48px; /* Stel de gewenste grootte in */
+            border-radius: 35px;
             animation: slide-in 2s ease forwards;
         }
 }
+
+@media only screen and (min-width: 1921px) {
+    body {
+        padding-right: 25%;
+        padding-left: 25%;
+    }
+
+    .button2 {
+        font-size: 35px;
+        transform: scale(0.9);
+        animation: slide-out 2s ease forwards;
+    }
+
+        .button2.large {
+            transform: scale(0.9);
+            font-size: 48px; /* Stel de gewenste grootte in */
+            border-radius: 35px;
+            animation: slide-in 2s ease forwards;
+        }
+}
+
+
 @media only screen and (max-width: 580px) {
     .button2 {
         font-size: 12px;
@@ -217,7 +247,7 @@ body{
         .button2.large {
             transform: scale(0.9);
             font-size: 18px; /* Stel de gewenste grootte in */
-            border-radius: 65px;
+            border-radius: 35px;
             animation: slide-in 2s ease forwards;
         }
  
@@ -233,7 +263,7 @@ body{
         .button2.large {
             transform: scale(0.9);
             font-size: 16px; /* Stel de gewenste grootte in */
-            border-radius: 65px;
+            border-radius: 35px;
             animation: slide-in 2s ease forwards;
         }
   
@@ -299,21 +329,23 @@ body{
     }
 
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-50%);
     }
 }
 
 .marquee-container {
     overflow: hidden;
     white-space: nowrap;
-    width: 100%; /* Je kunt dit aanpassen aan de gewenste breedte */
+    height: 250px;
+    width: 300px;
+    /* Je kunt dit aanpassen aan de gewenste breedte */
 }
 
 .marquee-image {
     display: inline-block;
-    width: 80%; /* Vergroot de breedte van de container */
+     /* Vergroot de breedte van de container */
    
-    animation: marquee 8s linear infinite alternate-reverse; /* Je kunt de duur en timing-functie aanpassen */
+    animation: marquee 12s linear infinite alternate-reverse; /* Je kunt de duur en timing-functie aanpassen */
 }
 
     .marquee-image:nth-child(2) {
@@ -324,7 +356,7 @@ body{
     overflow: hidden;
     float: revert-layer;
     white-space: nowrap;
-    width: 80%; /* Vergroot de breedte van de container */
+    width: 100%; /* Vergroot de breedte van de container */
  
 }
 
@@ -348,21 +380,24 @@ body{
 }
 
 .marquee2 {
-    display: inline-block;
     overflow: hidden;
-    width: 50%;
-    height: 100px;
-    float:right;
+    white-space: normal;
+    width: 20%;
+    height: 900px;
+    display: block;
 }
 
 .marquee-content2 {
-    display: inline-block;
     animation: marquee-scrollUp 9s linear infinite alternate; /* Duur van 10 seconden */
-    height: 500px;
+    height: 300px;
+    width: 250px;
+    display: block;
 }
 
     .marquee-content2 span {
-        padding-right: 40px; /* Vergroot de ruimte tussen items */
+        display: block;
+       
+       /* Vergroot de ruimte tussen items */
     }
 
 @keyframes marquee-scrollDown {
@@ -375,16 +410,16 @@ body{
     }
 }
 .marquee3 {
-    display: inline-block;
+
     overflow: hidden;
-    width: 36%;
-    height: 100px;
-    float: left;
-    padding-left:13%;
+    width: 10%;
+    height: 10%;
+    float: inherit;
+    padding-left: 13%;
 }
 
 .marquee-content3 {
-    display: inline-block;
+
     height: 500px;
     animation: marquee-scrollDown 9s linear infinite alternate; /* Duur van 10 seconden */
 }
@@ -431,14 +466,14 @@ body{
 }
 
 .small-img2 {
-    border: 11px solid #333333;
+    border: 8px solid #333333;
     float: inline-end;
-    border-radius: 50px;
+    border-radius: 30px;
     width: 35%;
     margin: 0 auto;
     color: burlywood;
     font-family: "Yu Gothic", serif;
-    box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
 }
 
@@ -494,16 +529,14 @@ body{
         transform: translateX(100%);
     }
 .motivation-img {
-    border: 13px solid #333333;
-
-    border-radius: 50px;
+    border: 8px solid #333333;
+    border-radius: 30px;
     width: 100%;
     margin: 0 auto;
     color: burlywood;
     font-family: "Yu Gothic", serif;
-
     position: relative;
-    box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
 }
 
@@ -511,7 +544,7 @@ body{
 
 .motivation-imgB {
     background: radial-gradient(circle,#eb4034,#571a13);
-    border: 11px solid #333333;
+    border: 8px solid #333333;
     float: inline-end;
     border-radius: 20px;
     width: 100%;
@@ -524,15 +557,15 @@ body{
     font-size: 22px;
     color: burlywood;
     font-weight: bolder;
-    box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
 }
 
 .motivation-img3 {
     background: black;
-    border: 13px solid #333333;
+    border: 8px solid #333333;
     float: inline-end;
-    border-radius: 50px;
+    border-radius: 30px;
     height: 6%;
     width: 100%;
     margin: 0 auto;
@@ -543,29 +576,29 @@ body{
     background-size: cover; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
 }
 
 
 
 .motivation-img3B {
-    float: inline-end;
+
     background: #333333;
-    border: 30px solid #333333;
-    border-radius: 50px;
-    height: 6%;
-    float: inline-end;
+    border: 8px solid #333333;
+    border-radius: 30px;
+    height: 1%;
+    float: right;
     width: 100%;
     color: burlywood;
     font-family: "Yu Gothic", serif;
-    font-size: 1em;
+    font-size: 1.2em;
     text-align: center;
     position: center;
-    background-size: cover; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
+    background-size: initial; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
     animation: slide-down 1s ease forwards;
 }
@@ -573,8 +606,8 @@ body{
 .motivation-img3L {
     background: #333333;
     float: inline-end;
-    border: 30px solid #333333;
-    border-radius: 50px;
+    border: 8px solid #333333;
+    border-radius: 30px;
     height: 6%;
     width: 100%;
     color: burlywood;
@@ -585,42 +618,70 @@ body{
     background-size: cover; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
     animation: slide-down 1s ease forwards;
 }
 .motivation-img3k {
     background: #333333;
-    border: 20px solid #333333;
-    border-radius: 40px;
-    height: 25%;
+    border: 8px solid #333333;
+    border-radius: 35px;
+    height: 200px;
     font-weight: bolder;
-    float:inline-end;
+    float: inline-end;
     width: 100%;
     color: burlywood;
     font-family: "Yu Gothic", serif;
     font-size: 4em;
-  
-   
     background-image: url('/images/topj.jpg');
     background-size: cover; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
 }
 
 
 
+.motivation-img3M {
+    background: #333333;
+    border: 8px solid #333333;
+    border-radius: 35px;
+    height: 120px;
+    margin: 15px;
+    font-weight: bolder;
+    float: inline-end;
+    width: 110%;
+    color: burlywood;
+    padding-left: 15px;
+    font-family: "Yu Gothic", serif;
+    font-size: 1.5em;
+    width:100%;
+    background-size: cover; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
+}
 
 
+.motivation-img3o {
+   height: 80px;
+   float: inherit;
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
+    font-size: 3em;
+ 
+    background-color: transparent;
+  /* Optioneel: voeg een rand toe voor visuele scheiding */
 
+}
 
 
 .motivation-img3B2 {
     background: #333333;
-    border: 40px solid #333333;
-    border-radius: 50px;
+    border: 8px solid #333333;
+    border-radius: 30px;
     height: 6%;
     width: 50%;
     color: burlywood;
@@ -629,7 +690,7 @@ body{
     background-size: cover; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
 }
 
@@ -656,7 +717,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
 
 
 p {
-    font-size: 1rem;
+    font-size: 1.15rem;
     text-align: center;
     font-family: "Yu Gothic", serif;
     font-weight: bold;
@@ -683,7 +744,7 @@ p {
     }
 
         .dark-theme img {
-            border: 15px solid dimgray; /* Border color for images in dark mode */
+            border: 8px solid dimgray; /* Border color for images in dark mode */
             border-style: ridge;
         }
 

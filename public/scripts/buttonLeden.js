@@ -180,3 +180,11 @@ function stopDragging() {
 }
 
 
+<button id="scrollToBottomBtn">Scroll naar beneden</button>
+
+
+
+document.getElementById('scrollToBottomBtn').addEventListener('click', function (event) {
+    event.preventDefault(); // Voorkomt standaardgedrag van de link
+    var targetElement = document.getElementById('bottomOfPage');
+    targetElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
