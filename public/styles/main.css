@@ -137,7 +137,25 @@ body {
 
 }
 
+@media only screen and (min-width: 1180px) {
+body{
 
+   padding-right: 30%;
+   padding-left: 30%;
+}
+    .button2 {
+        font-size: 12px;
+        transform: scale(0.9);
+        animation: slide-out 1.5s ease forwards;
+    }
+
+        .button2.large {
+            transform: scale(0.9);
+            font-size: 18px; /* Stel de gewenste grootte in */
+            border-radius: 65px;
+            animation: slide-in 1.5s ease forwards;
+        }
+}
 
 
 @media only screen and (max-width: 580px) {
@@ -316,12 +334,14 @@ body {
 
 .motivation-img3B {
     background: #333333;
-    border: 40px solid #333333;
+    border: 30px solid #333333;
     border-radius: 50px;
     height: 6%;
     width: 100%;
     color: burlywood;
     font-family: "Yu Gothic", serif;
+    font-size: 1em;
+    text-align:center;
     position: center;
     background-size: cover; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
     background-position: center;
@@ -330,6 +350,34 @@ body {
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
    
 }
+
+.motivation-img3k {
+    background: #333333;
+    border: 20px solid #333333;
+    border-radius: 50px;
+    height: 25%;
+    font-weight: bolder;
+    width: 100%;
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
+    font-size: 4em;
+    text-align: center;
+    position: center;
+   
+    background-image: url('/images/topj.jpg');
+    background-size: cover; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Shadow effect to simulate border */
+}
+
+
+
+
+
+
+
 
 .motivation-img3B2 {
     background: #333333;
