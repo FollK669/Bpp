@@ -22,6 +22,31 @@ body {
 }
 
 
+.container77 {
+    position: relative;
+    width: 400px; /* width of the image container */
+    height: 300px; /* height of the image container */
+}
+
+#moveableImage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.target-area {
+    width: 200px; /* width of the target area */
+    height: 100px; /* height of the target area */
+    border: 2px dashed #ccc;
+    text-align: center;
+    line-height: 100px;
+    margin-top: 20px; /* space between image and target area */
+}
+
+
+
 .h3 {
 
     font-size: 25px;

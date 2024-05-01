@@ -146,10 +146,102 @@ function toggleDropdown() {
 
 
 
+const moveableImage = document.getElementById('moveableImage');
+const targetArea = document.getElementById('targetArea');
+let isDragging = false;
+let startX = 0;
+let pageOpened = false;
 
+moveableImage.addEventListener('mousedown', handleMouseDown);
+moveableImage.addEventListener('mouseup', handleMouseUp);
+document.addEventListener('mousemove', handleMouseMove);
 
+moveableImage.addEventListener('touchstart', handleTouchStart);
+moveableImage.addEventListener('touchend', handleTouchEnd);
+document.addEventListener('touchmove', handleTouchMove);
 
+function handleMouseDown(event) {
+    if (!pageOpened) {
+        isDragging = true;
+        startX = event.clientX;
+    }
+}
 
+function handleMouseUp(event) {
+    if (!pageOpened) {
+        isDragging = false;
+        const endX = event.clientX;
+        const diff = endX - startX;
+        checkSwipe(diff);
+    }
+}
 
+function handleMouseMove(event) {
+    if (isDragging && !pageOpened) {
+        moveImage(event.clientX, event.clientY);
+    }
+}
 
+function handleTouchStart(event) {
+    if (!pageOpened) {
+        isDragging = true;
+        startX = event.touches[0].clientX;
+    }
+}
 
+function handleTouchEnd(event) {
+    if (!pageOpened) {
+        isDragging = false;
+        const endX = event.changedTouches[0].clientX;
+        const diff = endX - startX;
+        checkSwipe(diff);
+    }
+}
+
+function handleTouchMove(event) {
+    if (isDragging && !pageOpened) {
+        const touch = event.touches[0];
+        moveImage(touch.clientX, touch.clientY);
+    }
+}
+
+function moveImage(x, y) {
+    moveableImage.style.left = `${x - moveableImage.offsetWidth / 2}px`;
+    moveableImage.style.top = `${y - moveableImage.offsetHeight / 2}px`;
+
+    // Check if the image overlaps with the target area
+    const imageRect = moveableImage.getBoundingClientRect();
+    const targetRect = targetArea.getBoundingClientRect();
+
+    if (
+        imageRect.left < targetRect.right &&
+        imageRect.right > targetRect.left &&
+        imageRect.top < targetRect.bottom &&
+        imageRect.bottom > targetRect.top
+    ) {
+        // Open a new page if the image overlaps with the target area
+        window.open('https://example.com', '_blank');
+        pageOpened = true; // Set pageOpened to true once the page is opened
+        // Remove event listeners to prevent further dragging/swiping
+        removeEventListeners();
+    }
+}
+
+function checkSwipe(diff) {
+    if (!pageOpened && Math.abs(diff) > 50) { // Adjust swipe threshold as needed
+        // Open a new page if swipe distance is greater than threshold
+        window.open('https://example.com', '_blank');
+        pageOpened = true; // Set pageOpened to true once the page is opened
+        // Remove event listeners to prevent further dragging/swiping
+        removeEventListeners();
+    }
+}
+
+function removeEventListeners() {
+    moveableImage.removeEventListener('mousedown', handleMouseDown);
+    moveableImage.removeEventListener('mouseup', handleMouseUp);
+    document.removeEventListener('mousemove', handleMouseMove);
+    moveableImage.removeEventListener('touchstart', handleTouchStart);
+    moveableImage.removeEventListener('touchend', handleTouchEnd);
+    document.removeEventListener('touchmove', handleTouchMove);
+}

@@ -29,7 +29,7 @@ app.use(
 const db = new pg.Client({
     user: "world_j3vg_user",
   host: "dpg-cojgia8cmk4c73bqv2mg-a",  ///string voor op render.com
- // host: "dpg-cojgia8cmk4c73bqv2mg-a.frankfurt-postgres.render.com", // string voor via local host
+ //host: "dpg-cojgia8cmk4c73bqv2mg-a.frankfurt-postgres.render.com", // string voor via local host
     database: "world_j3vg",
     password: "LuQNOF0WaL1Hw4LlydE1ZrDqMj24ZPfz",
     port: 5432,
@@ -293,14 +293,14 @@ app.get('/Newlid', (req, res) => {
             service: 'gmail',
             auth: {
                 user: 'kenfoll78@gmail.com', // Jouw e-mailadres
-                pass: 'jouw_wachtwoord' // Jouw e-mailwachtwoord
+                pass: '1234' // Jouw e-mailwachtwoord
             }
         });
 
 
         // E-mailinhoud
         const mailOptions = {
-            from: 'jouw@gmail.com',
+            from: 'kenfoll78@gmail.com',
             to: 'ontvanger@gmail.com', // E-mailadres van de ontvanger
             subject: 'Nieuw bericht van contactformulier',
             text: `Naam: ${name}\nE-mail: ${email}\nBericht: ${message}`
