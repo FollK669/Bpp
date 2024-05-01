@@ -1,13 +1,26 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const pg = require('pg');
-const nodemailer = require('nodemailer');
 
+const express = require("express");
+const bodyParser = require("body-parser");
+const pg = require("pg");
+const bcrypt = require("bcrypt");
+const passport = require("passport");
+const { Strategy } = require("passport-local");
+const session = require("express-session");
+const env = require("dotenv");
+const nodemailer = require('nodemailer');
 
 const app = express();
 const port = 3000;
+env.config();
 
 
+app.use(
+    session({
+        secret: "TOPSECRETWORD",
+        resave: false,
+        saveUninitialized: true,
+    })
+);
 
 /////////////////////////////////////
 /************* DB STRING ************ */
@@ -15,8 +28,8 @@ const port = 3000;
 
 const db = new pg.Client({
     user: "world_j3vg_user",
-   host: "dpg-cojgia8cmk4c73bqv2mg-a",  ///string voor op render.com
-  // host: "dpg-cojgia8cmk4c73bqv2mg-a.frankfurt-postgres.render.com", // string voor via local host
+  host: "dpg-cojgia8cmk4c73bqv2mg-a",  ///string voor op render.com
+ // host: "dpg-cojgia8cmk4c73bqv2mg-a.frankfurt-postgres.render.com", // string voor via local host
     database: "world_j3vg",
     password: "LuQNOF0WaL1Hw4LlydE1ZrDqMj24ZPfz",
     port: 5432,
@@ -32,6 +45,11 @@ db.connect();
 /////////////////////////////////////
 /************* Middleware ************ */
 /////////////////////////////////////
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -42,21 +60,17 @@ app.use('/views', express.static('views'));
 /////////////////////////////////////
 /************* Start Index ejs welkom paginga ************ */
 /////////////////////////////////////
+
 app.get("/", async (req, res) => {
-    try {
-        const result = await db.query("SELECT * FROM leden");
-        const users = result.rows; // Gebruik de rijen die zijn opgehaald uit de database
-        res.render("index.ejs", { users: users }); // Geef de variabele users door aan de weergave
-    } catch (error) {
-        console.error("Error fetching data:", error);
-        res.status(500).send("Internal Server Error");
-    }
+
+        res.render('index.ejs'); // Geef de variabele users door aan de weergave
+  
 });
 
 
-/////////////////////////////////////
-/************* GET routes ************ */
-/////////////////////////////////////
+//////////////////////////////////////////////////////
+/************* GET routes zonder LOGIN ************ */
+///////////////////////////////////////////////////
 
 app.get('/bezoekers', (req, res) => {
     res.render('bezoekers.ejs');
@@ -78,106 +92,167 @@ app.get('/bezoekersleden', (req, res) => {
         res.render('boekons2.ejs');
     });
 
-    app.get('/login', (req, res) => {
-        res.render('login.ejs');
-    });
+   
 
-    app.get('/ledenKeuzeMenu', (req, res) => {
-        res.render('ledenKeuzeMenu.ejs');
-    });
 
-    app.get('/instellingen', (req, res) => {
-        res.render('WebsiteInstellingen.ejs');
-    });
 
-    app.get('/ledenzoeknr', (req, res) => {
-        res.render('ledenzoeknr.ejs');
-    });
-
-    app.get('/ledendelete', (req, res) => {
-        res.render('ledendelete.ejs');
-    });
-
-    app.get('/inventaris', (req, res) => {
-        res.render('inventaris.ejs');
-    });
-
-    app.get('/doodle', (req, res) => {
-        res.render('doodle.ejs');
-    });
-
-    app.get('/ledenLoginBeheer', (req, res) => {
-        res.render('ledenLoginBeheer.ejs');
-    });
-
-    app.get('/muziek', (req, res) => {
-        res.render('muziek.ejs');
-    });
-    app.get('/taken', (req, res) => {
-        res.render('taken.ejs');
-    });
-
-    app.get('/Partituren', (req, res) => {
-        res.render('Partituren.ejs');
+    app.get('/logmenu', (req, res) => {
+        res.render('logmenu.ejs');
     });
 
 
-    app.get('/ledenAdresBeheer', (req, res) => {
-        res.render('ledenAdresBeheer.ejs');
-    });
 
-    app.get('/financ', (req, res) => {
-        res.render('financ.ejs');
-    });
 
-    app.get("/Ledenlijst", async (req, res) => {
-        try {
-            const result = await db.query("SELECT * FROM leden");
-            const users = result.rows; // Gebruik de rijen die zijn opgehaald uit de database
-            res.render("ledenlijst.ejs", { users: users }); // Geef de variabele users door aan de weergave
-        } catch (error) {
-            console.error("Error fetching data:", error);
-            res.status(500).send("Internal Server Error");
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////
+/************* Login-out GET  ************ */
+/////////////////////////////////////
+
+app.get("/logout", (req, res) => {
+    req.logout(function (err) {
+        if (err) {
+            return next(err);
         }
+        res.redirect("/");
     });
+});
 
 
-    app.get('/', (req, res) => {
-        res.render('numberPicker', { initialValue: 0 }); // Initial value
-    });
+//////////////////////////////////////////////////////
+/************* GET routes zonder LOGIN ************ */
+///////////////////////////////////////////////////
+
+app.get("/login2", (req, res) => {
+    // console.log(req.user);
+    if (req.isAuthenticated()) {
+        res.render("login2.ejs");
+    } else {
+        res.redirect("/login");
+    }
+});
+
+app.get("/Ledenlijst", async (req, res) => {
+    try {
+        const result = await db.query("SELECT * FROM leden");
+        const users = result.rows; // Gebruik de rijen die zijn opgehaald uit de database
+        res.render("ledenlijst.ejs", { users: users }); // Geef de variabele users door aan de weergave
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
 
 
-    app.get("/ledenBeheer", async (req, res) => {
-        try {
-            const result = await db.query("SELECT * FROM leden");
-            const users = result.rows; // Gebruik de rijen die zijn opgehaald uit de database
-            res.render("ledenBeheer.ejs", { users: users }); // Geef de variabele users door aan de weergave
-        } catch (error) {
-            console.error("Error fetching data:", error);
-            res.status(500).send("Internal Server Error");
+
+app.get("/ledenBeheer", async (req, res) => {
+    try {
+        const result = await db.query("SELECT * FROM leden");
+        const users = result.rows; // Gebruik de rijen die zijn opgehaald uit de database
+        res.render("ledenBeheer.ejs", { users: users }); // Geef de variabele users door aan de weergave
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+
+
+
+
+
+
+/*OVERBODIG NADIEN VERWIJDEREN*/ 
+app.get("/leden/:lid_nr", async (req, res) => {
+    try {
+        const lid_nr = req.params.lid_nr; // Haal het lidnummer op uit de URL-parameter
+        const result = await db.query("SELECT * FROM leden WHERE lid_nr = $1", [lid_nr]);
+        if (result.rows.length === 0) {
+            // Geen gebruiker gevonden met het opgegeven lidnummer
+            res.status(404).send("Geen gebruiker gevonden met het opgegeven lidnummer.");
+            return;
         }
-    });
+        const user = result.rows[0]; // Gebruik de eerste rij die is opgehaald uit de database
+        res.render("leden", { user: user }); // Geef de gebruikersgegevens door aan de weergave
+    } catch (error) {
+        console.error("Fout bij het ophalen van gegevens:", error);
+        res.status(500).send("Interne serverfout");
+    }
+});
+
+
+app.get("/ledenKeuzeMenu", (req, res) => {
+    // console.log(req.user);
+    if (req.isAuthenticated()) {
+        res.render("ledenKeuzeMenu.ejs");
+    } else {
+        res.redirect("/logmenu");
+    }
+});
 
 
 
+app.get('/instellingen', (req, res) => {
+    res.render('WebsiteInstellingen.ejs');
+});
+
+app.get('/ledenzoeknr', (req, res) => {
+    res.render('ledenzoeknr.ejs');
+});
+
+app.get('/ledendelete', (req, res) => {
+    res.render('ledendelete.ejs');
+});
+
+app.get('/inventaris', (req, res) => {
+    res.render('inventaris.ejs');
+});
+
+app.get('/doodle', (req, res) => {
+    res.render('doodle.ejs');
+});
+
+app.get('/ledenLoginBeheer', (req, res) => {
+    res.render('ledenLoginBeheer.ejs');
+});
+
+app.get('/muziek', (req, res) => {
+    res.render('muziek.ejs');
+});
+app.get('/taken', (req, res) => {
+    res.render('taken.ejs');
+});
+
+app.get('/Partituren', (req, res) => {
+    res.render('Partituren.ejs');
+});
 
 
-    app.get("/leden/:lid_nr", async (req, res) => {
-        try {
-            const lid_nr = req.params.lid_nr; // Haal het lidnummer op uit de URL-parameter
-            const result = await db.query("SELECT * FROM leden WHERE lid_nr = $1", [lid_nr]);
-            if (result.rows.length === 0) {
-                // Geen gebruiker gevonden met het opgegeven lidnummer
-                res.status(404).send("Geen gebruiker gevonden met het opgegeven lidnummer.");
-                return;
-            }
-            const user = result.rows[0]; // Gebruik de eerste rij die is opgehaald uit de database
-            res.render("leden", { user: user }); // Geef de gebruikersgegevens door aan de weergave
-        } catch (error) {
-            console.error("Fout bij het ophalen van gegevens:", error);
-            res.status(500).send("Interne serverfout");
-        }
-    });
+app.get('/ledenAdresBeheer', (req, res) => {
+    res.render('ledenAdresBeheer.ejs');
+});
+
+app.get('/financ', (req, res) => {
+    res.render('financ.ejs');
+});
+
+
+app.get('/vergeten', (req, res) => {
+    res.render('vergeten.ejs');
+});
+
+
+app.get('/Newlid', (req, res) => {
+    res.render('Newlid.ejs');
+});
 
 
     /////////////////////////////////////
@@ -217,7 +292,7 @@ app.get('/bezoekersleden', (req, res) => {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'jouw@gmail.com', // Jouw e-mailadres
+                user: 'kenfoll78@gmail.com', // Jouw e-mailadres
                 pass: 'jouw_wachtwoord' // Jouw e-mailwachtwoord
             }
         });
@@ -300,8 +375,91 @@ app.get('/bezoekersleden', (req, res) => {
 
 
 
+/////////////////////////////////////
+/************* POST login out ************ */
+/////////////////////////////////////
 
 
+app.post(
+    "/logmenu",
+    passport.authenticate("local", {
+        successRedirect: "/ledenKeuzeMenu",
+        failureRedirect: "/logmenu",
+    })
+);
+
+app.post("/register", async (req, res) => {
+    const email = req.body.username;
+    const password = req.body.password;
+
+    try {
+        const checkResult = await db.query("SELECT * FROM users WHERE email = $1", [
+            email,
+        ]);
+
+        if (checkResult.rows.length > 0) {
+            req.redirect("logmenu");
+        } else {
+            bcrypt.hash(password, 2, async (err, hash) => {
+                if (err) {
+                    console.error("Error hashing password:", err);
+                } else {
+                    const result = await db.query(
+                        "INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *",
+                        [email, hash]
+                    );
+                    const user = result.rows[0];
+                    req.login(user, (err) => {
+                        console.log("success");
+                        res.redirect("/logmenu");
+                    });
+                }
+            });
+        }
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+passport.use(
+    new Strategy(async function verify(username, password, cb) {
+        try {
+            const result = await db.query("SELECT * FROM users WHERE email = $1 ", [
+                username,
+            ]);
+            if (result.rows.length > 0) {
+                const user = result.rows[0];
+                const storedHashedPassword = user.password;
+                bcrypt.compare(password, storedHashedPassword, (err, valid) => {
+                    if (err) {
+                        //Error with password check
+                        console.error("Error comparing passwords:", err);
+                        return cb(err);
+                    } else {
+                        if (valid) {
+                            //Passed password check
+                            return cb(null, user);
+                        } else {
+                            //Did not pass password check
+                            return cb(null, false);
+                        }
+                    }
+                });
+            } else {
+                return cb("User not found");
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    })
+);
+
+passport.serializeUser((user, cb) => {
+    cb(null, user);
+});
+passport.deserializeUser((user, cb) => {
+    cb(null, user);
+});
 
 
 
@@ -314,3 +472,5 @@ app.get('/bezoekersleden', (req, res) => {
     app.listen(port, () => {
         console.log(`Server running on http://localhost:${port}`);
     });
+
+

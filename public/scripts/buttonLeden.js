@@ -102,8 +102,7 @@ async function deleteAllMembers() {
     }
 }
 
-// Voeg een event listener toe aan de knop om de functie te activeren wanneer erop wordt geklikt
-document.getElementById("deleteMembersButton").addEventListener("click", deleteAllMembers);
+
 
 function confirmCheck() {
     var confirmationInput = document.getElementById("confirmation").value;
@@ -152,39 +151,5 @@ function toggleDropdown() {
 
 
 
-const image = document.getElementById('image');
-let isDragging = false;
-let startX;
-let offsetX = 0;
-
-image.addEventListener('mousedown', startDragging);
-image.addEventListener('mousemove', drag);
-image.addEventListener('mouseup', stopDragging);
-image.addEventListener('mouseleave', stopDragging);
-
-function startDragging(e) {
-    isDragging = true;
-    startX = e.clientX - offsetX;
-}
-
-function drag(e) {
-    if (isDragging) {
-        const newX = e.clientX - startX;
-        offsetX = newX;
-        image.style.left = `${newX}px`;
-    }
-}
-
-function stopDragging() {
-    isDragging = false;
-}
 
 
-<button id="scrollToBottomBtn">Scroll naar beneden</button>
-
-
-
-document.getElementById('scrollToBottomBtn').addEventListener('click', function (event) {
-    event.preventDefault(); // Voorkomt standaardgedrag van de link
-    var targetElement = document.getElementById('bottomOfPage');
-    targetElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
