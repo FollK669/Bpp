@@ -6,7 +6,7 @@ body {
     padding-left: 12%;
     
     font-family: "Yu Gothic", serif;
-    background-image: url('/images/gr2.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
+    background-image: url('/images/back.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
     background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige achtergrond bedekt */
     background-position: center; /* Correcte gradial-gradient naar radial-gradient */
 }
