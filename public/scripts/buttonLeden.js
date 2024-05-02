@@ -107,6 +107,19 @@ function Darktheme() {
 
 
 
+function addClassToDiv() {
+    // Selecteer de div
+    var myDiv = document.getElementById('myDiv');
+
+    // Voeg de klasse toe
+    myDiv.classList.add('starWars');
+
+    // Zorg ervoor dat de standaardgedrag van de hyperlink niet wordt uitgevoerd
+    event.preventDefault();
+}
+
+
+
 window.onload = function () {
     const swipeElement = document.getElementById('swipeElement');
     const isTouchDevice = ('ontouchstart' in window || navigator.maxTouchPoints);

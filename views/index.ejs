@@ -8,12 +8,42 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="styles/main.css"rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/gh/vaibhav111tandon/vov.css@latest/vov.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-<div id="Topofpage"></div>
 
+<nav class="nav">
+  <input class="nav__trigger-input" type="checkbox" id="trigger" aria-label="open the navigation"/>
+  <label class="nav__trigger-finger" for="trigger">
+    <span></span>
+  </label>
+  <ul class="nav__list">
+    <li class="nav__item">
+      <a href="/bezoekersLeden" class="nav__link">
+        <span class="nav__text">
+         Wie is Bsharp?
+        </span>
+      </a>
+    </li>
+    <li class="nav__item">
+      <a href="/boekOns" class="nav__link">
+        <span class="nav__text">
+          Boek ons
+        </span>
+      </a>
+    </li><li class="nav__item">
+      <a href="/bezoekers" class="nav__link">
+        <span class="nav__text">
+          Historiek
+        </span>
+      </a>
+    </li>
+</nav>
+
+
+<div id="Topofpage"></div>
+<div class="vov roll-in-left fast ">
 <div class="container7">
   <div class="button-container7">
     <a href="/bezoekersLeden"><button  class="button7">      &nbsp;&nbsp;Wie is bsharp?&nbsp;&nbsp;</button></a>
@@ -21,14 +51,15 @@
     <a href="/bezoekers"><button      class="button7">       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Historiek&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</button></a>
   </div>
 </div>
+</div>
 
 
 
 <br>
       
-
+<div class="vov roll-in-left fast ">
  <img class="motivation-img" src="images/gr4.jpg" />
-
+ </div>
      
 
 <br><br>
@@ -36,11 +67,17 @@
          
       
 
-               
+       
+  <div id="myDiv"> 
+    <a href="#" class="button7"    id="addClassLink" onclick="addClassToDiv()">Wist je dat ? </a>
 
-  
+  <%- include('weetje' + randomVar + '.ejs') %>    <a href="#Topofpage" id="scrollToBottomBtn"  class="motivation-img3o"  id="scrollToBottomBtn"><br><span class="up-arrow">&#x2B06;</span></a>
+     
+     
 
-  <%- include('weetje' + randomVar + '.ejs') %>
+      <div id="bottomOfPage"></div>  
+ </div>
+
 
 
       
@@ -52,11 +89,7 @@
 
     <script src="scripts/buttonLeden.js"></script>
    
-     <a href="#Topofpage" id="scrollToBottomBtn"  class="motivation-img3o"  id="scrollToBottomBtn"><br><span class="up-arrow">&#x2B06;</span></a>
-     
-     
-
-      <div id="bottomOfPage"></div>  
+ 
       
     
     
