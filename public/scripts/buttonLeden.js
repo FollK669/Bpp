@@ -47,23 +47,7 @@ function decrement() {
 function updateLabel() {
     valueLabel.textContent = value;
 }
-function login() {
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
 
-    // Hier zou je normaal gesproken de inloggegevens naar een server sturen voor verificatie
-    // Voor dit voorbeeld controleren we gewoon of beide velden zijn ingevuld
-
-    if (username && password) {
-        // Simuleer een geslaagde inlogpoging
-        alert('Inloggen gelukt!');
-        window.location.href = '/ledenKeuzeMenu';
-        // Hier zou je de gebruiker naar een andere pagina kunnen doorsturen, of iets anders kunnen doen na het inloggen
-    } else {
-        // Toon een foutmelding als een van de velden leeg is
-        document.getElementById('error-message').innerText = 'Vul zowel gebruikersnaam als wachtwoord in.';
-    }
-}
 
 
 function toggleMenu() {
@@ -122,126 +106,70 @@ function Darktheme() {
 
 
 
-// JavaScript source code
-window.addEventListener('resize', function () {
-    var selectBox = document.getElementById('topRightSelectBox');
-    var windowHeight = window.innerHeight;
-    var windowWidth = window.innerWidth;
-    selectBox.style.top = '0';
-    selectBox.style.right = '10px';
-});
 
-// Voer de functie uit wanneer de pagina is geladen
+window.onload = function () {
+    const swipeElement = document.getElementById('swipeElement');
+    const isTouchDevice = ('ontouchstart' in window || navigator.maxTouchPoints);
 
-
-
-function toggleDropdown() {
-    var dropdownMenu = document.getElementById("myDropdown");
-    if (dropdownMenu.style.display === "block") {
-        dropdownMenu.style.display = "none";
+    if (isTouchDevice) {
+        // If touch device, create and append image element
+        const img = document.createElement('img');
+        img.src = 'images/achter.jpg';
+        img.alt = 'Swipe Me';
+        img.id = 'swipeImage';
+        swipeElement.appendChild(img);
     } else {
-        dropdownMenu.style.display = "block";
+        // If not touch device, create and append button element
+        const button = document.createElement('button');
+        button.id = 'swipeButton';
+        
+        button.onclick = handleSwipe;
+        swipeElement.appendChild(button);
     }
-}// JavaScript source code
 
+    // Add swipe handling logic
+    function handleSwipe(event) {
+        event.preventDefault();
+        let startX;
 
+        if (isTouchDevice) {
+            startX = event.touches[0].clientX;
+        } else {
+            startX = event.clientX;
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
+        }
 
-const moveableImage = document.getElementById('moveableImage');
-const targetArea = document.getElementById('targetArea');
-let isDragging = false;
-let startX = 0;
-let pageOpened = false;
+        function onMouseMove(event) {
+            const endX = event.clientX;
+            const deltaX = endX - startX;
 
-moveableImage.addEventListener('mousedown', handleMouseDown);
-moveableImage.addEventListener('mouseup', handleMouseUp);
-document.addEventListener('mousemove', handleMouseMove);
+            if (deltaX > 0) {
+                swipeElement.classList.add('swipe-right');
+            } else if (deltaX < 0) {
+                swipeElement.classList.add('swipe-left');
+            }
+        }
 
-moveableImage.addEventListener('touchstart', handleTouchStart);
-moveableImage.addEventListener('touchend', handleTouchEnd);
-document.addEventListener('touchmove', handleTouchMove);
+        function onMouseUp(event) {
+            const endX = event.clientX;
+            const deltaX = endX - startX;
 
-function handleMouseDown(event) {
-    if (!pageOpened) {
-        isDragging = true;
-        startX = event.clientX;
+            if (deltaX > 50) {
+                // Swipe right action
+                console.log('Swiped right!');
+                // Navigate to a page on right swipe
+                window.location.href = "/logmenu";
+            } else if (deltaX < -50) {
+                // Swipe left action
+                console.log('Swiped left!');
+                // Navigate to a page on left swipe
+                window.location.href = "/logmenu";
+            }
+
+            swipeElement.classList.remove('swipe-left', 'swipe-right');
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+        }
     }
-}
-
-function handleMouseUp(event) {
-    if (!pageOpened) {
-        isDragging = false;
-        const endX = event.clientX;
-        const diff = endX - startX;
-        checkSwipe(diff);
-    }
-}
-
-function handleMouseMove(event) {
-    if (isDragging && !pageOpened) {
-        moveImage(event.clientX, event.clientY);
-    }
-}
-
-function handleTouchStart(event) {
-    if (!pageOpened) {
-        isDragging = true;
-        startX = event.touches[0].clientX;
-    }
-}
-
-function handleTouchEnd(event) {
-    if (!pageOpened) {
-        isDragging = false;
-        const endX = event.changedTouches[0].clientX;
-        const diff = endX - startX;
-        checkSwipe(diff);
-    }
-}
-
-function handleTouchMove(event) {
-    if (isDragging && !pageOpened) {
-        const touch = event.touches[0];
-        moveImage(touch.clientX, touch.clientY);
-    }
-}
-
-function moveImage(x, y) {
-    moveableImage.style.left = `${x - moveableImage.offsetWidth / 2}px`;
-    moveableImage.style.top = `${y - moveableImage.offsetHeight / 2}px`;
-
-    // Check if the image overlaps with the target area
-    const imageRect = moveableImage.getBoundingClientRect();
-    const targetRect = targetArea.getBoundingClientRect();
-
-    if (
-        imageRect.left < targetRect.right &&
-        imageRect.right > targetRect.left &&
-        imageRect.top < targetRect.bottom &&
-        imageRect.bottom > targetRect.top
-    ) {
-        // Open a new page if the image overlaps with the target area
-        window.open('https://example.com', '_blank');
-        pageOpened = true; // Set pageOpened to true once the page is opened
-        // Remove event listeners to prevent further dragging/swiping
-        removeEventListeners();
-    }
-}
-
-function checkSwipe(diff) {
-    if (!pageOpened && Math.abs(diff) > 50) { // Adjust swipe threshold as needed
-        // Open a new page if swipe distance is greater than threshold
-        window.open('https://example.com', '_blank');
-        pageOpened = true; // Set pageOpened to true once the page is opened
-        // Remove event listeners to prevent further dragging/swiping
-        removeEventListeners();
-    }
-}
-
-function removeEventListeners() {
-    moveableImage.removeEventListener('mousedown', handleMouseDown);
-    moveableImage.removeEventListener('mouseup', handleMouseUp);
-    document.removeEventListener('mousemove', handleMouseMove);
-    moveableImage.removeEventListener('touchstart', handleTouchStart);
-    moveableImage.removeEventListener('touchend', handleTouchEnd);
-    document.removeEventListener('touchmove', handleTouchMove);
-}
+};
