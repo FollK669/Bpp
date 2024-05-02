@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="styles/main.css"rel="stylesheet">
+     <link href="styles/woh.css"rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/vaibhav111tandon/vov.css@latest/vov.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -18,27 +19,28 @@
   <label class="nav__trigger-finger" for="trigger">
     <span></span>
   </label>
-  <ul class="nav__list">
+ 
+  <ul class="nav__list"> 
     <li class="nav__item">
-      <a href="/bezoekersLeden" class="nav__link">
-        <span class="nav__text">
-         Wie is Bsharp?
-        </span>
-      </a>
+        
     </li>
     <li class="nav__item">
-      <a href="/boekOns" class="nav__link">
-        <span class="nav__text">
-          Boek ons
-        </span>
-      </a>
-    </li><li class="nav__item">
-      <a href="/bezoekers" class="nav__link">
-        <span class="nav__text">
-          Historiek
-        </span>
-      </a>
+        <h1>stel een vraag</h>
     </li>
+    <li class="nav__item">
+    <form class="motivation-img3B" action="/submit" method="post">
+  
+  </label>
+        <label class="button7 out" for="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Naam:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input class="button7 out"  type="text" id="name" name="name" required><br><br>
+        <label class="button7"  for="email">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E-mail:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input class="button7 out" type="email" id="email" name="email" required><br><br><br>
+        <label class="button7" for="message">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bericht:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><br><br>
+        <textarea style="height: 250px; width: 320px;"class="button7"  id="message" name="message" required></textarea><br>
+        <button class="button7"  class="button" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Verzenden&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+    </form>
+      </a>
+  
 </nav>
 
 
