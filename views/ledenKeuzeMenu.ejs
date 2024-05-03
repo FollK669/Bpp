@@ -8,45 +8,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="styles/main.css"rel="stylesheet">
-
+     <link href="styles/woh.css"rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/vaibhav111tandon/vov.css@latest/vov.css" rel="stylesheet" type="text/css">
+    
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
 </head>
 
+<body>
 
-<body class="content nav nav-pills container mt-5">
-   <a class="button7" href="/logout" role="button">Log Out</a>
-   <div class="poster">
-  <%- include('NavigatieMenuLogin.ejs') %>
-    <br /> <br />
+<nav class="nav">
+  <%- include('navmenuInlog.ejs') %>   
+</nav>
 
-       <a href="taken" class="motivation-imgB">Activiteiten/Taken</a><br>
-                       <br><br><br><br>
+       <%- include('dropdow.ejs') %>   
 
-    <a  href="Ledenlijst" class="button3">Leden Overzicht</a><a href="ledenBeheer" class="button3">Leden Beheer</a><br>
+
+
+      <div id="bottomOfPage"></div>  
+
+
+
+
+      
+
+
         
-         <br><br><br> <a href="inventaris" class="button3"">Inventaris</a>
-     
-               <a href="doodle" class="button3">Doodle</a><br>
-                  <br><br><br> <a href="financ" class="button3">Financiën</a>
-                      <a href="instellingen" class="button3">Website instellingen</a><br>
-              <br><br> <a href="muziek" class="motivation-imgB">Muziek</a>
-                  <br>
-                       <br><br><br><br><br><br>
-          
-         
-     
-
-
-
-
-       </div>
-
-
 
 
 
     <script src="scripts/buttonLeden.js"></script>
-
-
+   
+ 
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/jquery.menu-aim.js"></script> <!-- menu aim -->
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+      
+    
+    
 </body>
 
 </html>

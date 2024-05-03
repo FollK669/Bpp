@@ -7,40 +7,22 @@
     <title>Bsharp</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="styles/main.css"rel="stylesheet">
+   
      <link href="styles/woh.css"rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/vaibhav111tandon/vov.css@latest/vov.css" rel="stylesheet" type="text/css">
+    
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script>
+    <!-- Modernizr -->
+    
+    <link href="styles/main.css"rel="stylesheet">
 </head>
 
 <body>
 
 <nav class="nav">
-  <input class="nav__trigger-input" type="checkbox" id="trigger" aria-label="open the navigation"/>
-  <label class="nav__trigger-finger" for="trigger">
-    <span></span>
-  </label>
- 
-  <ul class="nav__list"> 
-    <li class="nav__item">
-        
-    </li>
-    <li class="nav__item">
-        <h1>stel een vraag</h>
-    </li>
-    <li class="nav__item">
-    <form class="motivation-img3B" action="/submit" method="post">
-  
-  </label>
-        <label class="button7 out" for="name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Naam:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <input class="button7 out"  type="text" id="name" name="name" required><br><br>
-        <label class="button7"  for="email">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E-mail:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <input class="button7 out" type="email" id="email" name="email" required><br><br><br>
-        <label class="button7" for="message">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bericht:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><br><br>
-        <textarea style="height: 250px; width: 320px;"class="button7"  id="message" name="message" required></textarea><br>
-        <button class="button7"  class="button" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Verzenden&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-    </form>
-      </a>
-  
+  <%- include('navmenu.ejs') %>   
 </nav>
 
 
@@ -73,7 +55,10 @@
   <div id="myDiv"> 
     <a href="#" class="button7"    id="addClassLink" onclick="addClassToDiv()">Wist je dat ? </a>
 
-  <%- include('weetje' + randomVar + '.ejs') %>    <a href="#Topofpage" id="scrollToBottomBtn"  class="motivation-img3o"  id="scrollToBottomBtn"><br><span class="up-arrow">&#x2B06;</span></a>
+  <%- include('weetje' + randomVar + '.ejs') %>    
+  
+  
+  <a href="#Topofpage" id="scrollToBottomBtn"  class="motivation-img3o"  id="scrollToBottomBtn"><br><span class="up-arrow">&#x2B06;</span></a>
      
      
 
@@ -83,7 +68,7 @@
 
 
       
-
+  
 
         
 
@@ -92,6 +77,9 @@
     <script src="scripts/buttonLeden.js"></script>
    
  
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/jquery.menu-aim.js"></script> <!-- menu aim -->
+<script src="js/main.js"></script> <!-- Resource jQuery -->
       
     
     
