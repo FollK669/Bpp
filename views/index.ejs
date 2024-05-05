@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bsharp</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
      <link href="styles/woh.css"rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/vaibhav111tandon/vov.css@latest/vov.css" rel="stylesheet" type="text/css">
     
@@ -28,15 +29,14 @@
 
 <div id="Topofpage"></div>
 <div class="vov roll-in-left fast ">
-<div class="container7">
-  <p style="font-family:Hhenum; font-size: 85px;">Bsharp - Jazzcombo<p>
+<div class="container7"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <p class="motivation-imgs" style="font-family:Lobster; font-size: 80px;">Bsharp - Jazzcombo<p>
 
-  
-  
+
   
 </div>
 </div>
-
+<br><br>
 <div class="vov roll-in-left fast ">
 
   <div class="h33";>
@@ -44,37 +44,43 @@
    <a href="/boekOns"><button type="button" class="btn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boek Ons&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</button></a>
    <a href="/bezoekers"><button type="button" class="btn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Historiek&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</button></a>
     </div>
-</div>
-</div>
+</div><br><br><br><br>
 
-<br>
-      
-<div class="vov roll-in-left fast ">
- <img class="motivation-img" src="images/gr.jpg" /> 
+<div class="outer-div" style=" background-image: url('/images/gr.jpg');" >
+   <br><br><br><br>
  <br><br><br>
+
+</div><br><p style="font-size: 32px;   text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313;
+" >Welkom bij Bsharp: De Jazzcombo die Haspengouw doet swingen!<p>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>
+
+
+     <% const randomVar = Math.floor(Math.random() * 4) + 1; %>
+      <div  class="outer-div" style="background-color:grey;"> 
+
+      <Br></Br>
+  <%- include('weetje' + randomVar + '.ejs') %>  
+  
+
  
- <p style="font-family:Hhenum; font-size: 35px;">Welkom bij Bsharp: De Jazzcombo die Haspengouw doet swingen!<p>
- </div>
+  
+
+     
      
 
+     
+ </div>
+ <br><br><br>
+      <div id="bottomOfPage"></div>  
+        <a href="#Topofpage" id="scrollToBottomBtn"  class="btn"  id="scrollToBottomBtn"><br><span class="up-arrow">&#x2B06;</span></a>
 <br><br>
-          <% const randomVar = Math.floor(Math.random() * 4) + 1; %>
+         
          
       
 
        
-  <div id="myDiv"> 
-    <a href="#" class="butto"    id="addClassLink" onclick="addClassToDiv()">Wist je dat ? </a>
-
-  <%- include('weetje' + randomVar + '.ejs') %>    
-  <br><br <br><br> <br><br> <br><br> <br><br> <br><br>
   
-  <a href="#Topofpage" id="scrollToBottomBtn"  class="btn"  id="scrollToBottomBtn"><br><span class="up-arrow">&#x2B06;</span></a>
-     
-     
-
-      <div id="bottomOfPage"></div>  
- </div>
 
 
 
