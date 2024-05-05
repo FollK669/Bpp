@@ -28,7 +28,7 @@ app.use(
 
 const db = new pg.Client({
     user: "world_j3vg_user",
-   host: "dpg-cojgia8cmk4c73bqv2mg-a",  ///string voor op render.com
+  host: "dpg-cojgia8cmk4c73bqv2mg-a",  ///string voor op render.com
 //host: "dpg-cojgia8cmk4c73bqv2mg-a.frankfurt-postgres.render.com", // string voor via local host
     database: "world_j3vg",
     password: "LuQNOF0WaL1Hw4LlydE1ZrDqMj24ZPfz",
