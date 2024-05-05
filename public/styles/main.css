@@ -1,11 +1,11 @@
 body {
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     padding: 1%;
     padding-right: 12%;
     padding-left: 12%;
     
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     background-image: url('/images/tp2.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
     background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige achtergrond bedekt */
     background-position: center; /* Correcte gradial-gradient naar radial-gradient */
@@ -18,7 +18,7 @@ body {
     font-weight: bold;
     text-shadow: 2px 2px 4px gray;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     text-shadow: -1px -1px 0 #141313, 1px -1px 0 #141313, -1px 1px 0 #141313, 1px 1px 0 #141313; /* Shadow effect to simulate border */
 }
 
@@ -34,7 +34,7 @@ body {
     text-shadow: 2px 2px 4px gray;
     color: black;
     display: inline;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     position: relative;
 }
 
@@ -68,7 +68,7 @@ body {
 .container77 {
     position: relative;
     width: 400px; /* width of the image container */
-    height: 300px; /* height of the image container */
+    height: 350px; /* height of the image container */
 }
 
 #moveableImage {
@@ -93,7 +93,7 @@ body {
     font-weight: bolder;
     color: burlywood;
     z-index: 250;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     text-align: center;
     margin-top: 10px; /* Ruimte tussen de knoppen */
 
@@ -105,7 +105,7 @@ body {
     font-size: 25px;
     font-weight: bolder;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     float: right;
     margin-top: 10px; /* Ruimte tussen de knoppen */
     box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
@@ -117,7 +117,7 @@ body {
     font-size: 25px;
     font-weight: bolder;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     float: right;
     margin-top: 10px; /* Ruimte tussen de knoppen */
     box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
@@ -139,8 +139,68 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     font-weight: bold;
     text-shadow: 2px 2px 4px gray;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     text-shadow: -1px -1px 0 #141313, 1px -1px 0 #141313, -1px 1px 0 #141313, 1px 1px 0 #141313; /* Shadow effect to simulate border */
+}
+
+.motivation-imgs {
+    
+    width: 100%;
+    height: 400px;
+    margin: 0 auto;
+   
+    background-size: cover; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    color: burlywood;
+    font-family: "Lobster", sans-serif;
+ 
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
+    text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313; /* Shadow effect to simulate border */
+}
+
+
+.outer-div {
+    position: relative;
+    height: 350px; /* hoogte van de buitenste div */
+    background-color: lightgray;
+    border: 7px solid #141313;
+    border-radius: 30px;
+    width: 100%;
+    margin: 0 auto;
+    color: burlywood;
+    background-size:   inherit; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 0;
+    font-family: "Lobster", sans-serif;
+    position: relative;
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
+    text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313; /* Shadow effect to simulate border */
+}
+}
+
+.inner-div {
+    position: absolute;
+    background-size: auto; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 0; /* plaats de onderkant van de binnenste div aan de onderkant van de buitenste div */
+    transform: translateX(-50%); /* verschuif de binnenste div naar links met 50% van zijn eigen breedte om het volledig in het midden te plaatsen */
+    background-color: darkgray;
+    padding: 20px;
+    border: 7px solid #141313;
+    border-radius: 30px;
+    width: 100%;
+    height: 350px;
+    bottom: 0;
+    color: burlywood;
+    font-family: "Lobster", sans-serif;
+    font-size: 55px;
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
+    text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313; /* Shadow effect to simulate border */
+}
 }
 
 .motivation-img {
@@ -149,7 +209,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     width: 100%;
     margin: 0 auto;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     position: relative;
     box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
     text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313; /* Shadow effect to simulate border */
@@ -225,7 +285,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     height: 15%;
     display: block;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
 
 
 
@@ -248,7 +308,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     font-size: 35px;
     font-weight: bolder;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     background: radial-gradient(circle,#333333,#eb4034 );
     /*background: radial-gradient(circle, #333333, #eb4034,#333333);*/
     float: right;
@@ -264,7 +324,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     font-size: 35px;
     font-weight: bolder;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     background: radial-gradient(circle,#333333,#eb4034 );
     /*background: radial-gradient(circle, #333333, #eb4034,#333333);*/
     float: left;
@@ -280,7 +340,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     font-size: 35px;
     font-weight: bolder;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     background: radial-gradient(circle,#333333,#eb4034 );
     /*background: radial-gradient(circle, #333333, #eb4034,#333333);*/
 
@@ -295,19 +355,6 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
         border-radius: 35px;
     }
 
-@media only screen and (max-width: 1080px) {
-    .button2 {
-        font-size: 35px;
-        animation: slide-out 1.5s ease forwards;
-    }
-
-        .button2.large {
-            font-size: 48px; /* Stel de gewenste grootte in */
-            border-radius: 35px;
-            animation: slide-in 1.5s ease forwards;
-        }
-
-}
 
 
 
@@ -381,43 +428,6 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
 
 
 
-@media only screen and (max-width: 920px) {
-
-}
-
-@media only screen and (min-width: 1180px) {
-    body {
-        padding-right: 15%;
-        padding-left: 15%;
-    }
-
-}
-
-@media only screen and (min-width: 921px) {
-    body {
-        padding-right: 15%;
-        padding-left: 15%;
-    }
-
-}
-
-@media only screen and (min-width: 1921px) {
-    body {
-        padding-right: 25%;
-        padding-left: 25%;
-    }
-
-    
-}
-
-
-@media only screen and (max-width: 580px) {
-    
-}
-
-@media only screen and (max-width: 520px) {
-   
-}
 
 
 
@@ -566,7 +576,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
 
     margin: 0 auto;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     position: relative;
 }
 
@@ -574,16 +584,16 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
 
 
 .container7 {
-    background-image: url('/images/tp4.jpg');
-    background-size: contain;
+    background-image: url('/images/tpB.jpg');
+    background-size: cover;
     background-position: center;
     background-color: black;
-    height: 450px;
+    height: 350px;
     background-repeat: no-repeat;
     font-size: 1.2em;
     text-align: center;
     position: center;
-    background-size: initial; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
+  /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
@@ -604,7 +614,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     width: 100%;
     margin: 0 auto;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-sans-serif;
     position: relative;
 
 }
@@ -619,7 +629,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     font-size: 25px;
     font-weight: bolder;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-sans-serif;
     background: radial-gradient(circle, #333333, #eb4034);
     margin-top: 10px; /* Ruimte tussen de knoppen */
     box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
@@ -662,7 +672,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     width: 100%;
     margin: 0 auto;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
 }
 
 
@@ -673,7 +683,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     margin: 0 auto;
     float: left;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313; /* Shadow effect to simulate border */
 }
 .small-img7 {
@@ -683,7 +693,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     margin: 0 auto;
     color: burlywood;
     animation: marquee-scrollDown 15s linear infinite;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313; /* Shadow effect to simulate border */
 }
 
@@ -695,7 +705,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     display: inline;
     margin: 0 auto;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
 }
 
 
@@ -710,7 +720,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     height: 100px;
     margin: 0 auto;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
 }
 
 
@@ -755,7 +765,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     font-size: 22px;
     font-weight: bolder;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     background: radial-gradient(circle,#eb4034,#571a13);
     margin-right: 5%;
     text-decoration: wavy;
@@ -771,7 +781,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     width: 35%;
     margin: 0 auto;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
     text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313; /* Shadow effect to simulate border */
 }
@@ -833,7 +843,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     width: 100%;
     margin: 0 auto;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     position: relative;
     box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
     text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313; /* Shadow effect to simulate border */
@@ -852,7 +862,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     align-items: end;
     padding: 1px;
     margin: 1px;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     font-size: 22px;
     color: burlywood;
     font-weight: bolder;
@@ -869,7 +879,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     width: 100%;
     margin: 0 auto;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     position: relative;
     background-image: url('/images/top8.jpg');
     background-size: cover; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
@@ -890,7 +900,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     float: right;
     width: 100%;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     font-size: 1.2em;
     text-align: center;
     position: center;
@@ -909,7 +919,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     float: right;
     width: 100%;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     font-size: 1.2em;
     text-align: center;
     position: center;
@@ -929,7 +939,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     float: right;
     width: 100%;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     font-size: 1.2em;
     text-align: center;
 
@@ -952,7 +962,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
   
    
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     font-size: 1.2em;
     text-align: center;
     position: center;
@@ -971,7 +981,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     height: 6%;
     width: 100%;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     font-size: 1em;
     text-align: center;
     position: center;
@@ -991,7 +1001,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     float: inline-end;
     width: 100%;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     font-size: 4em;
     background-image: url('/images/topj.jpg');
     background-size: cover; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
@@ -1018,7 +1028,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     color: burlywood;
     padding-left: 55px;
 
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     font-size: 1.5em;
 
     background-size: cover; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
@@ -1033,7 +1043,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
    height: 80px;
    float: inherit;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     font-size: 3em;
  
     background-color: transparent;
@@ -1049,7 +1059,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     height: 6%;
     width: 50%;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     position: center;
     background-size: cover; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
     background-position: center;
@@ -1066,11 +1076,11 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
 h1, h2, .ppp, .pp3, .pp, .pp2 {
     text-transform: uppercase;
     font-size: 2rem;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     font-weight: bold;
     text-shadow: 2px 2px 4px gray;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     text-shadow: -1px -1px 0 #141313, 1px -1px 0 #141313, -1px 1px 0 #141313, 1px 1px 0 #141313; /* Shadow effect to simulate border */
 }
 
@@ -1083,7 +1093,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
 p {
     font-size: 1.15rem;
     text-align: center;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     font-weight: bold;
     text-shadow: 2px 2px 4px gray;
     color: burlywood;
@@ -1093,7 +1103,7 @@ p {
     /* Paragraafstijlen */
     .ppp {
         font-size: 1rem;
-        font-family: "Hhenum", serif;
+        font-family: "Lobster", sans-serif;
     }
 
     /* Container */
@@ -1121,7 +1131,7 @@ p {
         color: burlywood;
         padding: 2px, 2px, 2px, 2px;
         border: inherit;
-        font-family: "Hhenum", serif;
+        font-family: "Lobster", sans-serif;
         cursor: pointer;
         width: 0; /* Begin met een breedte van 0 */
         transition: width 0.7s ease; /* Voeg een overgang toe voor een vloeiende animatie */
@@ -1135,7 +1145,7 @@ p {
             border-color: white;
             color: burlywood;
             border-width: 3px;
-            font-family: "Hhenum", serif;
+            font-family: "Lobster", sans-serif;
             color: burlywood;
             
             transform: scale(1.1); /* Bij hover vergroot de grootte */
@@ -1161,7 +1171,7 @@ p {
         font-size: 0.8rem;
         width: 150px;
         text-align: right;
-        font-family: "Hhenum", serif;
+        font-family: "Lobster", sans-serif;
         font-weight: bold;
         text-shadow: 2px 2px 4px gray;
 
@@ -1172,7 +1182,7 @@ p {
 
     li {
         font-size: 1rem;
-        font-family: "Hhenum", serif;
+        font-family: "Lobster", sans-serif;
         font-weight: bold;
         width: auto;
        
@@ -1204,7 +1214,7 @@ p {
         margin-left: 5%;
         margin-right: 5%;
         margin-top: 10px;
-        font-family: "Hhenum", serif;
+        font-family: "Lobster", sans-serif;
         text-align: center;
     }
 
@@ -1221,14 +1231,14 @@ p {
     height: auto;
     overflow: auto;
     transition: 0.5s;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     max-width: 100%;
 }
 
         .sidebar ul {
             list-style: none;
             padding: 10px;
-            font-family: "Hhenum", serif;
+            font-family: "Lobster", sans-serif;
             width: 100px;
             max-width: 100%;
             
@@ -1238,13 +1248,13 @@ p {
                 padding: 15px;
                 width: 100px;
                 max-width: 100%;
-                font-family: "Hhenum", serif;
+                font-family: "Lobster", sans-serif;
                 
             }
 
                 .sidebar ul li a {
                     font-size: 1rem;
-                    font-family: "Hhenum", serif;
+                    font-family: "Lobster", sans-serif;
                     font-weight: normal;
                     text-decoration: underline;
                     text-decoration-color: white;
@@ -1260,7 +1270,7 @@ p {
         width: 190%;
         text-decoration: underline;
         font-size: 1rem;
-        font-family: "Hhenum", serif;
+        font-family: "Lobster", sans-serif;
         font-weight: normal;
         text-decoration-color: white;
         text-shadow: 2px 2px 4px gray;
@@ -1281,7 +1291,7 @@ p {
 * {
     margin: 0;
     box-sizing: border-box;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
 }
 
 .nav {
@@ -1289,7 +1299,7 @@ p {
     
     font-weight: bolder;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     margin-top: 25px; /* Ruimte tussen de knoppen */
     box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
     text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313;
@@ -1577,7 +1587,7 @@ main {
     font-size: 45px;
     font-weight: bolder;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     margin-top: 25px; /* Ruimte tussen de knoppen */
     box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
     text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313;
@@ -1753,23 +1763,23 @@ main2 {
     background-image: linear-gradient(to bottom, #f21111, #050303);
     -webkit-border-radius: 18;
     -moz-border-radius: 18;
-    border-radius: 18px;
+    border-radius: 8px;
     text-shadow: 9px 9px 11px #666666;
     -webkit-box-shadow: 0px 11px 30px #666666;
     -moz-box-shadow: 0px 11px 30px #666666;
     box-shadow: 0px 11px 30px #666666;
     font-family: Courier New;
     color: #ffffff;
-    font-size: 37px;
-    padding: 19px;
+   
+    padding: 5px;
     border: solid #333333 3.5px;
     text-decoration: none;
     background-image: url('/images/buttonback.jpg');
     background-size: cover;
-    font-size: 25px;
+    font-size: 32px;
     font-weight: bolder;
     color: burlywood;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     display: flex;
     display: inline-block;
     justify-content: center;
@@ -1787,6 +1797,7 @@ main2 {
         text-decoration: none;
         background-size: cover;
         background-position: center;
+        border: solid #570606 3.5px;
     }
 
 
@@ -2051,7 +2062,7 @@ a {
 h1, h2, h3,
 h4, h5, h6 {
     color: red;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lobster", sans-sans-serif;
     margin: 0;
     line-height: 1.3;
 }
@@ -2125,7 +2136,7 @@ textarea, label {
 .btn-primary {
     background-color: white;
     border: 0;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lobster", sans-sans-serif;
     font-weight: 700;
     height: 48px;
     line-height: 50px;
@@ -2135,7 +2146,7 @@ textarea, label {
 
     .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:focus {
         background-color: white;
-    }style="background-image: url(images/gr4.jpg)";
+    }
 
 .btn-border {
     border: 1px solid red;
@@ -2397,7 +2408,7 @@ textarea, label {
 }
 
     .page-nav span {
-        font-family: "Open Sans", sans-serif;
+        font-family: "Lobster", sans-sans-serif;
         font-size: 14px;
         font-weight: 500;
         line-height: 0.9;
@@ -2613,7 +2624,7 @@ textarea, label {
         display: block;
    
         font-size: 19px;
-        font-family: "Hhenum", serif;
+        font-family: "Lobster", sans-serif;
         letter-spacing: 1px;
         line-height: 24px;
         background-color: red;
@@ -2663,17 +2674,6 @@ textarea, label {
     }
 
 
-@media (min-width: 1200px) {
-    .col-lg-offset-2 {
-        margin-left: 16.66666667%;
-    }
-}
-
-@media (min-width: 1200px) {
-    .col-lg-8 {
-        width: 66.66666667%;
-    }
-}
 
 .hexagon-item:first-child {
     margin-left: 0;
@@ -2732,26 +2732,6 @@ textarea, label {
 
 
 
-@media only screen and (max-width: 767px) {
-    .hexagon-item {
-        transform:scale(0.8);
-        float: none;
-        margin: 0 auto 50px;
-
-    }
-
-        .hexagon-item:first-child {
-            margin-left: auto;
-        }
-
-    .page-home .hexagon-item:nth-last-child(1), .page-home .hexagon-item:nth-last-child(2), .page-home .hexagon-item:nth-last-child(3) {
-        -webkit-transform: rotate(30deg) translate(0px, 0px);
-        -moz-transform: rotate(30deg) translate(0px, 0px);
-        -ms-transform: rotate(30deg) translate(0px, 0px);
-        -o-transform: rotate(30deg) translate(0px, 0px);
-        transform: rotate(30deg) translate(0px, 0px);
-    }
-}
 
 
 
@@ -2767,7 +2747,7 @@ textarea, label {
     background-position: center;
     margin: 10px;
     color: red;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     font-weight: bolder;
     font-size: 25px;
     height: 50%;
@@ -2796,7 +2776,7 @@ textarea, label {
     background-position: center;
     margin: 10px;
     color: red;
-    font-family: "Hhenum", serif;
+    font-family: "Lobster", sans-serif;
     font-weight: bolder;
     font-size: 25px;
     height: 30%;
@@ -2952,4 +2932,27 @@ textarea, label {
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
     margin-top: 6em;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 767px) {
+
+    .container7{
+        height: 270px;
+    }
+
+    .outer-div {
+        height: 270px;
+    }
+
+    .btn{
+        font-size: 22px;
+
+
+    }
+
 }
