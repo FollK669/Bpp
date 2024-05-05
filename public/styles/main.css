@@ -4,9 +4,9 @@ body {
     padding: 1%;
     padding-right: 12%;
     padding-left: 12%;
-    overflow: auto;
+    
     font-family: "Yu Gothic", serif;
-    background-image: url('/images/back.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
+    background-image: url('/images/tp2.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
     background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige achtergrond bedekt */
     background-position: center; /* Correcte gradial-gradient naar radial-gradient */
 }
@@ -26,6 +26,7 @@ body {
 .butto {
     width: 200px;
     height: 65px;
+    border-radius: 21px;
     float: left;
     z-index: 5;
     font-size: 1em;
@@ -530,13 +531,40 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     }
 }
 
+.con7 {
 
+    background-size: contain;
+    background-position: center;
+    height: 75px;
+    background-repeat: no-repeat;
+    font-size: 1.2em;
+    text-align: center;
+    position: center;
+    background-size: initial; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
+    background-position: center;
+    background-repeat: no-repeat;
+    text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313; /* Shadow effect to simulate border */
+    animation: slide-in 1.5s ease forwards;
+    z-index: 5;
+    display: flex; /* Gebruik flexbox om de knoppen te positioneren */
+    flex-direction: column; /* Plaats de knoppen in een kolom */
+    justify-content: flex-end; /* Plaats de knoppen onderaan de div */
+    align-items: center; /* Horizontaal centreren */
+    /* Ruimte binnen de container */
+
+
+
+    margin: 0 auto;
+    color: burlywood;
+    font-family: "Yu Gothic", serif;
+    position: relative;
+}
 
 
 
 
 .container7 {
-    background-image: url('/images/rock.png');
+    background-image: url('/images/tp4.jpg');
     background-size: contain;
     background-position: center;
     height: 450px;
@@ -1402,7 +1430,7 @@ p {
     bottom: 0;
     right: 0;
     z-index: -1;
-    background-image: url('/images/rock.png'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
+    background-image: url('/images/tp2.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
     background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige achtergrond bedekt */
     background-position: center;
     font-size: 5rem;
@@ -1863,7 +1891,7 @@ main2 {
     .container55 button {
         position: absolute;
         background: white;
-        color; red;
+      
         width: 100%;
         transition: 0.5s;
     }
@@ -1904,15 +1932,7 @@ main2 {
 
 
 
-body {
-    font-family: "Libre Baskerville", serif;
-    font-weight: 400;
-    font-size: 16px;
-   
-    background-color: #0c0f15;
-    overflow-x: hidden;
-    color: white;
-}
+
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -1921,8 +1941,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background-color: red;
-    background-image: -webkit-linear-gradient(45deg,rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
-}
+   }
 
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
@@ -1971,13 +1990,13 @@ p {
  * Selection color
  */
 ::-moz-selection {
-    background-color: #FA6862;
+    background-color: white;
     color: #fff;
 }
 
 ::selection {
-    background-color: #FA6862;
-    color: #fff;
+    background-color: white;
+    color: red;
 }
 
 /*
@@ -2026,7 +2045,7 @@ textarea, label {
     }
 
 .btn-primary {
-    background-color: #FA6862;
+    background-color: white;
     border: 0;
     font-family: "Open Sans", sans-serif;
     font-weight: 700;
@@ -2037,11 +2056,11 @@ textarea, label {
 }
 
     .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:focus {
-        background-color: #f9423a;
+        background-color: white;
     }style="background-image: url(images/gr4.jpg)";
 
 .btn-border {
-    border: 1px solid #d7d8db;
+    border: 1px solid red;
     display: inline-block;
     padding: 7px;
 }
@@ -2083,7 +2102,7 @@ textarea, label {
 
 .primary,
 .link:hover {
-    color: #FA6862;
+    color: red;
 }
 
 .no-gutter {
@@ -2121,7 +2140,7 @@ textarea, label {
 }
 
 .nicescroll-cursors {
-    background: #FA6862 !important;
+    background: red !important;
 }
 
 .preloader {
@@ -2203,7 +2222,7 @@ textarea, label {
 }
 
 .site-wrapper {
-    border-top: 4px solid #ff0037;
+    border-top: 4px solid white;
 }
 
 .page-close {
@@ -2238,7 +2257,7 @@ textarea, label {
     }
 
     .page-title .title-bg {
-        color: rgba(30, 37, 48, 0.07);
+        color: white;
         font-size: 158px;
         left: 0;
         letter-spacing: 10px;
@@ -2274,13 +2293,13 @@ textarea, label {
         }
 
         .section-title h3::before {
-            background-color: #1e2530;
+            background-color: white;
             width: 96px;
             bottom: 14px;
         }
 
         .section-title h3::after {
-            background-color: #FA6862;
+            background-color: white;
             width: 73px;
         }
 
@@ -2324,8 +2343,8 @@ textarea, label {
 }
 
     .page-home .overlay {
-        background-color: rgba(14, 17, 24, 0.97);
-        background-image: urlurl(images/gr4.jpg);
+        background-color: white;
+        background-image: url(images/gr4.jpg);
         
     }
 
@@ -2378,7 +2397,7 @@ textarea, label {
 
         .hexagon-item:hover .hex-item div::before,
         .hexagon-item:hover .hex-item div::after {
-            background-color: #ff0037;
+            background-color: white;
         }
 
         .hexagon-item:hover .hex-content svg {
@@ -2439,7 +2458,7 @@ textarea, label {
     }
 
         .hex-item div::before, .hex-item div::after {
-            background-color: #1e2530;
+            background-color: white;
             content: "";
             position: absolute;
             width: 100%;
@@ -2483,7 +2502,7 @@ textarea, label {
         }
 
 .hex-content {
-    color: #fff;
+    color: white;
     display: block;
     height: 180px;
     margin: 0 auto;
@@ -2514,10 +2533,12 @@ textarea, label {
 
     .hex-content .title {
         display: block;
-        font-family: "Open Sans", sans-serif;
-        font-size: 14px;
+   
+        font-size: 19px;
+        font-family: "Yu Gothic", serif;
         letter-spacing: 1px;
         line-height: 24px;
+        background-color: red;
         text-transform: uppercase;
     }
 
@@ -2534,7 +2555,8 @@ textarea, label {
     }
 
     .hex-content:hover {
-        color: #fff;
+        color: white;
+
     }
 
 .page-home .hexagon-item:nth-last-child(1), .page-home .hexagon-item:nth-last-child(2), .page-home .hexagon-item:nth-last-child(3) {
@@ -2587,7 +2609,7 @@ textarea, label {
 
 
 .hexagon-item:hover .icon i {
-    color: #ff0037;
+    color: white;
     transition: 0.6s;
 }
 
@@ -2634,8 +2656,10 @@ textarea, label {
 
 @media only screen and (max-width: 767px) {
     .hexagon-item {
+        transform:scale(0.8);
         float: none;
         margin: 0 auto 50px;
+
     }
 
         .hexagon-item:first-child {
@@ -2652,3 +2676,202 @@ textarea, label {
 }
 
 
+
+
+
+
+.headshot2 {
+    flex-shrink: 0;
+    background-image: linear-gradient(grey, red);
+    --img-url: url('/images/sax.png');
+    /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
+    background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige achtergrond bedekt */
+    background-position: center;
+    margin: 10px;
+    color: red;
+    font-family: "Yu Gothic", serif;
+    font-weight: bolder;
+    font-size: 25px;
+    height: 50%;
+    width: 35%;
+    z-index: 115;
+    border: calc(8px + 0.2vw) solid transparent;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-size: cover;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+
+
+.headshot {
+    flex-shrink: 0;
+    z-index: 145;
+    background-image: linear-gradient(grey, red);
+    --img-url: url('/images/Erwin-6.jpg');
+    /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
+    background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige achtergrond bedekt */
+    background-position: center;
+    margin: 10px;
+    color: red;
+    font-family: "Yu Gothic", serif;
+    font-weight: bolder;
+    font-size: 25px;
+    height: 30%;
+    width: 5%;
+    border: calc(8px + 0.2vw) solid transparent;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-size: cover;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.headshot-1 {
+    border-radius: 30%;
+    background-image: var(--img-url), linear-gradient(grey, red);
+    
+}
+
+.headshot-2 {
+
+    border-radius: 20%;
+    background-image: var(--img-url), linear-gradient(to bottom right, red, grey, red);
+}
+
+.headshot-3 {
+    border-radius: 50% 10%;
+    background-image: var(--img-url), linear-gradient(to bottom left, #f83600, #f9d423);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.o-title--primary {
+    font-size: 3em;
+    font-family: Lora;
+    font-weight: 400;
+    text-align: center;
+    color: #979c9c;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    margin-top: -1.5em;
+}
+
+.c-links {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.btn--corners {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 2px;
+    font-size: 18px;
+    text-align: center;
+    vertical-align: top;
+    font-weight: 400;
+    border: 2px solid #962d3e;
+}
+
+    .btn--corners:not(:last-child) {
+        margin-right: 2px;
+    }
+
+    .btn--corners::before,
+    .btn--corners::after {
+        content: "";
+        position: absolute;
+        background-color: #343642;
+        z-index: 0;
+        transition: 200ms ease-in;
+        transform-origin: center center;
+    }
+
+.c-links:target .btn--corners::before,
+.c-links:target .btn--corners::after {
+    background-color: rgba(0, 0, 0, 0.6);
+    transition-duration: 600ms;
+}
+
+.btn--corners::before {
+    width: calc(100% + 2px * 2 - 10px);
+    height: calc(100% + 2px * 2);
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn--corners::after {
+    height: calc(100% + 2px * 2 - 10px);
+    width: calc(100% + 2px * 2);
+    left: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn--corners:hover::before {
+    width: 0;
+}
+
+.btn--corners:hover::after {
+    height: 0;
+}
+
+.btn--corners a {
+    position: relative;
+    display: inline-block;
+    color: #979c9c;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 1em;
+    font-size: 0.7em;
+    padding: 5px 20px;
+    margin: 0 2px;
+    z-index: 1;
+}
+
+    .btn--corners a::after {
+        content: attr(data-number);
+        display: block;
+        font-family: Lora;
+        font-style: italic;
+    }
+
+.btn--primary {
+    background: #962d3e;
+    color: #979c9c;
+    padding: 10px 40px;
+    text-decoration: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    margin-top: 6em;
+}

@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Permanent Marker", cursive;
+}
+
+.section {
+    align-items: center;
+    background: url("/images/Erwin-10.jpg") no-repeat center;
+    
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    padding: 1rem;
+    position: sticky;
+    width: 100%;
+    z-index: -1;
+}
+
+    .section:nth-child(2) {
+        background-image: url("/images/Erwin-36.jpg");
+        z-index: -2;
+    }
+
+    .section:nth-child(3) {
+        background-image: url("/images/Erwin-33.jpg");
+        z-index: -3;
+    }
+
+    .section:last-child {
+        background-image: url("/images/Erwin-12.jpg");
+        z-index: -4;
+    }
+
+.title {
+    color: #fff;
+    font-size: 5rem;
+    text-stroke: 0.1px #000;
+    -webkit-text-stroke: 1px #000;
+}
+
+@supports not (-webkit-text-stroke: 1px #000) {
+    .title {
+        text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+}
