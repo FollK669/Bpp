@@ -5,7 +5,7 @@ body {
     padding-right: 12%;
     padding-left: 12%;
     font-family: "Lobster", sans-serif;
-    background-image: url('/images/baking.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
+    background-image: url('/images/baking3.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
     background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige achtergrond bedekt */
     background-position: center; /* Correcte gradial-gradient naar radial-gradient */
 }
@@ -155,7 +155,6 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     color: burlywood;
     font-family: "Lobster", sans-serif;
  
-    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
     text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313; /* Shadow effect to simulate border */
 }
 
@@ -164,9 +163,10 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     position: relative;
     height: 350px; /* hoogte van de buitenste div */
     background-color: black;
-    background-image: url('/images/redder.jpg');
+    background-image: url('/images/grr2.jpg');
     border-radius: 30px;
-    width: 100%;
+    width: 450px;
+    height: 300px;
     margin: 0 auto;
     color: burlywood;
     background-size: inherit; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
@@ -182,9 +182,9 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
     position: relative;
     height: 350px; /* hoogte van de buitenste div */
     background-color: black;
-
     border-radius: 30px;
-    width: 100%;
+    width: 450px;
+    height: 300px;
     margin: 0 auto;
     color: burlywood;
     background-size: inherit; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
@@ -199,8 +199,9 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
 
 .inner-div {
     position: absolute;
-    background-image: url('/images/redder.jpg');
-    background-size: auto; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
+    background-image: url('/images/grr2.jpg');
+    width : 250px;
+    height: 200px;
     background-position: center;
     background-repeat: no-repeat;
     bottom: 0; /* plaats de onderkant van de binnenste div aan de onderkant van de buitenste div */
@@ -221,7 +222,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
 
 .inner-div2 {
     position: absolute;
-    background-image: url('/images/redder.jpg');
+    background-image: url('/images/grr2.jpg');
     background-size: auto; /* De achtergrondafbeelding bedekt het volledige gebied van de div zonder uit te rekken */
     background-position: center;
     background-repeat: no-repeat;
@@ -621,7 +622,7 @@ h1, h2, .ppp, .pp3, .pp, .pp2 {
 
 
 .container7 {
-    background-image: url('/images/tp9.jpg');
+    background-image: url('/images/tp99.jpg');
     background-size: cover;
     background-position: center;
     background-color: black;
@@ -3040,14 +3041,14 @@ textarea, label {
 
 
     .outer-div {
-        background-image: url('/images/redder.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
-        background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige achtergrond bedekt */
-        background-position: center;
+        background-image: url('/images/grr2.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
+        width: 450px;
+        height: 300px;
     }
 
     .inner-div {
-        background-image: url('/images/redder.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
-        background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige achtergrond bedekt */
-        background-position: center;
+        background-image: url('/images/grr2.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
+        width: 450px;
+        height: 300px;
     }
 }
