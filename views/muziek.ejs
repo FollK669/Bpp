@@ -8,32 +8,93 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="styles/main.css"rel="stylesheet">
-
+     <link href="styles/woh.css"rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/vaibhav111tandon/vov.css@latest/vov.css" rel="stylesheet" type="text/css">
+    
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
 </head>
 
+<body>
 
-<body class="content nav nav-pills container mt-5">
 
-   <div class="poster">
-  <%- include('NavigatieMenuLogin.ejs') %>
-    <br /> <br />
 
+
+<nav class="nav">
+  <%- include('navmenuInlog.ejs') %>   
+</nav>
+
+
+
+
+       <%- include('dropdow.ejs') %>   
        
+       <br><br><br><br>
 
-     <br> <a  href="Ledenlijst" class="motivation-imgB">Partituren</a><br>
-        <br><br><br> <a href="Ledenlijst" class="motivation-imgB">Playlist</a><br>
-         <br><br><br> <a href="Ledenlijst" class="motivation-imgB">Nummer info</a><br>
-     
-            
-                 
+       <div class="button2"> info overzicht</div>
+
+       <div class="button7">
+  <p>Ain't no sunshine 03m 20s Slow<br>
+  All of me 03m 20s Jazz<br>
+  Angel eyes 05m 00s Jazz<br>
+  Apache 05m 30s Pop<br>
+  Autumn leave’s 05m 30s Jazz<br>
+  Bei mir bist du schôn 04m 10s Jazz<br>
+  Black Orpheus 03m 40s Jazz<br>
+  Cry me a river 05m 20s Jazz<br>
+  C’est si bon 05m 10s Jazz<br>
+  Feeling good 04m 40s Jazz<br>
+  Fever 05m 10s Rock 'n' Roll<br>
+  Fly me to the moon 04m 05s Jazz<br>
+  Georgia on my mind 03m 54s Jazz<br>
+  Green Onions 05m 20s Rock 'n' Roll<br>
+  Hide away 05m 20s Rock 'n' Roll<br>
+  Hit the road Jack 03m 50s Pop<br>
+  House of rising sun 04m 00s Swing<br>
+  How high the moon 04m 50s Jazz<br>
+  Imagine 04m 45s Slow<br>
+  Johnny be goode 04m 40s Rock 'n' Roll<br>
+  Kenny's Blues 05m 00s Blues<br>
+  Misty 05m 10s Jazz<br>
+  Stand By Me 04m 40s Slow<br>
+  Summertime 04m 50s Swing<br>
+  T bone Shuffle 04m 00s Swing<br>
+  What a wonderful world 04m 14s Slow<br>
+</p>
+</div>
 
 
+      
+
+
+
+
+
+
+
+
+      <div id="bottomOfPage"></div>  
+
+
+
+
+      
+
+
+        
 
 
 
     <script src="scripts/buttonLeden.js"></script>
-
-
+   
+ 
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/jquery.menu-aim.js"></script> <!-- menu aim -->
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+      
+    
+    
 </body>
 
 </html>

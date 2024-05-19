@@ -8,11 +8,17 @@ const { Strategy } = require("passport-local");
 const session = require("express-session");
 const env = require("dotenv");
 const nodemailer = require('nodemailer');
+const multer = require('multer');
+const fs = require('fs'); // Import fs module
+const path = require('path');
+const sharp = require('sharp');
+
+
 
 const app = express();
 const port = 3000;
 env.config();
-
+const upload = multer({ dest: 'uploads/' });
 
 app.use(
     session({
@@ -38,7 +44,7 @@ const db = new pg.Client({
     }
 });
 
-db.connect();
+db.connect(); 
 
 
 
@@ -63,7 +69,7 @@ app.use('/views', express.static('views'));
 
 app.get("/", async (req, res) => {
 
-        res.render('index.ejs'); // Geef de variabele users door aan de weergave
+        res.render('index.ejs'); // Geef de variabele leden door aan de weergave
   
 });
 
@@ -114,7 +120,7 @@ app.get('/bezoekersleden', (req, res) => {
 
 
 /////////////////////////////////////
-/************* Login-out GET  ************ */
+/************* Log-out GET  ************ */
 /////////////////////////////////////
 
 app.get("/logout", (req, res) => {
@@ -128,7 +134,7 @@ app.get("/logout", (req, res) => {
 
 
 //////////////////////////////////////////////////////
-/************* GET routes zonder LOGIN ************ */
+/************* GET routes MET LOGIN ************ */
 ///////////////////////////////////////////////////
 
 app.get("/login2", (req, res) => {
@@ -140,16 +146,7 @@ app.get("/login2", (req, res) => {
     }
 });
 
-app.get("/Ledenlijst", async (req, res) => {
-    try {
-        const result = await db.query("SELECT * FROM leden");
-        const users = result.rows; // Gebruik de rijen die zijn opgehaald uit de database
-        res.render("ledenlijst.ejs", { users: users }); // Geef de variabele users door aan de weergave
-    } catch (error) {
-        console.error("Error fetching data:", error);
-        res.status(500).send("Internal Server Error");
-    }
-});
+
 
 
 
@@ -157,7 +154,7 @@ app.get("/ledenBeheer", async (req, res) => {
     try {
         const result = await db.query("SELECT * FROM leden");
         const users = result.rows; // Gebruik de rijen die zijn opgehaald uit de database
-        res.render("ledenBeheer.ejs", { users: users }); // Geef de variabele users door aan de weergave
+        res.render("ledenBeheer.ejs", { users: users }); // Geef de variabele leden door aan de weergave
     } catch (error) {
         console.error("Error fetching data:", error);
         res.status(500).send("Internal Server Error");
@@ -181,7 +178,7 @@ app.get("/leden/:lid_nr", async (req, res) => {
             return;
         }
         const user = result.rows[0]; // Gebruik de eerste rij die is opgehaald uit de database
-        res.render("leden", { user: user }); // Geef de gebruikersgegevens door aan de weergave
+        res.render("users", { users: users }); // Geef de gebruikersgegevens door aan de weergave
     } catch (error) {
         console.error("Fout bij het ophalen van gegevens:", error);
         res.status(500).send("Interne serverfout");
@@ -192,11 +189,79 @@ app.get("/leden/:lid_nr", async (req, res) => {
 app.get("/ledenKeuzeMenu", (req, res) => {
     // console.log(req.user);
     if (req.isAuthenticated()) {
-        res.render("ledenKeuzeMenu.ejs");
+        res.render("ledenKeuzeMenu.ejs", { user: req.user });
     } else {
         res.redirect("/logmenu");
     }
 });
+
+
+app.get('/ledenlijst', async (req, res) => {   // Log the session data
+    console.log(req.session);
+
+    // Log the user data
+    console.log(req.user);
+
+    // Check if the user is authenticated
+    if (!req.isAuthenticated()) {
+        res.redirect("/logmenu");
+        return;
+    }
+
+    const email = req.user.email;
+
+    try {
+        const result = await db.query("SELECT * FROM users WHERE email = $1", [email]);
+
+        if (result.rows.length > 0) {
+            const user = result.rows[0];
+            delete user.password; // Convert binary data to base64
+            const imageBase64 = Buffer.from(user.afbeelding).toString('base64');
+
+            // Create a data URL
+            const imageUrl = `data:image/jpeg;base64,${imageBase64}`;
+
+            // Add the imageUrl to the user object
+            user.imageUrl = imageUrl;
+
+            res.render('ledenlijst.ejs', { user: user });
+        } else {
+            res.status(404).send('User not found.');
+        }
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('An error occurred.');
+    }
+});
+
+
+
+
+app.get('/afbeelding/:id', async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        const query = 'SELECT naam, afbeelding FROM afbeeldingen WHERE id = $1';
+        const result = await pool.query(query, [id]);
+
+        if (result.rows.length > 0) {
+            const afbeeldingBinair = result.rows[0].afbeelding;
+
+            // Stuur de afbeelding als respons
+            res.writeHead(200, {
+                'Content-Type': 'image/jpeg',
+                'Content-Length': afbeeldingBinair.length
+            });
+            res.end(afbeeldingBinair);
+        } else {
+            res.status(404).send('Afbeelding niet gevonden.');
+        }
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Er is iets misgegaan.');
+    }
+});
+
 
 
 
@@ -341,6 +406,41 @@ app.get('/Newlid', (req, res) => {
     });
 
 
+app.post('/update-profile', async (req, res) => {
+    // Check if the user is authenticated
+    if (!req.isAuthenticated()) {
+        res.redirect("/logmenu");
+        return;
+    }
+
+    const { id, email, voornaam, achternaam, postcode, rlvl } = req.body;
+
+    try {
+        const result = await db.query(
+            "UPDATE users  SET email = $1, voornaam = $2, achternaam = $3, postcode = $4, rlvl = $5 WHERE id = $6",
+            [email, voornaam, achternaam, postcode, rlvl, id]
+        );
+
+        if (result.rowCount > 0) {
+            res.send('Profile updated successfully.');
+        } else {
+            res.status(404).send('User not found.');
+        }
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('An error occurred.');
+    }
+});
+
+
+
+
+
+
+
+
+
+
 
 
     app.post("/deleteMembers", async (req, res) => {
@@ -388,36 +488,63 @@ app.post(
     })
 );
 
-app.post("/register", async (req, res) => {
+
+
+
+
+
+
+
+
+
+app.post('/register', upload.single('afbeelding'), async (req, res) => {
     const email = req.body.username;
     const password = req.body.password;
+    const voornaam = req.body.voornaam;
+    const achternaam = req.body.achternaam;
+    const postcode = req.body.postcode;
+    const rlvl = req.body.rlvl;
+    const afbeeldingPad = req.file.path;
 
     try {
-        const checkResult = await db.query("SELECT * FROM users WHERE email = $1", [
-            email,
-        ]);
+        const checkResult = await db.query("SELECT * FROM users WHERE email = $1", [email]);
 
         if (checkResult.rows.length > 0) {
-            req.redirect("logmenu");
+            res.redirect("/index");
         } else {
-            bcrypt.hash(password, 2, async (err, hash) => {
+            bcrypt.hash(password, 10, async (err, hash) => {
                 if (err) {
                     console.error("Error hashing password:", err);
+                    res.status(500).send('Er is iets misgegaan bij het hashen van het wachtwoord.');
                 } else {
-                    const result = await db.query(
-                        "INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *",
-                        [email, hash]
-                    );
-                    const user = result.rows[0];
-                    req.login(user, (err) => {
-                        console.log("success");
-                        res.redirect("/logmenu");
-                    });
+                    try {
+                        const resizedImageBuffer = await sharp(req.file.path)
+                            .resize(200, 200) // width, height
+                            .toBuffer();
+                        // Voeg de gebruiker en de afbeelding in de tabel
+                        const insertUserQuery = "INSERT INTO users (email, password, voornaam, achternaam, postcode, rlvl, afbeelding) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *";
+                        const result = await db.query(insertUserQuery, [email, hash, voornaam, achternaam, postcode, rlvl, resizedImageBuffer]);
+
+                        const user = result.rows[0];
+                        req.login(user, (err) => {
+                            if (err) {
+                                console.error("Error logging in:", err);
+                                res.status(500).send('Er is iets misgegaan bij het inloggen.');
+                            } else {
+                                console.log("Succesvolle registratie en login");
+                                res.redirect("/logmenu");
+                            }
+                        });
+                    } catch (err) {
+                        console.error(err);
+                        res.status(500).send('Er is iets misgegaan bij het opslaan van de gegevens.');
+                    }
                 }
             });
         }
     } catch (err) {
-        console.log(err);
+        console.error(err);
+        res.status(500).send('Er is iets misgegaan.');
     }
 });
 

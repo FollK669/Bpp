@@ -8,74 +8,83 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="styles/main.css"rel="stylesheet">
-
+     <link href="styles/woh.css"rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/vaibhav111tandon/vov.css@latest/vov.css" rel="stylesheet" type="text/css">
+    
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
 </head>
 
-
-<body class="content nav nav-pills container mt-5">
-
-     <div class="poster">
-  <%- include('NavigatieMenuLogin.ejs') %>
-    <br /> <br />       <h1 class="motivation-imgB">Leden Overzicht</h1><br><br><br>
-            <% users.forEach(function(user) { %>
-    <br><br>
-      <li class="motivation-imgB"> <br><br>User nummer :  <%= user.lid_nr %> <br> Naam : <%= user.lid_vnaam %> Achternaam :  <%= user.lid_anaam %><br> email : <%= user.lid_email %><br>GSM nr : <%= user.lid_gsm %><br> straat : <%= user.lid_straat %><br>Postcode <%= user.lid_postode%><br>plaats : <%= user.lid_woonplaats %><br>Geboortedatum : <%= user.lid_geboortedatum %><br>Lid sinds : <%= user.lid_sinds_datum %><br>Rek nr : <%= user.lid_rek_nr %><br> Instrument :<%= user.lid_instrument %><br> Helper j/n : <%= user.lid_helper %><br>    <br><br><br></li>
-    <% }); %>
-    <br><br><br>
-  </ul>
+<body>
 
 
-         <br /> <br /> <br /> <br />
-          <% const randomVar = Math.floor(Math.random() * 4) + 1; %>
 
-          <%- include('weetje' + randomVar + '.ejs') %>
+<nav class="nav">
+  <%- include('navmenu.ejs') %>   
+</nav>
+<nav class="nav">
+  <%- include('navmenuInlog.ejs') %>   
+</nav>
+        
+
+
+
+           <%- include('dropdow.ejs') %>   
+       
+
+       <br><br>
+       <div class="button2"> info overzicht</div>
+
+       <div class="button7"> <form   action="/update-profile" method="post">
+  
+    <h1 class="small-img2" > Info van <%= user.voornaam %></h1>
+     <label for="id">id:</label><br>
+    <input type="text" id="id" name="id" value="<%= user.id %>" ><br>
+    <label for="email">Email:</label><br>
+    <input type="text" id="email" name="email" value="<%= user.email %>" ><br>
+    <label for="voornaam">First Name:</label><br>
+    <input type="text" id="voornaam" name="voornaam" value="<%= user.voornaam %>" ><br>
+    <label for="achternaam">Last Name:</label><br>
+    <input type="text" id="achternaam" name="achternaam" value="<%= user.achternaam %>" ><br>
+    <label for="postcode">Postcode:</label><br>
+    <input type="text" id="postcode" name="postcode" value="<%= user.postcode %>" ><br>
+    <label for="rlvl">Role Level:</label><br>
+    <input type="text" id="rlvl" name="rlvl" value="<%= user.rlvl %>" ><br><br>
+<img class="small-img2" id="afbeelding" src="<%= user.imageUrl %>" alt="User Picture">
+    <input type="submit" value="Update" >
+</form>
+
+
+
+
+
+
+
+
+
+
+      <div id="bottomOfPage"></div>  
+
+
+
+
       
 
-       <div  >
-  
-    
-    
-    <button class="button2" onclick="decrement()"><<<</button>
-    <label  class="button2"id="valueLabel">1</label>
-    <button class="button2" onclick="increment()">>>></button> 
-  </div>
-
-
-     
-    </div>
-
-    
 
         
-       
-  
-
-
-           
-
-    
-
-
-
-    
-
-
-    
-
-
-      
- 
- 
-    
-
-
-
 
 
 
     <script src="scripts/buttonLeden.js"></script>
+   
  
-
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/jquery.menu-aim.js"></script> <!-- menu aim -->
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+      
+    
+    
 </body>
 
 </html>
