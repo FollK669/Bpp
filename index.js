@@ -11,7 +11,9 @@ const nodemailer = require('nodemailer');
 const multer = require('multer');
 const fs = require('fs'); // Import fs module
 const path = require('path');
-const sharp = require('sharp');
+
+
+
 
 
 
@@ -495,6 +497,7 @@ app.post(
 
 
 
+const { createCanvas, loadImage } = require('canvas');
 
 
 app.post('/register', upload.single('afbeelding'), async (req, res) => {
@@ -518,12 +521,15 @@ app.post('/register', upload.single('afbeelding'), async (req, res) => {
                     res.status(500).send('Er is iets misgegaan bij het hashen van het wachtwoord.');
                 } else {
                     try {
-                        const resizedImageBuffer = await sharp(req.file.path)
-                            .resize(200, 200) // width, height
-                            .toBuffer();
+                        const image = await loadImage(afbeeldingPad);
+                        const canvas = createCanvas(200, 200);
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(image, 0, 0, 200, 200);
+                        const fileBuffer = canvas.toBuffer();
+
                         // Voeg de gebruiker en de afbeelding in de tabel
                         const insertUserQuery = "INSERT INTO users (email, password, voornaam, achternaam, postcode, rlvl, afbeelding) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *";
-                        const result = await db.query(insertUserQuery, [email, hash, voornaam, achternaam, postcode, rlvl, resizedImageBuffer]);
+                        const result = await db.query(insertUserQuery, [email, hash, voornaam, achternaam, postcode, rlvl, fileBuffer]);
 
                         const user = result.rows[0];
                         req.login(user, (err) => {
