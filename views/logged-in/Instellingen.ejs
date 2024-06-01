@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Bsharp</title>
+   
+
+        
+        <link href="css/MainStyle.css" rel="stylesheet">
+        <link href="css/NavMail.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+
+<body style="color: <%= color %>; background-color: <%= background %>; ">
+ 
+
+<nav class="nav">
+  <%- include('./NavMenuLoggedin.ejs') %>   
+</nav>
+
+<%- include('./menuHome.ejs') %>
+
+<form action="/instellingen" method="POST" enctype="multipart/form-data" style="text-align: center;">
+<br><br>
+  
+    <h1 class="container6" style="text-align: center;"> Grafische instellingen </h1><br><br>
+    <input class="container6" type="submit" value="Opslaan"><br><br>  
+ 
+    <label for="color" style="text-align: center;">Tekst kleur homepagina:</label>
+    <input type="color" id="color" name="color" style="text-align: center;"><br><br>
+   
+    <label for="background" style="text-align: center;">Achtergrond kleur homepagina :</label>
+    <input type="color" id="background" name="background" style="text-align: center;">
+    <br><br>
+ 
+    <label for="image" style="text-align: center;">Afbeelding homepagina :</label>
+    <input type="file" id="image" name="image" style="text-align: center;"><br><br>
+    <p style="text-align: center;">Huidige afbeelding </p>
+    <img class="container8" src="<%= image %>" style="width: 400px; height: 300px; margin: 0 auto;" />
+
+ 
+</form>
+  
+        
+</form>
+
+<form action="/reset" method="post" style="text-align: center;">
+    <input type="submit" value="Default instellingen">
+</form>
+<br><br><br>
+<h1 class="container6" style="text-align: center;"> Tekst instellingen </h1><br><br>
+<form method="POST" action="/saveENG" style="text-align: center;">
+    <h1 style="text-align: center;">ENGLISH</h1>
+    <label for="homepage" class="motivation-imgs">Homepage:</label>
+    <input type="text" id="homepage" name="homepage" value="<%= homepageTitleENG %>">
+    <input type="text" id="welcome" name="welcome" value="<%= welcomeTitleENG %>">
+    <input type="text" id="moreinfo" name="moreinfo" value="<%= moreTitleENG %>">
+    <input class="container6" type="submit" value="Save ENG">
+</form>
+
+<form action="/resetENG" method="post" style="text-align: center;">
+    <input type="submit" value="Default English">
+</form>
+<br><br><br>
+<form method="POST" action="/saveNL" style="text-align: center;">
+    <h1 style="text-align: center;">NEDERLANDS</h1>
+    <label for="homepageNL" class="motivation-imgs">Homepage (NL):</label>
+    <input type="text" id="homepageNL" name="homepageNL" value="<%= homepageTitleNL %>">
+    <input type="text" id="welcomeNL" name="welcomeNL" value="<%= welcomeTitleNL %>">
+    <input type="text" id="moreinfoNL" name="moreinfoNL" value="<%= moreTitleNL %>">
+    <input class="container6" type="submit" value="Save NL">
+</form>
+<form action="/resetNL" method="post" style="text-align: center;">
+    <input type="submit" value="Default Nederlands">
+</form>
+<br><br><br>
+
+
+</body>
+
+</html>

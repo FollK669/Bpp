@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Bsharp</title>
+   
+
+        
+        <link href="css/MainStyle.css" rel="stylesheet">
+        <link href="css/NavMail.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+
+<body >
+
+<nav class="nav">
+  <%- include('./NavMenu.ejs') %>   
+</nav>
+
+
+
+
+<br>
+
+
+<div>
+
+<p class="kalam-bold" style="font-size: 3em; background-color: gray;"> &nbsp;  &nbsp; &nbsp;   Bsharp stelt voor</p>
+
+
+<br><br><br><br><br><br><br><br>
+</div>
+
+<br><br>
+
+<br><br><br><br>
+
+<script>
+  const languageSelect = document.getElementById('languageSelect');
+  languageSelect.addEventListener('change', function() {
+    const selectedLanguage = languageSelect.value;
+    updateLanguage(selectedLanguage);
+  });
+
+  function updateLanguage(selectedLanguage) {
+    // Make an AJAX request to the server
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '/language');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        // Update the page content with the response
+        const updatedContent = xhr.responseText;
+        document.body.innerHTML = updatedContent;
+      } else {
+        console.error('Error updating language');
+      }
+    };
+    xhr.send(JSON.stringify({ language: selectedLanguage }));
+  }
+</script>
+   
+   <div class="login-box" style="text-align: center;">
+       <a href="/bezoekersleden">
+           <button class="button"><%= __('buttons.members') %></button>
+       </a><br><br>
+
+       <a href="/Overzichtparituren">
+           <button class="button"><%= __('buttons.nr') %></button>
+       </a><br><br>
+
+       <a href="/hetweer">
+           <button class="button"><%= __('buttons.weather') %></button>
+       </a><br><br>
+
+       <button class="button"> <%= __('buttons.speellijst') %> </button><br><br>
+       <button class="button"> <%= __('buttons.foto') %> </button>
+
+       <br><br>
+       <button class="button">  <%= __('buttons.video') %> </button>
+       <br><br>
+
+       <button class="button"> <%= __('buttons.overzicht') %> </button>
+   </div>
+
+
+<br>
+
+<div style="text-align: center;">
+
+<br><br><br><br>
+
+<div class="main2">
+    <div class="d1"></div>
+    <div class="d2"></div>
+    <div class="d3"></div>
+    <div class="d4"></div>
+  
+
+
+  <div >
+
+</div>
+         <script>
+      // Add an event listener to the select element
+const selectElement = document.querySelector('select[name="language"]');
+selectElement.addEventListener('change', function() {
+  // Update the selectedLanguage variable with the new selected value
+  selectedLanguage = this.value;
+});
+    </script>
+</body>
+
+</html>

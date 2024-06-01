@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Bsharp</title>
+   
+
+        
+        <link href="css/MainStyle.css" rel="stylesheet">
+        <link href="css/NavMail.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+
+
+   <body>    <br>
+     <form action="/searchsong" method="get">
+       <input type="text" id="searchsong" name="searchsong" placeholder="Zoek nummer">
+       <button type="submit">searchsong</button>
+         <br>  <br>
+      
+     </form>
+      <button id="update">Update nummer</button>  <br>  <br>
+     <br>
+          <button id="prev">Previous</button>
+     <button id="next">Next</button>
+   
+
+  <form action="/searchsong" method="get">
+      <input type="text" id="searchsong" name="searchsong" value="" placeholder="Zoek nummer" style="display: none;">
+      <button type="submit">refresh</button>
+      <br>  <br>
+  </form>
+  <div>
+
+
+  <label for="genre">Genre:</label>
+
+  <select id="genre" name="genre">
+    <option value="Pop">Pop</option>
+    <option value="Rock">Rock</option>
+    <option value="Jazz">Jazz</option>
+    <option value="Hip Hop">Hip Hop</option>
+    <option value="Country">Country</option>
+    <!-- Add more genre options as needed -->
+  </select>
+  
+
+
+</div>
+  <div>
+       
+
+      <h1 >Bestaande nummers</h1>
+   <% if (nummers.length > 0) { %>
+       <select name="selectedValues" multiple style="height: 200px; width: 150px;" onchange="updateFields()">
+    
+         <% nummers.forEach(nummer => { %>
+           <% if (nummer.nr_naam !== '') { %>
+             <option value="<%= nummer.nr_naam %>"><%= nummer.nr_naam %></option>
+           <% } %>
+         <% }); %>
+       </select>
+     <% } %> 
+     </div>
+     <br>
+     <div id="nummers">
+       <% nummers.forEach(function(nummer, index) { %>
+
+
+
+         <div class="nummer" id="nummer-<%= index %>" style="display: none;">
+         <br>
+           <label for="naam">Naam:</label>
+           <input type="text" id="naam" name="naam" value="<%= nummer.nr_naam %>">
+    <br>
+           <label for="genre">Genre:</label>
+           <input type="text" id="genre" name="genre" value="<%= nummer.nr_genre %>">
+    <br>
+
+    <div>
+           <label for="duur">Duur :</label><br>
+                 
+              
+                <button type="button" onclick="decrementSeconds()">- 1 Sec. </button>
+               <button type="button" onclick="decrementMinutes()">- 1 Min.</button>
+      <p>Duration: <%= nummer.nr_duur %></p>
+      
+              <button type="button" onclick="incrementSeconds()">+ 1 Sec.</button>
+              <button type="button" onclick="incrementMinutes()">+ 1 Min.</button>
+            
+              
+               </div>
+        
+    <br>
+           <label for="uitvoerder">Uitvoerder:</label>
+           <input type="text" id="uitvoerder" name="uitvoerder" value="<%= nummer.nr_uitvoerder %>">
+    <br>
+           <label for="aantalkerengespeeld">Aantal keer gespeeld:</label>
+           <input type="text" id="aantalkerengespeeld" name="aantalkerengespeeld" value="<%= nummer.nr_aantalkerengespeeld %>">
+    <br>
+
+
+
+           <label for="partituur">Partituur:</label>
+         
+   <input type="file" id="partituur" name="partituur"  value="<%= nummer.nr_partituur %>"  accept=".pdf,.jpg,.jpeg,.png">
+            <br>
+           <img src="<%= nummer.nr_partituur %>" alt="partituur">
+
+            <br>
+           <label for="info">Info:</label>
+        
+   <textarea id="info" name="info" rows="10" cols="50"><%= nummer.nr_info %></textarea>
+         </div>
+       <% }); %>
+     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <script>
+
+
+
+       let currentNummerIndex = 0;
+       const nummers = document.querySelectorAll('.nummer');
+       nummers[currentNummerIndex].style.display = 'block';
+
+       document.getElementById('prev').addEventListener('click', function() {
+         if (currentNummerIndex > 0) {
+           nummers[currentNummerIndex].style.display = 'none';
+           currentNummerIndex--;
+           nummers[currentNummerIndex].style.display = 'block';
+         }
+       });
+
+       document.getElementById('next').addEventListener('click', function() {
+         if (currentNummerIndex < nummers.length - 1) {
+           nummers[currentNummerIndex].style.display = 'none';
+           currentNummerIndex++;
+           nummers[currentNummerIndex].style.display = 'block';
+         }
+       });   
+       
+  
+
+
+
+  
+
+
+
+
+     </script>
+   </body>
+   </html>

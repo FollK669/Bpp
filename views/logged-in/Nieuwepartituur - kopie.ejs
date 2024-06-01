@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bsharp</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <link href="css/MainStyle.css" rel="stylesheet">
+        <link href="css/NavMail.css" rel="stylesheet">
+
+        
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+  #sortable li span { position: absolute; margin-left: -1.3em; }
+
+  #draggable { width: 350px; height: 500px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+  #droppable { width: 350px; height: 500px; padding: 0.5em; float: left; margin: 10px; 
+  </style>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+ 
+
+</head>
+
+<body>
+
+<nav class="nav">
+  <%- include('./NavMenuLoggedin.ejs') %>   
+</nav>
+
+
+
+<br><br>
+
+
+ <div >
+ <h1 >Bestaande nummers</h1>
+
+    <ul id="sortable">
+    <% nummers.forEach(nummer => { %>
+        <% if (nummer.nr_naam !== '') { %>
+            <li><%= nummer.nr_naam %></li>
+        <% } %>
+    <% }); %>
+</ul>
+
+
+
+</div>
+
+
+
+ 
+
+
+    <button id="createListButton">Create New List</button>
+      <select id="nummervaluesSelect"></select>
+  
+    </select>
+
+  
+  <h1 class="container6">Nummer toevoegen</h1><br><br>
+    <form class="container6" action="/voegpartituurtoe" method="post" enctype="multipart/form-data">
+        <label for="nr_naam">Naam : </label>
+        <input type="text" id="nr_naam" name="nr_naam" required>
+        <br><br>
+
+       <label for="nr_duur">duur </label>
+        <input type="text" id="nr_duur" name="nr_duur" required>
+        <br><br>
+     
+        <br><br>
+        <label for="nr_genre">Genre: </label>
+        <input type="text" id="nr_genre" name="nr_genre" required>
+        <br><br>
+        <label for="nr_uitvoerder">Uitvoerder:</label>
+        <input type="text" id="nr_uitvoerder" name="nr_uitvoerder" required>
+        <br><br>
+        <label for="nr_aantalkerengespeeld">Aantal keren gespeeld</label>
+        <input type="number" id="nr_aantalkerengespeeld" name="nr_aantalkerengespeeld" >
+        <br><br>
+                      
+        <label for="nr_partituur">Partituur</label>
+        <input type="text" id="nr_partituur" name="nr_partituur" >
+        <br><br>
+            <input type="file" name="nr_partituur" accept="image/*">
+   
+        <br><br>
+            <label for="nr_info">Extra nfo:</label><br>
+            <textarea id="nr_info" name="nr_info" rows="5" cols="50"></textarea>
+      <br><br>
+        <button type="submit">Registreren</button>
+    </form>
+<br><br><br><br>
+
+<div style="text-align: center;">
+
+<a href="/logout" class="container6" style="text-decoration: none; color: inherit;">log uit</a>
+<br><br>
+</div>
+     <br><br>   
+     
+
+
+
+ <script>
+
+       
+
+
+
+  $( function() {
+    $( "#sortable" ).sortable();
+  } );
+
+  $( function() {
+
+  $( ".selector" ).droppable({
+  greedy: true
+});
+  
+  
+  
+  $( "#draggable" ).draggable();
+    $( "#droppable" ).droppable({
+      drop: function( event, ui ) {
+        var droppedValue = ui.draggable.text();
+        // Getter
+var greedy = $( ".selector" ).droppable( "option", "greedy" );
+ 
+// Setter
+$( ".selector" ).droppable( "option", "greedy", true );
+              console.log(droppedValue);
+        $( this )
+          .addClass( "ui-state-highlight" )
+          .find( "p" )
+            .html(  droppedValue );
+             var droppedValuesList;
+        droppedValuesList.push(droppedValue);
+        console.log(droppedValuesList);
+      }
+    });
+  } );
+
+
+
+
+
+document.getElementById("createListButton").addEventListener("click", function() {
+  const sortableList = document.getElementById("sortable");
+  const liElements = sortableList.querySelectorAll("li");
+  const nummerValues = [];
+  liElements.forEach(li => {
+    const nummerValue = li.textContent;
+    nummerValues.push(nummerValue);
+  });
+
+  const selectList = document.getElementById("nummervaluesSelect");
+  selectList.innerHTML = ""; // Clear any existing options
+
+  nummerValues.forEach(value => {
+    const option = document.createElement("option");
+    option.text = value;
+    selectList.add(option);
+  });
+});
+
+console.log(nummerValues);
+
+</script>
+
+</body>
+
+</html>

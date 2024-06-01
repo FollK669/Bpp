@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Bsharp</title>
+   
+
+        
+        <link href="css/MainStyle.css" rel="stylesheet">
+        <link href="css/NavMail.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+<nav class="nav">
+    <%- include('./NavMenuLoggedin.ejs') %>   
+</nav>
+
+<%- include('./menuHome.ejs') %>
+
+
+<div class="login-box">
+
+  <h1 class="container6"> Nummers beheren</h1><br><br>
+
+
+  <select name="nr_naam" id="nummerIdSelect">
+    <option value="" disabled selected>Email</option>
+    <% nr.forEach(function(nr_naam) { %>
+        <option value="<%= nr_naam %>"><%= nr_naam %></option>
+    <% }); %>
+</select>
+ <p >Info van <%= nummer.nr_naam  %></p>
+ <br>
+
+
+<formaction="/searchnummer" method="get">
+    <input type="text" name="query" placeholder="Geef een email in..." />
+    <button type="submit">Zoek email op</button>
+    
+    <% if (error) { %>
+        <label class="error"><%= error %></label>
+    <% } %>
+</form>
+
+
+
+
+<script>
+function confirmDelete(nummer) {
+    return confirm("Weet je zeker dat je " + nummer + " wilt verwijderen?");
+}
+</script>
+
+
+
+<% if (nummer) { %>
+    <form  action="/update-nummer" method="post">
+      
+       
+             <label for="id">id:</label>
+        <input type="text" id="id" name="id" value="<%= nummer.id%>"readonly><br>
+
+        <label for="nr_naam">Naam:</label>
+        <input type="text" id="nr_naam" name="nr_naam" value="<%= nummer.nr_naam %>"><br>
+
+      <label for="nr_duur">Duur:</label>
+<input type="text" id="nr_duur" name="nr_duur" value="<%= nummer ? nummer.nr_duur : '' %>"><br>
+
+ 
+   <label for="nr_genre">Genre:</label>
+        <input type="text" id="nr_genre" name="nr_genre" value="<%= nummer.nr_genre %>"><br>
+
+          <label for="nr_uitvoerder">Uitvoerder:</label>
+        <input type="text" id="nr_uitvoerder" name="nr_uitvoerder" value="<%= nummer.nr_uitvoerder %>"><br>
+
+          <label for="nr_aantalkerengespeeld">Aantal keren gespeeld:</label>
+        <input type="text" id="nr_aantalkerengespeeld" name="nr_aantalkerengespeeld" value="<%= nummer.nr_aantalkerengespeeld %>"><br>
+
+          <label for="nr_partituur">Partituren:</label>
+          
+
+<img id="nr_partituur" style="width: 250px; height: 200px;" src="<%= nummer.nr_partituur %>"><br>
+          <label for="nr_info">Info:</label>
+          <textarea id="nr_info" name="nr_info" rows="5" cols="50"><%= nummer.nr_info %></textarea><br>
+
+    
+        <input class="container6" type="submit" value="Update">
+    </form>
+<% } %>
+
+<% if (nummer) { %>
+    <form class="container6" action="/delete-nummer" method="post" onsubmit="return confirmDelete('<%= nummer.nr_naam %> ');">
+        <input type="hidden" name="nrdel" value="<%= nummer.id %>">
+        <input type="submit" value="Verwijder nummer <%= nummer.nr_naam %>">
+    </form>
+<% } %>
+
+</div>
+
+
+
+<script>
+    const selectElement = document.querySelector('#nummerIdSelect');
+    selectElement.addEventListener('change', (event) => {
+        const selectedNrNaam = event.target.value;
+        if (selectedNrNaam) {
+            window.location.href = `/updatenummer?nr_naam=${selectedNrNaam}`;
+        }
+    });
+</script>
+
+
+</body>
+
+</html>

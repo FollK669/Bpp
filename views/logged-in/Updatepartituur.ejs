@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Bsharp</title>
+   
+
+        
+        <link href="css/MainStyle.css" rel="stylesheet">
+        <link href="css/NavMail.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <%- include('./NavMenuLoggedin.ejs') %>   
+</nav>
+
+
+
+<form  class="container6"  action="/searchnummer" method="get">
+  <input  type="text" name="query" placeholder="Geef een nummer naam is..." />
+  <button   type="submit">Zoek nummer op</button>
+
+  <!-- if the nummer is not found, give this error -->
+<% if (error) { %>
+  <label class="error"><%= error %></label>
+<% } %>
+</form>
+
+<form class="container6" action="/delete-nummer" method="post" onsubmit="return confirmDelete('<%= nummer.nr_naam %>');">
+    <input type="hidden" name="idToDelete" value="<%= nummer.id %>">
+    <input type="submit" value="Verwijder nummer <%= nummer.nr_naam %>">
+</form>
+
+<script>
+function confirmDelete(name) {
+    return confirm("Weet je zeker dat je het nummer " + name + " wilt verwijderen?");
+}
+</script>
+
+
+    
+
+  <% if (nummer.nr_naam) { %>
+    <form class="container6" action="/update-nummer" method="post" enctype="multipart/form-data">
+        <h1 class="small-img2">Info van <%= nummer.nr_naam %></h1>
+        <label for="nr_naam">Nummer Naam:</label><br>
+        <input type="text" id="nr_naam" name="nr_naam" value="<%= nummer.nr_naam %>" ><br>
+        <label for="nr_duur">Duur:</label><br>
+        <input type="text" id="nr_duur" name="nr_duur" value="<%= nummer.nr_duur %>" ><br>
+        <label for="nr_genre">Genre:</label><br>
+        <input type="text" id="nr_genre" name="nr_genre" value="<%= nummer.nr_genre %>" ><br>
+        <label for="nr_uitvoerder">Uitvoerder:</label><br>
+        <input type="text" id="nr_uitvoerder" name="nr_uitvoerder" value="<%= nummer.nr_uitvoerder %>" ><br>
+        <label for="nr_aantalkerengespeeld">Aantal Keren Gespeeld:</label><br>
+        <input type="text" id="nr_aantalkerengespeeld" name="nr_aantalkerengespeeld" value="<%= nummer.nr_aantalkerengespeeld %>" ><br>
+        <label for="nr_partituur">Partituur:</label><br>
+        <input type="text" id="nr_partituur" name="nr_partituur" value="<%= nummer.nr_partituur %>" ><br>
+        <label for="nr_info">Info:</label><br>
+        <input type="text" id="nr_info" name="nr_info" value="<%= nummer.nr_info %>" ><br>
+        <input type="submit" value="Update" >
+    </form>
+<% } %>
+
+
+<a href="/logout" class="container6" style="text-decoration: none; color: inherit;">log uit</a>
+
+</div>
+
+<script>
+    const selectElement = document.querySelector('#nummerSelect');
+    selectElement.addEventListener('change', (event) => {
+        const selectedNummer = event.target.value;
+        if (selectedNummer) { // Check if the selected nummer is not the placeholder option
+            window.location.href = `/updatenummername?nr_naam=${selectedNummer}`;
+        }
+    });
+</script>
+
+</body>
+
+</html>

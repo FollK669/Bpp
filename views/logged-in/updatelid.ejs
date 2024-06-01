@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Bsharp</title>
+   
+
+        
+        <link href="css/MainStyle.css" rel="stylesheet">
+        <link href="css/NavMail.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+<nav class="nav">
+  <%- include('./NavMenuLoggedin.ejs') %>   
+</nav>
+
+<%- include('./menuHome.ejs') %>
+
+  <!-- if the user or pasword is wrong, or empty give this error -->
+<% if (error) { %>
+  <label class="error"><%= error %></label>
+<% } %>
+
+<br><br>
+
+<div class="login-boxer">
+   <h1 class="container6"> Leden beheren</h1>
+
+<select name="email" id="emailSelect">
+    <option value="" disabled selected>Selecteer een e-mail</option>
+    <% emails.forEach(function(email) { %>
+        <option value="<%= email %>"><%= email %></option>
+    <% }); %>
+</select>
+    <p >Info van <%= user.voornaam %></p>
+<form style="text-align: right;" action="/search" method="get">
+  <input  type="text" name="query" placeholder="Geef een email adres is..." />
+  <button   type="submit">Zoek lid op</button>
+</form>
+<br><br>
+
+
+
+
+
+
+
+
+<script>
+function confirmDelete(name) {
+    return confirm("Weet je zeker dat je de gebruiker " + name + " wilt verwijderen?");
+}
+</script>
+
+
+
+ <% if (user.email) { %>
+   
+      <form   action="/update-profile" method="post" enctype="multipart/form-data">
+
+     <label for="id" style="display: none;">ID:</label>
+     <input type="text" id="id" name="id" value="<%= user.id %>" style="display: none;">
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" value="<%= user.email %>" ><br>
+    <label for="voornaam">V-naam:</label>
+    <input type="text" id="voornaam" name="voornaam" value="<%= user.voornaam %>" ><br>
+    <label for="achternaam">A-naam:</label>
+    <input type="text" id="achternaam" name="achternaam" value="<%= user.achternaam %>" ><br>
+    <label for="postcode">Postcode:</label>
+    <input type="text" id="postcode" name="postcode" value="<%= user.postcode %>" ><br>
+
+
+                     <label for="instrument">Instrument:</label>
+                             <input list="instrumentenList" id="instrument"  name="instrument" value="<%= user.instrument %>">
+                             <datalist id="instrumentenList">
+                             <% instrumenten.forEach(function(instrument) { %>
+                            <option value="<%= instrument %>">
+                             <% }); %>
+                                </datalist>
+
+
+
+
+<br>
+    <label for="rlvl">Role Level:</label>
+    <input type="text" id="rlvl" name="rlvl" value="<%= user.rlvl %>" ><br><br>
+    
+    <img src="<%= user.afbeelding %>" alt="User Image" style="width: 250px; height: 200px;">
+
+   
+
+       <input type="file" name="afbeelding" accept="image/*" ><br>
+   
+   
+
+
+   <br><br>
+     <input class="container6" type="submit" value="Update">
+
+
+
+    </form>
+    <form class="container6" action="/delete-user" method="post" onsubmit="return confirmDelete('<%= user.voornaam %> <%= user.achternaam %>');">
+    <% if (user.length > 1) { %>
+        <% for (let i = 0; i < user.length; i++) { %>
+            <% if (user[i].id !== user.id) { %>
+                <input type="hidden" name="idToDelete" value="<%= user[i].id %>">
+            <% } %>
+        <% } %>
+    <% } else { %>
+        <input type="hidden" name="idToDelete" value="<%= user.id %>">
+    <% } %>
+    <input type="submit" value="Verwijder lid <%= user.voornaam %> <%= user.achternaam %>">
+</form>
+    
+    <% } %>
+ 
+
+
+
+</div>
+         
+<script>
+    const selectElement = document.querySelector('#emailSelect');
+    selectElement.addEventListener('change', (event) => {
+        const selectedEmail = event.target.value;
+        if (selectedEmail) { // Check if the selected email is not the placeholder option
+            window.location.href = `/updatemail?email=${selectedEmail}`;
+        }
+    });
+</script>
+
+    
+</body>
+
+</html>

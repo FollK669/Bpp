@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Bsharp</title>
+   
+
+        
+        <link href="css/MainStyle.css" rel="stylesheet">
+        <link href="css/NavMail.css" rel="stylesheet">
+         <link href="css/StyleSheet1.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+
+
+<body  style="color: <%= color %>; background-color: <%= background %>; ">
+
+  <br><br>
+
+<br><br>
+<nav class="nav">
+  <%- include('./NavMenuLoggedin.ejs') %>   
+</nav>
+
+
+<p class="kalam-bold" style="font-size: 3em; background-color: gray;"> &nbsp;  &nbsp; &nbsp;   De leden van Bsharp </p>
+
+<br><br>
+
+
+<div>
+
+
+
+</div>
+
+<br><br>
+   
+   
+    <ul class="container6" 
+  <br><br><br><br>
+        <% leden.forEach(lid => { %>
+            <li >
+                <img src="<%= lid.afbeelding %>" alt="Afbeelding van <%= lid.voornaam %> <%= lid.instrument %>"><br>
+                <br><br>
+                <p class= "kalam-bold"><%= lid.voornaam %> </p><br>
+                <p class= "kalam-bold"> Instrument:  <%= lid.instrument %></p><br>
+            </li>
+        <% }); %>
+    </ul>
+<div class="light"></div>
+
+
+
+
+  <div >
+
+
+
+
+  </div>
+
+
+
+
+<br>
+
+
+         
+      
+    
+</body>
+
+</html>
+

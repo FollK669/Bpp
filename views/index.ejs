@@ -2,118 +2,120 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
     <title>Bsharp</title>
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+        
+        <link href="css/MainStyle.css" rel="stylesheet">
+        <link href="css/NavMail.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-     <link href="styles/woh.css"rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/gh/vaibhav111tandon/vov.css@latest/vov.css" rel="stylesheet" type="text/css">
-    
-	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
-	<script src="js/modernizr.js"></script>
-
-    <!-- Modernizr -->
-    
-    <link href="styles/main.css"rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="kalam-bold"  style="color: <%= color %>; background-color: <%= background %>;">
+  <select class="select" id="languageSelect" onchange="updateLanguage()">
+  <option value="<%= selectedLanguage %>"><%= selectedLanguage %></option>
+  <% if (selectedLanguage === 'en') { %>
+    <option value="nl">nl</option>
+  <% } else { %>
+    <option value="en">en</option>
+  <% } %>
+</select>
 
 <nav class="nav">
-  <%- include('navmenu.ejs') %>   
+  <%- include('logged-out/NavMenu.ejs') %>   
 </nav>
 
 
-    </div>
+<div class="container7">
+<br><br>
 
-    
-
-
-    
-
-
-
-
-
-
-<div id="Topofpage"></div>
-<div class="vov roll-in-left fast ">
-<div class="container7"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <p class="motivation-imgs" style="font-family:Lobster; font-size: 80px;">Bsharp - Jazzcombo<p>
-
+  <p class="kalam-bold"  > <%= __('titles.homepage') %> <p>
 
   
 </div>
+
+
+
+
+
+
+<br><br>
+
+
+<div>
+
+<p class="container6" > <%= __('titles.welcome') %><p>
+
+
 </div>
+
 <br><br>
-<div class="vov roll-in-left fast ">
-
-  <div class="h33";>
-  <a href="/bezoekersLeden"><button type="button" class="btn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meer info&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</button></a>
-
-    </div>
-</div><br><br><br><br>
-</div><br><p style="font-size: 32px;   text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313;
-" >Welkom bij Bsharp: De Jazzcombo die Haspengouw doet swingen!<p></div>
-<div class="outer-div"  >
-   <br><br><br><br>
- <br><br><br>
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br>
-<br><br><br><br><br><br><br><br><br><br>
+<div class="container8">
+<img class="container8" src="<%= image %>" />
+
+</div>
+
+
 <br>
 
-     <% const randomVar = Math.floor(Math.random() * 4) + 1; %>
-      <div  class="outer-div2" style="background-color:grey;"> 
+<div style="text-align: center;">
 
-      <Br></Br>
-  <%- include('weetje' + randomVar + '.ejs') %>  
-  
+<a href="/bezoekers" class="container6" style="text-decoration: none; color: inherit;"><%= __('titles.moreinfo') %></a>
 
- 
-  
+</div>
+         
 
-     
-     
-
-     
- </div>
- <br><br><br>
-      <div id="bottomOfPage"></div>  
-        <a href="#Topofpage" id="scrollToBottomBtn"  class="btn"  id="scrollToBottomBtn"><br><span class="up-arrow">&#x2B06;</span></a>
 <br><br>
-         
-         
-      
-
-       
-  
 
 
+<% const randomVar = Math.floor(Math.random() * 4) + 1; %>
 
-      
-  
+<div class="container9">
 
-        
+<%- include('./logged-out/weetje' + randomVar + '.ejs') %>  
+</div>
+
+<br><br>
 
 
+<script>
+function updateLanguage() {
+  const selectedLanguage = document.getElementById("languageSelect").value;
 
-    <script src="scripts/buttonLeden.js"></script>
-   
- 
-<script src="js/jquery-2.1.1.js"></script>
-<script src="js/jquery.menu-aim.js"></script> <!-- menu aim -->
-<script src="js/main.js"></script> <!-- Resource jQuery -->
-      
-    
-    
+  // Send an AJAX request to update the language
+  fetch("/language", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ language: selectedLanguage }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.message); // Log the response message
+      // Optionally, you can update the UI to reflect the new language
+      window.location.reload(); // Refresh the page
+    })
+    .catch((error) => {
+      console.error(error);
+      // Handle any errors that occur during the request
+    });
+}
+</script>
 </body>
 
 </html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Bsharp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="css/MainStyle.css" rel="stylesheet">
+    <link href="css/NavMail.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="nav">
+        <%- include('./NavMenuLoggedin.ejs') %>
+    </nav>
+
+
+    <form method="POST" action="/saveENG">
+        <h1>ENGLISH</h1>
+        <label for="homepage" class="motivation-imgs">Homepage:</label>
+        <input type="text" id="homepage" name="homepage" value="<%= homepageTitleENG %>">
+        <input type="text" id="welcome" name="welcome" value="<%= welcomeTitleENG %>">
+        <input type="submit" value="Save">
+    </form>
+    <br><br><br>
+    <form action="/resetENG" method="post">
+        <input type="submit" value="Load basic settings for ENGLISH">
+    </form>
+    <br><br><br>
+
+    <form method="POST" action="/saveNL">
+        <h1>NEDERLANDS</h1>
+        <label for="homepageNL" class="motivation-imgs">Homepage (NL):</label>
+        <input type="text" id="homepageNL" name="homepageNL" value="<%= homepageTitleNL %>">
+        <input type="text" id="homepageNL" name="welcomeNL" value="<%= welcomeTitleNL %>">
+        <input type="submit" value="Save">
+    </form>
+    <iframe src="/" frameborder="5" width="100%" height="500px;" style="object-fit: scale-down;"></iframe>
+    <br><br><br>
+    <form action="/resetNL" method="post">
+        <input type="submit" value="Laad de std instellingen voor NEDERLANDS">
+    </form>
+    <br><br><br>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Bsharp</title>
+   
+
+        
+        <link href="css/MainStyle.css" rel="stylesheet">
+        <link href="css/NavMail.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+<nav class="nav">
+  <%- include('./NavMenuLoggedin.ejs') %>   
+</nav>
+<p class="kalam-bold" style="font-size: 3em; background-color: gray;"> &nbsp;  &nbsp; &nbsp;   Welkom <%= user.voornaam %>  </p>
+<%- include('./menuB.ejs') %><br><br><br><br><br><br><br><br><br><br>
+<%- include('./menu.ejs') %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+
+
+<br><br>
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br>
+<a href="/logout" class="container6" style="text-decoration: none; color: inherit;">log uit</a>
+
+
+         
+      <br>
+<br>
+<br>
+<br>
+<script>
+$(function() {
+	var d=300;
+	$('#navigation a').each(function(){
+		var $this = $(this);
+		var r=Math.floor(Math.random()*41)-20;
+		$this.css({
+			'-moz-transform':'rotate('+r+'deg)',
+			'-webkit-transform':'rotate('+r+'deg)',
+			'transform':'rotate('+r+'deg)'
+			});
+		$('#content').css({
+			'-moz-transform':'rotate('+r+'deg)',
+			'-webkit-transform':'rotate('+r+'deg)',
+			'transform':'rotate('+r+'deg)'
+			});
+		$this.stop().animate({
+			'marginTop':'-70px'
+		},d+=150);
+	});
+	$('#navigation > li').hover(
+		function () {
+			var $this = $(this);
+			$('a',$this).stop().animate({
+				'marginTop':'-40px'
+			},200);
+		},
+		function () {
+			var $this = $(this);
+			$('a',$this).stop().animate({
+				'marginTop':'-70px'
+			},200);
+		}
+	).click(function(){
+		var $this = $(this);
+		var name = this.className;
+		$('#content').animate({marginTop:-600}, 300,function(){
+			var $this = $(this);
+			var r=Math.floor(Math.random()*41)-20;
+			$this.css({
+				'-moz-transform':'rotate('+r+'deg)',
+				'-webkit-transform':'rotate('+r+'deg)',
+				'transform':'rotate('+r+'deg)'
+				});
+			$('#content div').hide();
+			$('#'+name).show();
+			$this.animate({marginTop:-200}, 300);
+		})
+	});
+});
+</script>
+    
+</body>
+
+</html>

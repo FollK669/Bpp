@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Bsharp</title>
+   
+
+        
+        <link href="css/MainStyle.css" rel="stylesheet">
+        <link href="css/NavMail.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+<nav class="nav">
+  <%- include('./NavMenuLoggedin.ejs') %>   
+</nav>
+
+<%- include('./menuHome.ejs') %>
+
+
+<br><br>
+
+
+<div>
+
+</div>
+
+<br><br>
+
+
+
+ <h1 class="container6">Nieuw lid registreren: </h1><br><br>
+    <form class="container6" action="/register" method="post" enctype="multipart/form-data">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <label for="password">Wachtwoord:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+        <label for="voornaam">Voornaam:</label>
+        <input type="text" id="voornaam" name="voornaam" required>
+        <br><br>
+        <label for="achternaam">Achternaam:</label>
+        <input type="text" id="achternaam" name="achternaam" required>
+        <br><br>
+        <label for="postcode">Postcode:</label>
+        <input type="text" id="postcode" name="postcode" >
+        <br><br>
+                       <label for="instrument">Instrument:</label>
+                             <input list="instrumentenList" id="instrument"  name="instrument" <br>
+                             <datalist id="instrumentenList">
+                               <% instrumenten.forEach(function(instrument) { %>
+                              <option value="<%= instrument %>">
+                              <% }); %>
+                            </datalist>
+        <br><br>
+        <label for="rlvl">Rlvl:</label>
+        <input type="text" id="rlvl" name="rlvl" >
+        <br><br>
+            <input type="file" name="afbeelding" accept="image/*">
+   
+   <br><br>
+        <button class="container6" type="submit">Registreren</button>
+    </form>
+<br>
+
+<div style="text-align: center;">
+
+<a href="/logout" class="container6" style="text-decoration: none; color: inherit;">log uit</a>
+
+</div>
+         
+      
+    
+</body>
+
+</html>

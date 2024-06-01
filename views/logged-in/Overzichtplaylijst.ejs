@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Bsharp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="css/MainStyle.css" rel="stylesheet">
+    <link href="css/NavMail.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <style>
+        #sortable {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 60%;
+        }
+
+        #sortable li {
+            margin: 0 3px 3px 3px;
+            padding: 0.4em;
+            padding-left: 1.5em;
+            font-size: 1.4em;
+            height: 18px;
+        }
+
+        #sortable li span {
+            position: absolute;
+            margin-left: -1.3em;
+        }
+
+        #draggable {
+            width: 350px;
+            height: 500px;
+            padding: 0.5em;
+            float: left;
+            margin: 10px 10px 10px 0;
+        }
+
+        #droppable {
+            width: 350px;
+            height: 500px;
+            padding: 0.5em;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+</head>
+
+<body>
+
+    <nav class="nav">
+        <%- include('./NavMenuLoggedin.ejs') %>
+    </nav>
+
+    <%- include('./menuHome.ejs') %>
+
+     <h1>JSON files in the localJson folder:</h1>
+  <ul>
+    <% jsonFiles.forEach(file => { %>
+      <li><%= file %></li>
+    <% }); %>
+  </ul>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" type="image/png" href="st/og-image.png">
+	<title>SortableJS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="st/theme.css">
+
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta property="og:image" content="/st/og-image.png"/>
+	<meta name="keywords" content="sortable, reorder, list, javascript, html5, drag and drop, dnd, animation, groups, dnd, sortableJS"/>
+	<meta name="description" content="Sortable — is a JavaScript library for reorderable drag-and-drop lists on modern browsers and touch devices. No jQuery required. Supports Meteor, AngularJS, React, Polymer, Vue, Knockout and any CSS library, e.g. Bootstrap."/>
+	<meta name="viewport" content="width=device-width, initial-scale=0.5"/>
+</head>
+<body>
+
+	<a href="https://github.com/SortableJS/Sortable"><img style="position: fixed; top: 0; right: 0; border: 0; z-index:99999" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+
+
+	<div id="example1" class="list-group">
+		<div class="list-group-item">Item 1</div>
+		<div class="list-group-item">Item 2</div>
+		<div class="list-group-item">Item 3</div>
+		<div class="list-group-item">Item 4</div>
+		<div class="list-group-item">Item 5</div>
+		<div class="list-group-item">Item 6</div>
+
+		    <% for (let nummer of nummers) { %>
+                        <option class="list-group-item" value="<%= nummer.nr_naam %>" style="background-color: grey; color: black;" >
+                            <%= nummer.nr_naam %>
+                        </option>
+                            
+                    <% } %>
+	</div>
+	<hr />
+	<hr />
+	<hr />
+
+
+	<div id="shared-lists" class="row">
+		<h4 class="col-12">Shared lists</h4>
+		
+
+		
+	</div>
+
+	<!-- Latest Sortable -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js"></script>
+	<script>
+		new Sortable(example1, {
+			animation: 150
+		});
+
+		new Sortable(example2Left, {
+			group: 'shared',
+			animation: 150
+		});
+
+		new Sortable(example2Right, {
+			group: 'shared',
+			animation: 150
+		});
+	</script>
+</body>
+</html>
