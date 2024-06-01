@@ -1,55 +1,46 @@
-
-/////////////////////////////////////
-////Database requires////////////////////////
-/////////////////////////////////////
-const express = require("express"); // Express web server framework
-const bodyParser = require("body-parser"); // Body parsing middleware
-const pg = require("pg"); // PostgreSQL database client
-
-
-/////////////////////////////////////
-////sessie requires////////////////////////
-/////////////////////////////////////
-const bcrypt = require("bcrypt"); // Password hashing
-const passport = require("passport"); // Authentication
-const { Strategy } = require("passport-local"); // Local authentication strategy
-const session = require("express-session"); // Session middleware
-const rateLimit = require("express-rate-limit"); // Rate limiter middleware
-const cookieParser = require('cookie-parser'); // Cookie parser middleware
+const express = require("express");
+const bodyParser = require("body-parser");
+const pg = require("pg");
+const bcrypt = require("bcrypt");
+const passport = require("passport");
+const { Strategy } = require("passport-local");
+const session = require("express-session");
+const env = require("dotenv");
+const nodemailer = require('nodemailer');
+const multer = require('multer');
+const flash = require('connect-flash');
+const path = require('path');
+const fs = require('fs');
 
 
-/////////////////////////////////////
-////General requires////////////////////////
-/////////////////////////////////////
-const env = require("dotenv"); //.env config files
-const nodemailer = require('nodemailer');// mail systeem
-const multer = require('multer'); //upload image
-const flash = require('connect-flash'); //fout meldingen
-const path = require('path'); // mappen path
-const fs = require('fs'); // file system
-const upload = multer({ dest: 'public/images/' }); //upload image
-const jimp = require('jimp'); //resize image
-const i18n = require('i18n'); //language
-
-const { google } = require('googleapis'); //google api
-const { check, validationResult } = require('express-validator');
+const jimp = require('jimp');
+const rateLimit = require("express-rate-limit");
 const googleAPICommon = require('googleapis-common');
+const upload = multer({ dest: 'public/images/' });
+const { check, validationResult } = require('express-validator');
 
-require('dotenv').config();     //env config files
+const { google } = require('googleapis');
+require('dotenv').config();
+const i18n = require('i18n');
+const cookieParser = require('cookie-parser');
 
 
+
+
+
+/////////////////////////////////////
+////DEV purposes only////////////////////////
+/////////////////////////////////////
 
 
 
 
 // Create a rate limiter middleware
-const loginRateLimiter = rateLimit({ 
+const loginRateLimiter = rateLimit({
     windowMs: 60 * 1000, // 1 minute
     max: 3, // Maximum number of requests allowed within the window
     message: "Too many login attempts. Please try again later.",
 });
-
-
 
 
 
@@ -61,24 +52,11 @@ if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
 }
 
-
-
-
-/////////////////////////////////////
-/************* Check if dir exist and create if needed ************ */
-/////////////////////////////////////
 const dirResized = './uploads/resized';
 if (!fs.existsSync(dirResized)) {
     fs.mkdirSync(dirResized);
 }
 
-
-
-
-
-/////////////////////////////////////
-/************* Check if dir exist and create if needed ************ */
-/////////////////////////////////////
 const localesDir = './locales';
 if (!fs.existsSync(localesDir)) {
     fs.mkdirSync(localesDir);
@@ -86,9 +64,6 @@ if (!fs.existsSync(localesDir)) {
 
 
 
-
-
-/////   upload image ///////
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -110,12 +85,11 @@ const storage = multer.diskStorage({
 
 
 
-
-
-  //// session ////
+                
 const app = express();
 const port = 3000;
 env.config();
+
 
 app.use(
     session({
@@ -125,6 +99,7 @@ app.use(
     })
 );
 
+
 app.use((req, res, next) => {
     res.set('Cache-Control', 'no-store')
     next()
@@ -132,17 +107,14 @@ app.use((req, res, next) => {
 
 
 
-
-
-
 /////////////////////////////////////
 /************* DB STRING ************ */
 /////////////////////////////////////
-/*
+
 const db = new pg.Client({
     user: "world_j3vg_user",
   host: "dpg-cojgia8cmk4c73bqv2mg-a",  ///string voor op render.com
-   //host: "dpg-cojgia8cmk4c73bqv2mg-a.frankfurt-postgres.render.com", // string voor via local host
+  // host: "dpg-cojgia8cmk4c73bqv2mg-a.frankfurt-postgres.render.com", // string voor via local host
     database: "world_j3vg",
     password: "LuQNOF0WaL1Hw4LlydE1ZrDqMj24ZPfz",
     port: 5432,
@@ -152,64 +124,37 @@ const db = new pg.Client({
 });
 
 db.connect(); 
-*/
-const pool = new pg.Pool({
-    user: "world_j3vg_user",
-    host: "dpg-cojgia8cmk4c73bqv2mg-a",
-    //host: "dpg-cojgia8cmk4c73bqv2mg-a.frankfurt-postgres.render.com",
-    database: "world_j3vg",
-    password: "LuQNOF0WaL1Hw4LlydE1ZrDqMj24ZPfz",
-    port: 5432,
-    ssl: {
-        rejectUnauthorized: false
-    }
-});
 
-pool.on('error', (err, client) => {
-    console.error('Unexpected error on idle client', err);
-    process.exit(-1);
-});
+
 
 /////////////////////////////////////
 /************* Routes ************ */
 /////////////////////////////////////
-app.use(bodyParser.json());  // Parse JSON bodies (as sent by API clients)
-app.use(express.json()); // Parse URL-encoded bodies (as sent by HTML forms)
-app.set('view engine', 'ejs'); // Set the view engine to EJS
-app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded bodies (as sent by HTML forms)
-app.use(express.static("public")); // Serve static files from the public directory
-app.use('/views', express.static('views')); // Serve static files from the views directory
-app.use('/uploads', express.static('uploads')); // Serve static files from the uploads directory
-
-
-
-
-
+app.use(bodyParser.json());
+app.use(express.json());
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
+app.use('/views', express.static('views'));
+app.use('/uploads', express.static('uploads'));
 
 
 /////////////////////////////////////
 /************* Middleware ************ */
 /////////////////////////////////////
-app.use(passport.initialize()); // Initialize Passport
-app.use(passport.session()); // Enable session support
-app.use(flash()); // Enable flash messages
-app.use(cookieParser()); // Enable cookie parsing
-
-
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+app.use(cookieParser());
 
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false })); // Parse URL-encoded bodies (as sent by HTML forms)
-
-
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
-app.use(bodyParser.json()); // Parse JSON bodies (as sent by API clients)
+app.use(bodyParser.json());
 
-
-
-
-i18n.configure({ // Configure the i18n module
+i18n.configure({
     locales: ['en', 'nl'], // The locales you support
     directory: __dirname + '/locales', // The directory where your locale files will be stored
     objectNotation: true, // This allows you to use nested JSON objects for your locale files
@@ -219,11 +164,7 @@ i18n.configure({ // Configure the i18n module
 });
 // Middleware to load the language preference from the cookie
 
-
-
-app.use(i18n.init); // Initialize the i18n module
-
-
+app.use(i18n.init);
 
 
 // Define your language options globally
@@ -231,16 +172,21 @@ const languageOptions = [
     { value: 'en', label: 'English' },
     { value: 'nl', label: 'Dutch' }
 ];
+// Define your routes after the i18n middleware
 
 
+// Route to handle language selection
+// Route to handle language selection and save the preference in a cookie
+app.post("/language", (req, res) => {
+    const selectedLanguage = req.body.language; // Set the default language to English if not provided
+    req.setLocale(selectedLanguage);
 
+    // Save the selected language preference in a cookie
+    res.cookie("language", selectedLanguage, { maxAge: 30 * 24 * 60 * 60 * 1000 }); // Cookie expires in 30 days
 
-
-
-
-
-
-
+    console.log("Selected language:", selectedLanguage);
+    res.status(200).send({ message: 'Language updated successfully' });
+});
 
 // Middleware to load the language preference from the cookie
 app.use((req, res, next) => {
@@ -249,6 +195,12 @@ app.use((req, res, next) => {
         req.setLocale(selectedLanguage);
     }
     next();
+});
+
+
+app.get("/language", (req, res) => {
+    const selectedLanguage = req.getLocale(); // Set the default language to English if not provided
+    res.status(200).send({ language: selectedLanguage });
 });
 
 
@@ -269,21 +221,6 @@ const readInstrumentenFile = async () => {
         res.status(500).send(req.__('errors.randomError'));
     }
 };
-
-
-
-
-
-// Route to get the selected language from the cookie
-app.get("/language", (req, res) => {
-    const selectedLanguage = req.getLocale(); // Set the default language to English if not provided
-    res.status(200).send({ language: selectedLanguage });
-});
-
-
-
-
-
 
 
 
@@ -316,33 +253,29 @@ app.get("/", async (req, res) => {
 
 
 
-
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'dist')));
 
-
-
-
-//NOT BEEING USED AT THE MOMENT
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
 app.get('/react', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
-
-
-
-
-
 
 /////////////////////////////////////////////////////
 /************* GET routes NO LOGIN ************ */
 ///////////////////////////////////////////////////
 
 
+// Declare languageOptions and selectedLanguage as global variables
+// Function to update the selected language and language options
+
 
 // Route to render the bezoekers.ejs page with language select box
 app.get("/bezoekers", (req, res) => {
 
     const selectedLanguage = req.cookies.language; 
+
 
 
     res.render('logged-out/bezoekers.ejs', {
@@ -365,7 +298,7 @@ app.get("/bezoekers", (req, res) => {
 
 
 
-// Route to render the bezoekers.ejs page 
+
 app.get("/hetweer", (req, res) => {
     res.render('logged-out/hetweer.ejs', function (err, html) {
         if (err) {
@@ -384,7 +317,60 @@ app.get("/hetweer", (req, res) => {
 
 
 
+app.post('/saveENG', (req, res) => {
+    const homepage = req.body.homepage;
+    const welcome = req.body.welcome
+    const moreinfo = req.body.moreinfo;
 
+    fs99.readFile('./locales/en.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('An error occurred while reading the file.');
+            return;
+        }
+
+        const jsonContent = JSON.parse(data);
+        jsonContent.titles.homepage = homepage;
+        jsonContent.titles.welcome = welcome;
+        jsonContent.titles.moreinfo = moreinfo;
+        fs.writeFile('./locales/en.json', JSON.stringify(jsonContent, null, 2), 'utf8', (err) => {
+            if (err) {
+                console.error(err);
+                res.status(500).send('An error occurred while writing to the file.');
+                return;
+            }
+            res.redirect('/instellingen');
+        });
+    });
+});
+
+
+app.post('/saveNL', (req, res) => {
+    const homepagenl = req.body.homepageNL;
+    const welcomenl = req.body.welcomeNL;
+    const moreinfonl = req.body.moreinfoNL;
+
+    fs99.readFile('./locales/nl.json', 'utf8', (err, dataNL) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('An error occurred while reading the file.');
+            return;
+        }
+
+        const jsonContentnl = JSON.parse(dataNL);
+        jsonContentnl.titles.homepage = homepagenl;
+        jsonContentnl.titles.welcome = welcomenl;
+        jsonContentnl.titles.moreinfo = moreinfonl; // Corrected line
+        fs.writeFile('./locales/nl.json', JSON.stringify(jsonContentnl, null, 2), 'utf8', (err) => {
+            if (err) {
+                console.error(err);
+                res.status(500).send('An error occurred while writing to the file.');
+                return;
+            }
+            res.redirect('/instellingen');
+        });
+    });
+});
 
 
 
@@ -427,7 +413,7 @@ const loadSettings = async (filePath) => {
 
 
 
-// Route to render the logmenu.ejs page
+
 app.get("/logmenu", async (req, res) => {
     try {
         const filePath = path.join(__dirname, '/public', 'settings.json');
@@ -445,7 +431,7 @@ app.get("/logmenu", async (req, res) => {
 
 
 
-// Route to render the Overzichtplaylijst.ejs page
+
 app.get('/overzichtplaylijst', (req, res) => {
     const filePath = path.join(__dirname, '/localJson');
     fs.readdir(filePath, (err, files) => {
@@ -461,7 +447,7 @@ app.get('/overzichtplaylijst', (req, res) => {
 
 
 
-// Route to render the bezoekersleden.ejs page
+
 app.get('/bezoekersleden', async (req, res) => {
     try {
         const filePath = path.join(__dirname, '/public', 'settings.json');
@@ -470,8 +456,7 @@ app.get('/bezoekersleden', async (req, res) => {
         const errorMessage = req.flash("error")[0];
 
 
-        const result = await pool.query("SELECT voornaam, achternaam, afbeelding , instrument FROM users");/************* visitors access to DB! ************ */
-        
+        const result = await db.query("SELECT voornaam, achternaam, afbeelding , instrument FROM users");/************* visitors access to DB! ************ */
         const leden = result.rows;
         res.render('logged-out/bezoekersleden.ejs', { leden, error: errorMessage, color: settings.color, background: settings.background, image: settings.image });
     } catch (err) {
@@ -481,7 +466,7 @@ app.get('/bezoekersleden', async (req, res) => {
 });
 
 
-// Route to render the Overzichtparituren.ejs page
+
 app.get('/Overzichtparituren', async (req, res) => {
     try {
         const filePath = path.join(__dirname, '/public', 'settings.json');
@@ -490,7 +475,7 @@ app.get('/Overzichtparituren', async (req, res) => {
         const errorMessage = req.flash("error")[0];
 
 
-        const result = await pool.query("SELECT * FROM nummers");/************* visitors access to DB! ************ */
+        const result = await db.query("SELECT * FROM nummers");/************* visitors access to DB! ************ */
         const nummers = result.rows;
         res.render('logged-out/Overzichtparituren.ejs', { nummers, error: errorMessage, color: settings.color, background: settings.background, image: settings.image });
     } catch (err) {
@@ -501,7 +486,7 @@ app.get('/Overzichtparituren', async (req, res) => {
 
 
 
-// Route to render the logmenu.ejs page
+
 app.get("/logmenu", async (req, res) => {
     try {
         const filePath = path.join(__dirname, '/public', 'settings.json');
@@ -516,23 +501,10 @@ app.get("/logmenu", async (req, res) => {
         res.status(500).send(req.__('errors.randomError'));
     }
 });
-
-
-
-
-
-
-
-
-
-
-
 /////////////////////////////////////////////////////
 /************* GET routes WITH  LOGIN ************ */
 ///////////////////////////////////////////////////
 
-
-// Route to render the mainMenu.ejs page
 app.get("/mainmenu", async (req, res) => {
 
     if (!req.isAuthenticated()) {
@@ -544,7 +516,7 @@ app.get("/mainmenu", async (req, res) => {
 
     try {
      
-        const result = await pool.query("SELECT * FROM users WHERE email = $1", [email]); ///////// logged user email value
+        const result = await db.query("SELECT * FROM users WHERE email = $1", [email]); ///////// logged user email value
 
         if (result.rows.length > 0) {
             const user = result.rows[0];
@@ -564,7 +536,7 @@ app.get("/mainmenu", async (req, res) => {
 
 
 
-// Route to render the bezoekersleden.ejs page
+
 app.get('/bezoekersledenlogin', async (req, res) => {
 
     if (!req.isAuthenticated()) {
@@ -578,7 +550,7 @@ app.get('/bezoekersledenlogin', async (req, res) => {
         const errorMessage = req.flash("error")[0];
 
 
-        const result = await pool.query("SELECT voornaam, achternaam, afbeelding , instrument FROM users");/************* visitors access to DB! ************ */
+        const result = await db.query("SELECT voornaam, achternaam, afbeelding , instrument FROM users");/************* visitors access to DB! ************ */
         const leden = result.rows;
         res.render('logged-in/bezoekersleden.ejs', { leden, error: errorMessage, color: settings.color, background: settings.background, image: settings.image });
     } catch (err) {
@@ -587,7 +559,7 @@ app.get('/bezoekersledenlogin', async (req, res) => {
     }
 });
 
-// Route to render the Overzichtparituren.ejs page
+
 app.get('/Overzichtpariturenlogin', async (req, res) => {
     if (!req.isAuthenticated()) {
         res.redirect("/logmenu");
@@ -600,7 +572,7 @@ app.get('/Overzichtpariturenlogin', async (req, res) => {
         const errorMessage = req.flash("error")[0];
 
 
-        const result = await pool.query("SELECT * FROM nummers");/************* visitors access to DB! ************ */
+        const result = await db.query("SELECT * FROM nummers");/************* visitors access to DB! ************ */
         const nummers = result.rows;
         res.render('logged-in/Overzichtparituren.ejs', { nummers, error: errorMessage, color: settings.color, background: settings.background, image: settings.image });
     } catch (err) {
@@ -609,23 +581,16 @@ app.get('/Overzichtpariturenlogin', async (req, res) => {
     }
 });
 
-
-
-
-// Route to render the nieuweplaylijst.ejs page 
 app.get("/nieuweplaylijst", async (req, res) => {
 
-    if (!req.isAuthenticated()) {
-        res.redirect("/logmenu");
-        return;
-    }
+  
 
     try {
         const filePath = path.join(__dirname, '/public', 'settings.json');
         const settings = await loadSettings(filePath);
 
         const errorMessage = req.flash("error")[0]; // Get the first error message from the flash messages
-        const result = await pool.query('SELECT * FROM nummers');
+        const result = await db.query('SELECT * FROM nummers');
         const nummers = result.rows;
         // Pass the settings and the error message to the view
         res.render('logged-in/Nieuweplaylijst.ejs', { nummers, error: errorMessage, color: settings.color, background: settings.background, image: settings.image });
@@ -636,35 +601,6 @@ app.get("/nieuweplaylijst", async (req, res) => {
 });
 
 
-
-
-
-// Route to render the updateplaylijst.ejs page 
-app.get("/updateplaylijst", async (req, res) => {
-
-    if (!req.isAuthenticated()) {
-        res.redirect("/logmenu");
-        return;
-    }
-
-    try {
-        const filePath = path.join(__dirname, '/public', 'settings.json');
-        const settings = await loadSettings(filePath);
-
-        const errorMessage = req.flash("error")[0]; // Get the first error message from the flash messages
-        const result = await pool.query('SELECT * FROM nummers');
-        const nummers = result.rows;
-        // Pass the settings and the error message to the view
-        res.render('logged-in/Updateplaylijst.ejs', { nummers, error: errorMessage, color: settings.color, background: settings.background, image: settings.image });
-    } catch (err) {
-        console.error(err);
-        res.status(500).send(req.__('errors.randomError'));
-    }
-});
-
-
-
-// Route to render the Instellingen.ejs page
 const fs99 = require('fs');
 app.get('/instellingen', async (req, res) => {
     if (!req.isAuthenticated()) {
@@ -698,13 +634,10 @@ app.get('/instellingen', async (req, res) => {
 });
 
 
-
-
-
-
 /////////////////////////////////////
 /************* new lid  ************ */
 /////////////////////////////////////
+
 app.get("/newlid", async (req, res) => {
 
     if (req.isAuthenticated()) {   
@@ -725,6 +658,14 @@ app.get("/newlid", async (req, res) => {
 
 
 
+/////////////////////////////////////
+/************* default JSON for instellingen  ************ */
+/////////////////////////////////////
+
+
+
+
+
 
 
 
@@ -737,9 +678,9 @@ app.get("/newlid", async (req, res) => {
 const renderUpdateLidPage = async (req, res, email, error = null, msg = false) => {
     try {
         const instrumenten = await readInstrumentenFile(); //filling the suggestion list with instruments
-        const emailResult = await pool.query("SELECT email FROM users"); //filling combobox with all users
+        const emailResult = await db.query("SELECT email FROM users"); //filling combobox with all users
         const emails = emailResult.rows.map(row => row.email);
-        const result = await pool.query("SELECT * FROM users WHERE email = $1", [email]); //search by email
+        const result = await db.query("SELECT * FROM users WHERE email = $1", [email]); //search by email
         const user = result.rows.length > 0 ? result.rows[0] : {//if the user is emtpy because of the empty search.
             email: "",
             voornaam: "",
@@ -816,15 +757,15 @@ app.get('/searchnummer', async (req, res) => { //search by nummerId
 
 const renderUpdateNummerPage = async (req, res, nr_naam = '', error = null, msg = false) => {
     try {
-        const nrResult = await pool.query("SELECT nr_naam FROM nummers"); //filling combobox with all nummers
+        const nrResult = await db.query("SELECT nr_naam FROM nummers"); //filling combobox with all nummers
         const nr = nrResult.rows.map(row => row.nr_naam);
 
         let nummer = null;
         if (nr_naam) {
-            const result = await pool.query("SELECT id, nr_naam, nr_uitvoerder ,nr_genre, nr_aantalkerengespeeld, nr_partituur, nr_info, EXTRACT(HOUR FROM nr_duur) || ' uur : ' || EXTRACT(MINUTE FROM nr_duur) || ' minuten : ' || ROUND(EXTRACT(SECOND FROM nr_duur)) || ' seconden :' as nr_duur FROM nummers WHERE nr_naam LIKE $1", [`%${nr_naam}%`]); //search by nr_nam
+            const result = await db.query("SELECT id, nr_naam, nr_uitvoerder ,nr_genre, nr_aantalkerengespeeld, nr_partituur, nr_info, EXTRACT(HOUR FROM nr_duur) || ' uur : ' || EXTRACT(MINUTE FROM nr_duur) || ' minuten : ' || ROUND(EXTRACT(SECOND FROM nr_duur)) || ' seconden :' as nr_duur FROM nummers WHERE nr_naam LIKE $1", [`%${nr_naam}%`]); //search by nr_nam
             nummer = result.rows.length > 0 ? result.rows[0] : null;
         } else if (nr.length > 0) {
-            const result = await pool.query("SELECT id,nr_naam, nr_genre , nr_uitvoerder, nr_aantalkerengespeeld, nr_partituur,nr_info, EXTRACT(HOUR FROM nr_duur) || ' uur : ' || EXTRACT(MINUTE FROM nr_duur) || ' minuten : ' || ROUND(EXTRACT(SECOND FROM nr_duur)) || ' seconden : ' as nr_duur FROM nummers WHERE nr_naam = $1", [nr[0]]); //get first nummer
+            const result = await db.query("SELECT id,nr_naam, nr_genre , nr_uitvoerder, nr_aantalkerengespeeld, nr_partituur,nr_info, EXTRACT(HOUR FROM nr_duur) || ' uur : ' || EXTRACT(MINUTE FROM nr_duur) || ' minuten : ' || ROUND(EXTRACT(SECOND FROM nr_duur)) || ' seconden : ' as nr_duur FROM nummers WHERE nr_naam = $1", [nr[0]]); //get first nummer
             nummer = result.rows.length > 0 ? result.rows[0] : null;
         }
 
@@ -852,8 +793,7 @@ const renderUpdateNummerPage = async (req, res, nr_naam = '', error = null, msg 
 
 
 
-/////////////////////////////////////
-/************* Route to Updatepartituren ************ */
+
 
 const strftime = require('strftime');
 
@@ -863,7 +803,7 @@ app.get('/Updatepartituren', async (req, res) => {
         return;
     }
 
-    const result = await pool.query('SELECT * FROM nummers');
+    const result = await db.query('SELECT * FROM nummers');
 
 
 
@@ -876,16 +816,13 @@ app.get('/Updatepartituren', async (req, res) => {
 
 
 
-/////////////////////////////////////
-/************* Route to zoekennr ************ */
-
 app.get('/searchsong', async (req, res) => {
     if (!req.isAuthenticated()) {
         res.redirect("/logmenu");
         return;
     }
     const searchsong = req.query.searchsong;
-    const result = await pool.query('SELECT * FROM nummers WHERE nr_naam LIKE $1', [`%${searchsong}%`]);
+    const result = await db.query('SELECT * FROM nummers WHERE nr_naam LIKE $1', [`%${searchsong}%`]);
     const nummers = result.rows;
     res.render('logged-in/Updatepartituren.ejs', { nummers });
 });
@@ -906,7 +843,7 @@ app.get("/nieuwpartituur", async (req, res) => {
 
     if (req.isAuthenticated()) {
         try {
-            const result = await pool.query('SELECT * FROM nummers');
+            const result = await db.query('SELECT * FROM nummers');
 
 
 
@@ -942,44 +879,8 @@ app.get("/logout", (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/////////////////////////////////////
-
-/////////////////////////////////////
-
-
 /////////////////////////////////////
 /************* POST ************ */
-/////////////////////////////////////
-
-/////////////////////////////////////
-
 /////////////////////////////////////
 
 
@@ -1028,16 +929,6 @@ app.post("/reset", async (req, res) => {
 });
 
 
-
-
-
-
-
-
-/////////////////////////////////////
-/************* SAVE JSON lijst ************ */
-///wordt voorlopig nNIET GERBUIKT
-
 app.post("/opslaan_lijst", async (req, res) => {
     try {
         const lijstNaam = req.body.lijst_naam;
@@ -1046,6 +937,10 @@ app.post("/opslaan_lijst", async (req, res) => {
         const nummers = req.body.lijst_nummernaam; // Check if req.body.lijst_nummernaam2 exists before splitting
       console.log(nummers);
        
+
+     
+
+
         const filePath = path.join(__dirname, 'lijst.json');
         const data = {
             lijstNaam,
@@ -1067,15 +962,10 @@ app.post("/opslaan_lijst", async (req, res) => {
 
 
 
-
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const fs987 = require('fs');
 
-//////////////////////////
-// Save the values to a new JSON file in the localJson directory
-///Dit wordt WEL GERBUIKT
 
 app.post('/save-values', (req, res) => {
     console.log(req.body); // Log the received data
@@ -1084,15 +974,16 @@ app.post('/save-values', (req, res) => {
     const values = {
         lijst_aantal: req.body.lijst_aantal,
         lijst_type: req.body.lijst_type,
-        lijst_nummernaam: req.body.lijst_nummernaam
+        lijst_nummernaam2: req.body.mySelect
+       
     };
-
+    console.log(values);
     // Generate a unique filename based on the playlist name
     const fileName = `${lijstNaam}.json`;
 
     // Save the values to a new JSON file in the localJson directory
     const filePath = path.join(__dirname, 'localJson', fileName);
-    fs.writeFile(filePath, JSON.stringify(values, null, 2), (err) => {
+    fs987.writeFile(filePath, JSON.stringify(values, null, 2), (err) => {
         if (err) {
             console.error('Error writing to file', err);
             res.status(500).json({ success: false, message: 'Internal Server Error' });
@@ -1102,19 +993,6 @@ app.post('/save-values', (req, res) => {
         res.json({ success: true });
     });
 });
-
-
-
-
-
-
-
-
-// ///////////////////////////////////
-
-// /************* reset JSON ENG SETTINGS ************ */
-
-
 
 app.post("/resetENG", async (req, res) => {
     try {
@@ -1135,18 +1013,6 @@ app.post("/resetENG", async (req, res) => {
     }
 });
 
-
-
-
-
-
-
-
-
-
-// ///////////////////////////////////
-
-// /************* reset JSON NL SETTINGS ************ */
 
 app.post("/resetNL", async (req, res) => {
     try {
@@ -1169,83 +1035,6 @@ app.post("/resetNL", async (req, res) => {
 
 
 
-
-
-
-
-/////////////////////////////////////
-/************* SAVE JSON ENG SETTINGS ************ */
-/////////////////////////////////////
-
-app.post('/saveENG', (req, res) => {
-    const homepage = req.body.homepage;
-    const welcome = req.body.welcome
-    const moreinfo = req.body.moreinfo;
-
-    fs99.readFile('./locales/en.json', 'utf8', (err, data) => {
-        if (err) {
-            console.error(err);
-            res.status(500).send('An error occurred while reading the file.');
-            return;
-        }
-
-        const jsonContent = JSON.parse(data);
-        jsonContent.titles.homepage = homepage;
-        jsonContent.titles.welcome = welcome;
-        jsonContent.titles.moreinfo = moreinfo;
-        fs.writeFile('./locales/en.json', JSON.stringify(jsonContent, null, 2), 'utf8', (err) => {
-            if (err) {
-                console.error(err);
-                res.status(500).send('An error occurred while writing to the file.');
-                return;
-            }
-            res.redirect('/instellingen');
-        });
-    });
-});
-
-
-
-
-
-/////////////////////////////////////
-/************* SAVE JSON NL  SETTINGS ************ */
-/////////////////////////////////////
-
-app.post('/saveNL', (req, res) => {
-    const homepagenl = req.body.homepageNL;
-    const welcomenl = req.body.welcomeNL;
-    const moreinfonl = req.body.moreinfoNL;
-
-    fs99.readFile('./locales/nl.json', 'utf8', (err, dataNL) => {
-        if (err) {
-            console.error(err);
-            res.status(500).send('An error occurred while reading the file.');
-            return;
-        }
-
-        const jsonContentnl = JSON.parse(dataNL);
-        jsonContentnl.titles.homepage = homepagenl;
-        jsonContentnl.titles.welcome = welcomenl;
-        jsonContentnl.titles.moreinfo = moreinfonl; // Corrected line
-        fs.writeFile('./locales/nl.json', JSON.stringify(jsonContentnl, null, 2), 'utf8', (err) => {
-            if (err) {
-                console.error(err);
-                res.status(500).send('An error occurred while writing to the file.');
-                return;
-            }
-            res.redirect('/instellingen');
-        });
-    });
-});
-
-
-
-
-
-
-
-
 /////////////////////////////////////
 /************* DELETE USER ************ */
 /////////////////////////////////////
@@ -1265,7 +1054,7 @@ app.post('/delete-user', async (req, res) => {
     }
 
     try {
-        const result = await pool.query("DELETE FROM users WHERE id = $1", [idToDelete]);
+        const result = await db.query("DELETE FROM users WHERE id = $1", [idToDelete]);
 
         if (result.rowCount > 0) {
             const email = req.user.email;
@@ -1300,7 +1089,7 @@ app.post('/delete-nummer', async (req, res) => {
     const nrdel = req.body.nrdel || ""; // Set default value for nrdel if it is not provided
 
     try {
-        const result = await pool.query("DELETE FROM nummers WHERE id = $1", [nrdel]);
+        const result = await db.query("DELETE FROM nummers WHERE id = $1", [nrdel]);
 
         if (result.rowCount > 0) {
            
@@ -1316,20 +1105,7 @@ app.post('/delete-nummer', async (req, res) => {
 
 });
 
-/////////////////////////////////////
-/************* DELete a song  DEZE WORDT NIET GEbruikt************ */
-/////////////////////////////////////
 
-app.delete('/delete-song', async (req, res) => {
-    const songName = req.query.naam;
-    try {
-        await pool.query('DELETE FROM nummers WHERE nr_naam = $1', [songName]);
-        res.status(200).send('Song deleted successfully');
-    } catch (err) {
-        console.error(err);
-        res.status(500).send(req.__('errors.randomError'));
-    }
-});
 
 
 
@@ -1352,7 +1128,7 @@ app.post('/register', upload4.single('afbeelding'), async (req, res) => {
     const digitRegex = /\d/; // Regex for digits
     const uppercaseRegex = /[A-Z]/; // Regex for uppercase letters
     const lowercaseRegex = /[a-z]/; // Regex for lowercase letters
-    const userExistsResult = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
+    const userExistsResult = await db.query("SELECT * FROM users WHERE email = $1", [email]);
 
     if (userExistsResult.rows.length > 0) {
         // user already exists
@@ -1418,7 +1194,7 @@ app.post('/register', upload4.single('afbeelding'), async (req, res) => {
                 } else {
                     try {
                         const insertUserQuery = "INSERT INTO users (email, password, voornaam, achternaam, postcode, rlvl, instrument, afbeelding) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *";
-                        const result = await pool.query(insertUserQuery, [email, hash, voornaam, achternaam, postcode, rlvl, instrument, afbeelding]);
+                        const result = await db.query(insertUserQuery, [email, hash, voornaam, achternaam, postcode, rlvl, instrument, afbeelding]);
 
                         const user = result.rows[0];
                         req.login(user, (err) => {
@@ -1442,10 +1218,6 @@ app.post('/register', upload4.single('afbeelding'), async (req, res) => {
         res.status(500).send(req.__('errors.randomError'));
     }
 });
-
-
-
-
 
 
 
@@ -1490,7 +1262,7 @@ app.post('/update-profile', upload5.single('afbeelding'), async (req, res) => {
             afbeelding = '/uploads/resized/' + req.file.filename; // Use the new file path for the image
         } else {
             // If no new image is uploaded, keep the existing image
-            const userResult = await pool.query("SELECT afbeelding FROM users WHERE id = $1", [id]);
+            const userResult = await db.query("SELECT afbeelding FROM users WHERE id = $1", [id]);
             if (userResult.rows.length > 0) {
                 afbeelding = userResult.rows[0].afbeelding;
             } else {
@@ -1500,7 +1272,7 @@ app.post('/update-profile', upload5.single('afbeelding'), async (req, res) => {
 
 
 
-        const result = await pool.query(
+        const result = await db.query(
             "UPDATE users SET email = $1, voornaam = $2, achternaam = $3, postcode = $4, rlvl = $5, instrument = $6, afbeelding = $7 WHERE id = $8 RETURNING *",
             [email, voornaam, achternaam, postcode, rlvl, instrument, afbeelding, id]
         );
@@ -1530,52 +1302,6 @@ app.post('/update-profile', upload5.single('afbeelding'), async (req, res) => {
 
 
 
-
-/////////////////////////////////////
-/************* UPDATE a song, DEZE WORDT NIET GRebruikt ************ */
-/////////////////////////////////////
-
-
-app.put('/update-song', async (req, res) => {
-    const songName = req.query.naam;
-
-    const naam = req.body.nr_naam ? req.body.nr_naam.trim() : '';
-    const duur = req.body.nr_duur ? req.body.nr_duur.trim() : '';
-    const genre = req.body.nr_genre ? req.body.nr_genre.trim() : '';
-    const uitvoerder = req.body.nr_uitvoerder ? req.body.nr_uitvoerder.trim() : '';
-    const aantalkerengespeeld = req.body.nr_aantalkerengespeeld ? req.body.nr_aantalkerengespeeld.trim() : '';
-    const partituur = req.file ? '/uploads/' + req.file.filename : '/uploads/icon.jpg'; // Set default image if no file is chosen
-    const info = req.body.nr_info ? req.body.nr_info.trim() : '';
-
-    console.log(songName);
-    try {
-        // Perform the update operation here
-        const result = await pool.query("UPDATE nummers SET nr_naam = $1, nr_genre = $2, nr_duur = $3, nr_uitvoerder = $4, nr_aantalkerengespeeld = $5, nr_partituur = $6, nr_info = $7 WHERE nr_naam = $8", [naam, genre, duur, uitvoerder, aantalkerengespeeld, partituur, info, songName]);
-
-        res.status(200).send('Song updated successfully');
-    } catch (err) {
-        console.error(err);
-        res.status(500).send(req.__('errors.randomError'));
-    }
-});
-
-
-// Route to handle language selection and save the preference in a cookie
-app.post("/language", (req, res) => {
-    const selectedLanguage = req.body.language; // Set the default language to English if not provided
-    req.setLocale(selectedLanguage);
-
-    // Save the selected language preference in a cookie
-    res.cookie("language", selectedLanguage, { maxAge: 30 * 24 * 60 * 60 * 1000 }); // Cookie expires in 30 days
-
-    console.log("Selected language:", selectedLanguage);
-    res.status(200).send({ message: 'Language updated successfully' });
-});
-
-
-
-
-
 /////////////////////////////////////
 /************* UPDATE  nummer ************ */
 /////////////////////////////////////
@@ -1597,7 +1323,7 @@ app.post('/update-nummer', async (req, res) => {
     const nr_info = req.body.nr_info;
 
     try {
-        const result = await pool.query(
+        const result = await db.query(
             "UPDATE nummers SET nr_naam= $1,  nr_genre = $2, nr_uitvoerder = $3, nr_aantalkerengespeeld = $4, nr_info = $5 WHERE id  = $6 RETURNING *",
             [ nr_naam,nr_genre, nr_uitvoerder, nr_aantalkerengespeeld, nr_info, nr_id]
         );
@@ -1634,7 +1360,7 @@ app.post('/update-nummer', async (req, res) => {
 
 
 /////////////////////////////////////
-/************* setup website *INSTELLINGEN PAGINA*********** */
+/************* setup website ************ */
 /////////////////////////////////////
 const upload2 = multer({ dest: dir }); // Use the 'dir' variable you defined earlier
 const upload3 = multer({ storage: storage });
@@ -1662,14 +1388,6 @@ app.post("/instellingen", upload3.single('image'), async (req, res) => {
     }
 });
 
-
-
-
-
-
-
-
-
 /////////////////////////////////////
 /************* ADD new song ************ */
 /////////////////////////////////////
@@ -1684,37 +1402,37 @@ app.post('/voegpartituurtoe', upload.single('nr_partituur'), async (req, res) =>
     const nr_info = req.body.nr_info ? req.body.nr_info.trim() : '';
 
     try {
-        // validate input
+        // Validatie van invoervelden
         if (!nr_naam || !nr_duur || !nr_genre || !nr_uitvoerder || !nr_aantalkerengespeeld) {
             throw new Error('Vul alle vereiste velden in.');
         }
 
-        // controle if nummer already exists
+        // Bestaand nummer controle
         const existingNummerQuery = "SELECT * FROM nummers WHERE nr_naam = $1";
-        const existingNummerResult = await pool.query(existingNummerQuery, [nr_naam]);
+        const existingNummerResult = await db.query(existingNummerQuery, [nr_naam]);
         if (existingNummerResult.rows.length > 0) {
             throw new Error('Dit nummer bestaat al.');
         }
 
      
 
-        // add nummer to database
+        // Voeg nummer toe aan de database
         const insertPartituurQuery = "INSERT INTO nummers (nr_naam, nr_duur, nr_genre, nr_uitvoerder, nr_aantalkerengespeeld, nr_partituur, nr_info) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *";
-        const result = await pool.query(insertPartituurQuery, [nr_naam, nr_duur, nr_genre, nr_uitvoerder, nr_aantalkerengespeeld, nr_partituur, nr_info]);
+        const result = await db.query(insertPartituurQuery, [nr_naam, nr_duur, nr_genre, nr_uitvoerder, nr_aantalkerengespeeld, nr_partituur, nr_info]);
 
         const partituur = result.rows[0];
         res.redirect("/nieuwpartituur");
     } catch (err) {
         if (err instanceof TypeError) {
-            //  TypeError
+            // Behandel TypeError
             console.error("TypeError:", err);
             res.status(400).send("Er is een typefout opgetreden.");
         } else if (err instanceof ReferenceError) {
-            //  ReferenceError
+            // Behandel ReferenceError
             console.error("ReferenceError:", err);
             res.status(400).send("Er is een referentiefout opgetreden.");
         } else {
-            //  general errors
+            // Behandel andere fouten
             console.error("Fout:", err);
             res.status(500).send(req.__('errors.randomError'));
         }
@@ -1724,13 +1442,53 @@ app.post('/voegpartituurtoe', upload.single('nr_partituur'), async (req, res) =>
 
 
 
+/////////////////////////////////////
+/************* DELete a song ************ */
+/////////////////////////////////////
+
+app.delete('/delete-song', async (req, res) => {
+    const songName = req.query.naam;
+    try {
+        await db.query('DELETE FROM nummers WHERE nr_naam = $1', [songName]);
+        res.status(200).send('Song deleted successfully');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send(req.__('errors.randomError'));
+    }
+});
 
 
 
 
 
 
+/////////////////////////////////////
+/************* UPDATE a song ************ */
+/////////////////////////////////////
 
+
+app.put('/update-song', async (req, res) => {
+    const songName = req.query.naam;
+
+    const naam = req.body.nr_naam ? req.body.nr_naam.trim() : '';
+    const duur = req.body.nr_duur ? req.body.nr_duur.trim() : '';
+    const genre = req.body.nr_genre ? req.body.nr_genre.trim() : '';
+    const uitvoerder = req.body.nr_uitvoerder ? req.body.nr_uitvoerder.trim() : '';
+    const aantalkerengespeeld = req.body.nr_aantalkerengespeeld ? req.body.nr_aantalkerengespeeld.trim() : '';
+    const partituur = req.file ? '/uploads/' + req.file.filename : '/uploads/icon.jpg'; // Set default image if no file is chosen
+    const info = req.body.nr_info ? req.body.nr_info.trim() : '';
+
+    console.log(songName);
+    try {
+        // Perform the update operation here
+        const result = await db.query("UPDATE nummers SET nr_naam = $1, nr_genre = $2, nr_duur = $3, nr_uitvoerder = $4, nr_aantalkerengespeeld = $5, nr_partituur = $6, nr_info = $7 WHERE nr_naam = $8", [naam, genre, duur, uitvoerder, aantalkerengespeeld, partituur, info, songName]);
+
+        res.status(200).send('Song updated successfully');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send(req.__('errors.randomError'));
+    }
+});
 
 
 
@@ -1738,6 +1496,7 @@ app.post('/voegpartituurtoe', upload.single('nr_partituur'), async (req, res) =>
 /////////////////////////////////////
 /************* STILL DOESNT WORK SEND EMAIL ************ */
 /////////////////////////////////////
+
 app.post('/send-email', async (req, res) => {
     const oauth2Client = new google.auth.OAuth2(
         process.env.CLIENT_ID,
@@ -1792,7 +1551,7 @@ app.post('/send-email', async (req, res) => {
 passport.use(
     new Strategy(async function verify(email, password, cb) {
         try {
-            const result = await pool.query("SELECT * FROM users WHERE email = $1 ", [
+            const result = await db.query("SELECT * FROM users WHERE email = $1 ", [
                 email,
             ]);
             if (result.rows.length > 0) {

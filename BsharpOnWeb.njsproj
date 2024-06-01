@@ -1,0 +1,218 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>BsharpOnWeb</Name>
+    <RootNamespace>BsharpOnWeb</RootNamespace>
+    <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>55fcac70-a12b-40df-aa06-65e414e49ac4</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>index.js</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <NodejsPort>3000</NodejsPort>
+    <StartWebBrowser>True</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="lijst.json" />
+    <Content Include="locales\DEFen.json" />
+    <Content Include="locales\DEFnl.json" />
+    <Content Include="locales\en.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="locales\nl.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="public\css\StyleSheet1.css">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="public\css\StyleSheet2.css">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="public\default.json" />
+    <Content Include="src\app.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\app.test.js">
+      <SubType>Code</SubType>
+      <TestFramework>Jest</TestFramework>
+    </Content>
+    <Content Include="src\data.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\index.css">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="index.js" />
+    <Content Include="instrumenten.txt" />
+    <Content Include="libman.json" />
+    <Content Include="public\css\MainStyle.css">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="public\css\NavMail.css" />
+    <Content Include="public\images\adolf.jpg" />
+    <Content Include="public\images\background.jpg" />
+    <Content Include="public\images\baking3.jpg" />
+    <Content Include="public\images\buttonback.jpg" />
+    <Content Include="public\images\buttonback3.png" />
+    <Content Include="public\images\da.png" />
+    <Content Include="public\images\Erwin-10.jpg" />
+    <Content Include="public\images\Erwin-12.jpg" />
+    <Content Include="public\images\Erwin-16.jpg" />
+    <Content Include="public\images\Erwin-18.jpg" />
+    <Content Include="public\images\Erwin-2.jpg" />
+    <Content Include="public\images\Erwin-21.jpg" />
+    <Content Include="public\images\Erwin-23.jpg" />
+    <Content Include="public\images\Erwin-23s.jpg" />
+    <Content Include="public\images\Erwin-25.jpg" />
+    <Content Include="public\images\Erwin-27.jpg" />
+    <Content Include="public\images\Erwin-29.jpg" />
+    <Content Include="public\images\Erwin-31.jpg" />
+    <Content Include="public\images\Erwin-33.jpg" />
+    <Content Include="public\images\Erwin-36.jpg" />
+    <Content Include="public\images\Erwin-4.jpg" />
+    <Content Include="public\images\Erwin-6.jpg" />
+    <Content Include="public\images\Erwin-8.jpg" />
+    <Content Include="public\images\fats.jpg" />
+    <Content Include="public\images\gr.jpg" />
+    <Content Include="public\images\gr2.jpg" />
+    <Content Include="public\images\gr22.png" />
+    <Content Include="public\images\gr5.jpg" />
+    <Content Include="public\images\jazz.png" />
+    <Content Include="public\images\leden\Liesbeth.jpg" />
+    <Content Include="public\images\leden\Erwin.jpg" />
+    <Content Include="public\images\leden\Herbert.jpg" />
+    <Content Include="public\images\leden\Kenny.jpg" />
+    <Content Include="public\images\leden\Johan.jpg" />
+    <Content Include="public\images\leden\Wilfried.jpg" />
+    <Content Include="public\images\maillogo.jpg" />
+    <Content Include="public\images\rock.png" />
+    <Content Include="public\images\tp.jpg" />
+    <Content Include="public\images\tp99.jpg" />
+    <Content Include="public\images\x.jpg" />
+    <Content Include="public\js\MainJS.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="package.json" />
+    <Content Include="public\settings.json" />
+    <Content Include="README.md" />
+    <Content Include="settings.json" />
+    <Content Include="src\components\JavaScript.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\components\Library.js" />
+    <Content Include="src\components\LibrarySong.js" />
+    <Content Include="src\components\Navb.js" />
+    <Content Include="src\components\PlayerSong.js" />
+    <Content Include="src\components\Song.js" />
+    <Content Include="src\styles\app.scss" />
+    <Content Include="src\styles\library.scss" />
+    <Content Include="src\styles\nav.scss" />
+    <Content Include="src\styles\player.scss" />
+    <Content Include="src\styles\song.scss" />
+    <Content Include="views\index.ejs" />
+    <Content Include="views\logged-in\bezoekersleden.ejs" />
+    <Content Include="views\logged-in\ENJSON - kopie.ejs" />
+    <Content Include="views\logged-in\ENJSON.ejs" />
+    <Content Include="views\logged-in\Instellingen.ejs" />
+    <Content Include="views\logged-in\mainMenu.ejs" />
+    <Content Include="views\logged-in\Menu.ejs" />
+    <Content Include="views\logged-in\menuB.ejs" />
+    <Content Include="views\logged-in\menuHome.ejs" />
+    <Content Include="views\logged-in\NavMenuLoggedin.ejs" />
+    <Content Include="views\logged-in\Newlid.ejs" />
+    <Content Include="views\logged-in\Newlids.ejs" />
+    <Content Include="views\logged-in\Nieuwepartituur - kopie.ejs" />
+    <Content Include="views\logged-in\Nieuwepartituur.ejs" />
+    <Content Include="views\logged-in\Nieuweplaylijst.ejs" />
+    <Content Include="views\logged-in\NLJSON.ejs" />
+    <Content Include="views\logged-in\Overzichtparituren.ejs" />
+    <Content Include="views\logged-in\Overzichtplaylijst.ejs" />
+    <Content Include="views\logged-in\updatelid.ejs" />
+    <Content Include="views\logged-in\updatepart.ejs" />
+    <Content Include="views\logged-in\Updatepartituren.ejs" />
+    <Content Include="views\logged-in\Updatepartituur.ejs" />
+    <Content Include="views\logged-in\Updateplaylijst.ejs" />
+    <Content Include="views\logged-out\bezoekers.ejs" />
+    <Content Include="views\logged-out\bezoekersleden.ejs" />
+    <Content Include="views\logged-out\bezoekersnummers.ejs" />
+    <Content Include="views\logged-out\bezoekersoptredenlijst.ejs" />
+    <Content Include="views\logged-out\bezoekersvideos.ejs" />
+    <Content Include="views\logged-out\hetweer.ejs" />
+    <Content Include="views\logged-out\logmenu.ejs" />
+    <Content Include="views\logged-out\NavMenu.ejs" />
+    <Content Include="views\logged-out\Overzichtparituren.ejs" />
+    <Content Include="views\logged-out\weetje1.ejs" />
+    <Content Include="views\logged-out\weetje2.ejs" />
+    <Content Include="views\logged-out\weetje3.ejs" />
+    <Content Include="views\logged-out\weetje4.ejs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="locales\" />
+    <Folder Include="src\" />
+    <Folder Include="public\" />
+    <Folder Include="public\css\" />
+    <Folder Include="public\images\" />
+    <Folder Include="public\images\leden\" />
+    <Folder Include="public\js\" />
+    <Folder Include="src\components\" />
+    <Folder Include="src\styles\" />
+    <Folder Include="views\" />
+    <Folder Include="views\logged-in\" />
+    <Folder Include="views\logged-out\" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
