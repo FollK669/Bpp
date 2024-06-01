@@ -1,0 +1,32 @@
+{
+  "errors": {
+    "nummerNotFound": "Nummer niet gevonden.",
+    "randomError": "algemene error.",
+    "ToManyLogins": "Teveel pogingen tot login...een moment aub.",
+    "pageLoadError": "Er gebeurde een fout bij het laden van deze pagina"
+  },
+  "buttons": {
+    "submit": "verzenden",
+    "cancel": "Annuleren",
+    "leden": "Our Members",
+    "members": "Members",
+    "nr": "Our Songs",
+    "weather": "Weather",
+    "foto": "Photos",
+    "video": "Videos",
+    "evenement": "Events",
+    "overzicht": "overzicht",
+    "speellijst": "speellijst"
+  },
+  "titles": {
+    "homepage": "Bsharp - Jazzcombo nl",
+    "members": "leden",
+    "nr": "onze nummer",
+    "weather": "Het weer",
+    "foto": "foto's'",
+    "video": "Videos",
+    "evenement": "evenementen",
+    "welcome": "De jazzCombo die Haspengauw doet swingen",
+    "moreinfo": "meer info"
+  }
+}

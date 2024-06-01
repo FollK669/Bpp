@@ -1,0 +1,1011 @@
+body {
+    color: burlywood;
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    font-style: normal;
+    padding: 0.5%;
+    padding-right: 8%;
+    padding-left: 8%;
+    background-image: url('/images/baking3.jpg');
+    background-size: auto;
+    background-position: center;
+    color: burlywood;
+}
+
+select {
+    color: red;
+}
+
+
+
+input{
+    background-color: grey;
+}
+
+
+.myChoices {
+    color: burlywood;
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    font-style: normal;
+    padding: 0.5%;
+    padding-right: 8%;
+    padding-left: 8%;
+    background-image: url('/images/baking3.jpg');
+    background-size: auto;
+    background-position: center;
+    color: burlywood;
+}
+
+    .myChoices option:checked {
+        color: burlywood;
+        font-family: "Kalam", cursive;
+        font-weight: 700;
+        font-style: normal;
+        padding: 0.5%;
+        padding-right: 8%;
+        padding-left: 8%;
+        background-image: url('/images/baking3.jpg');
+        background-size: auto;
+        background-position: center;
+        color: burlywood;
+    }
+
+@import 'utils/shared/layout';
+@import 'components/StackedList/props';
+
+// using an arbitrary width until I have time to fix the `columns` function
+$simple-list-width: 42rem;
+
+.SimpleList {
+    @include centered-width(columns(5));
+}
+
+myChoices {
+    color: burlywood;
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    font-style: normal;
+    padding: 0.5%;
+    padding-right: 8%;
+    padding-left: 8%;
+    background-image: url('/images/baking3.jpg');
+    background-size: auto;
+    background-position: center;
+    color: burlywood;
+}
+myChoices option:checked {
+    color: burlywood;
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    font-style: normal;
+    padding: 0.5%;
+    padding-right: 8%;
+    padding-left: 8%;
+    background-image: url('/images/baking3.jpg');
+    background-size: auto;
+    background-position: center;
+    color: burlywood;
+}
+
+
+
+.column {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 30px;
+    border: 10px;
+    z-index: 50;
+    text-align: center;
+    -ms-align-content: center;
+    -webkit-align-content: center;
+    align-content: center;
+}
+
+.column-item {
+    margin: 0 10px;
+}
+
+
+
+.roboto-thin {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-medium {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.roboto-black {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.roboto-thin-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.roboto-light-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.roboto-regular-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.roboto-medium-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.roboto-bold-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.roboto-black-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
+
+
+
+
+.top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+.login-boxer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 30px;
+    border: 10px;
+    z-index: 50;
+
+}
+
+
+.kalam-bold {
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+
+}
+
+.kalam-light {
+    font-family: "Kalam", cursive;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.kalam-regular {
+    font-family: "Kalam", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+
+html {
+    height: 100%;
+}
+
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 30px;
+    z-index: 50;
+
+}
+
+    .login-box h2 {
+        margin: 0 0 30px;
+        padding: 0;
+        color: #fff;
+        text-align: center;
+    }
+
+    .login-box .user-box {
+        position: relative;
+    }
+
+        .login-box .user-box input {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid #fff;
+            outline: none;
+            background: transparent;
+        }
+
+        .login-box .user-box label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #fff;
+            pointer-events: none;
+            transition: .5s;
+        }
+
+        .login-box .user-box input:placeholder-shown + label {
+            opacity: 50;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+.login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 10px 10px 0; /* Added right margin */
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.select {
+    width: 125px;
+    padding: 10px 0;
+    font-size: 16px;
+    color: burlywood;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+
+    
+}
+    .select option {
+        color: black;
+        background-color: burlywood ;
+        background-image: url('/images/background.jpg');
+    }
+
+
+
+
+
+
+
+.ly {
+    position: center;
+    text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313;
+    font-size: 3em;
+
+    text-align: center;
+    display: inline-block;
+    list-style: none;
+    position: relative;
+    border: solid 10px white;
+    background: #fff;
+    box-shadow: 0 0 15px 0px #555;
+    transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    top: 50px;
+}
+
+
+    ly:hover {
+        top: 0px;
+        opacity: 0.5;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+.rolldown-list {
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+    .rolldown-list li {
+        padding: 1em;
+        margin-bottom: .125em;
+        display: block;
+        list-style: none;
+        text-transform: uppercase;
+    }
+
+    .rolldown-list li {
+        visibility: hidden;
+        animation: rolldown .7s 1;
+        transform-origin: 50% 0;
+        animation-fill-mode: forwards;
+    }
+
+        .rolldown-list li:nth-child(2n) {
+            background-color: #444;
+        }
+
+        .rolldown-list li:nth-child(2n+1) {
+            background-color: #333;
+        }
+
+#myList {
+    position: absolute;
+    width: 50%;
+    left: 50%;
+    margin-left: -25%;
+}
+
+#btnReload {
+    float: right;
+    color: #333;
+    background: #ccc;
+    text-transform: uppercase;
+    border: none;
+    padding: .5em 1em;
+}
+
+    #btnReload:hover {
+        background: #ddd;
+    }
+
+@keyframes rolldown {
+    0% {
+        visibility: visible;
+        transform: rotateX(180deg) perspective(500px);
+    }
+
+    70% {
+        visibility: visible;
+        transform: rotateX(-20deg);
+    }
+
+    100% {
+        visibility: visible;
+        transform: rotateX(0deg);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#jsonContent {
+    font-family: monospace;
+    white-space: pre-wrap;
+}
+.button {
+    width: 65%;
+    height: 70px;
+    font-size: 30px;
+    font-weight: bolder;
+    text-shadow: 2px 2px 4px gray;
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 8;
+    color: burlywood;
+    background-image: url('/images/background.jpg');
+    border-radius: 30px;
+    border: 5px solid gray;
+    text-align: center;
+    padding-top: 8px;
+
+}
+
+.navmenustyling {
+    font-size: 28px;
+    text-shadow: 2px 2px 4px gray;
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
+    background-image: url('/images/baking3.jpg');
+    background-size: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 600px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 30px;
+    z-index: 50;
+    text-align: center;
+    color: burlywood;
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+
+.hOne {
+    font-size: 25px;
+    font-weight: bolder;
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
+    text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313; /* Shadow effect to simulate border */
+}
+
+.motivation-imgs {
+    width: 100%;
+    height: 400px;
+    margin: 0 auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313; /* Shadow effect to simulate border */
+}
+
+
+.container5 {
+    height: 100%;
+    width: 100%;
+    position: center;
+    text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313;
+    font-size: 1.8em;
+    text-align: center;
+    border-radius: 30px;
+    margin: 0 auto;
+    bottom: 0;
+    text-decoration: none; 
+    color: inherit;
+ 
+}
+
+.container6 {
+    height: 100%;
+    width: 100%;
+    position: center;
+    text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313;
+    font-size: 2em;
+    text-align: center;
+    border-radius: 30px;
+    margin: 0 auto;
+    bottom: 0;
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+.container7 {
+    background-image: url('/images/tp99.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: black;
+    background-repeat: no-repeat;
+    height: 350px;
+    width: 90%;
+    position: center;
+    text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313;
+    font-size: 5em;
+    text-align: center;
+    border-radius: 30px;
+    margin: 0 auto;
+    bottom: 0;
+}
+
+
+.container8 {
+   
+    background-size:  cover;
+    background-position: center;
+    background-color: black;
+    background-repeat: no-repeat;
+    height: 350px;
+    width: 550px;
+    position: center;
+    text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313; 
+    font-size: 1.2em;
+    text-align: center;
+    border-radius: 30px;
+    margin: 0 auto;
+    bottom: 0;
+}
+
+
+.container9 {
+    background-image: url('/images/buttonback.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: black;
+    background-repeat: no-repeat;
+    height: 350px;
+    width: 550px;
+    position: center;
+    text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313;
+    font-size: 1.2em;
+    text-align: center;
+    border-radius: 30px;
+    margin: 0 auto;
+    bottom: 0;
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Bezoekers overzicht picture's settings*/
+
+.main2 {
+    height: 20%;
+    width: 30%;
+    position: relative;
+}
+
+.d1 {
+    position: absolute;
+    background-image: url('/images/Erwin-4.jpg');
+    background-size: 2003px 702px;
+    background-size: cover;
+    height: 30vh;
+    width: 15vw;
+    background-position: 0 50%;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+    top: 40%;
+    transform: translateY(-50%);
+    z-index: 4;
+    animation: dd1 10s 1, dd12 10s 1;
+    animation-delay: 1s, 14s;
+}
+
+.d2 {
+    position: absolute;
+    background-image: url('/images/Erwin-33.jpg');
+    background-size: 3543px 2362px;
+    background-size: cover;
+    height: 50vh;
+    width: 25vw;
+    background-position: -10vw 50%;
+    left: 10vw;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    animation: dd2 10s 2;
+    animation-delay: 1s;
+}
+
+.d3 {
+    position: absolute;
+    background-image: url('/images/gr.jpg');
+    background-size: 3543px 2362px;
+    background-size: cover;
+    overflow: hidden;
+    height: 65vh;
+    width: 40vw;
+    left: 15vw;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+    background-position: -35vw 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    animation: dd3 10s 2;
+    animation-delay: 1s;
+}
+
+.d4 {
+    position: absolute;
+    overflow: hidden;
+    background-image: url('/images/Erwin-2.jpg');
+    background-size: 2362px 3543px;
+    background-size: cover;
+    height: 60vh;
+    width: 20vw;
+    left: 40vw;
+    background-position: -70vw 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    animation: dd4 10s 2;
+    animation-delay: 2s;
+}
+
+@keyframes dd1 {
+    0% {
+    }
+
+    50% {
+        width: 95vw;
+    }
+}
+
+@keyframes dd12 {
+    0% {
+    }
+
+    50% {
+        background-position: Calc(0vw - 40px) 50%;
+    }
+}
+
+@keyframes dd2 {
+    0% {
+    }
+
+    50% {
+        background-position: Calc(-10vw - 40px) 50%;
+    }
+}
+
+@keyframes dd3 {
+    0% {
+    }
+
+    50% {
+        background-position: Calc(-35vw - 40px) 50%;
+    }
+}
+
+@keyframes dd4 {
+    0% {
+    }
+
+    50% {
+        background-position: Calc(-70vw - 40px) 50%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#content {
+    width: 824px;
+    height: 600px;
+  
+    margin: 550px;
+    padding: 250px;
+}
+
+    #content h1 {
+        color: #7F6137;
+        text-shadow: 1px 1px 1px #fff;
+    }
+
+    #content p {
+        margin: 20px;
+        width: 600px;
+    }
+
+    #content .text {
+        padding: 300px 0px 0px 100px;
+    }
+
+
+ul#navigation {
+    position: fixed;
+    margin: 50px;
+    padding: 50px;
+    top: 0px;
+    right: 200px;
+    list-style: none;
+    z-index: 999999;
+}
+
+ul#navigation li {
+    display: inline;
+    float: left;
+    width: 100px;
+    margin-left: 1px;
+}
+
+    ul#navigation li a {
+     
+        display: block;
+        font-weight: bold;
+        font-size: 1.8em;
+        text-shadow: 1px 1px 1px #fff;
+        float: left;
+        width: 100px;
+        height: 35px;
+        color: #603d05;
+        background-image: url('/images/background.jpg');
+        text-decoration: none;
+        text-align: center;
+        padding-top: 80px;
+        margin-top: -40px;
+        cursor: pointer;
+    }
+
+
+
+
+
+
+
+
+
+.menu {
+    background-image: url('/images/buttonback.jpg');
+    border: 10px;
+    border-radius: 30px;
+    border-color: black;
+    height: 4rem;
+    color: black;
+    font-family: "Kalam", cursive;
+    font-size: 24px;
+    font-weight: 700;
+    font-style: normal;
+}
+
+    .menu ol {
+        list-style-type: none;
+        margin: 0 auto;
+        padding: 3px;
+        font-family: "Kalam", cursive;
+        font-size: 24px;
+        font-weight: 700;
+        font-style: normal;
+        border: 10px;
+        border-radius: 30px;
+        border-color: black;
+    }
+
+    .menu > ol {
+        max-width: 1000px;
+        padding: 0 2rem;
+        display: flex;
+    }
+
+        .menu > ol > .menu-item {
+            flex: 1;
+            padding: 0.75rem 0;
+        }
+
+            .menu > ol > .menu-item:after {
+                content: "";
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                bottom: 5px;
+                left: calc(50% - 2px);
+                background: burlywood;
+                will-change: transform;
+                transform: scale(0);
+                transition: transform 0.2s ease;
+                border: 10px;
+                border-radius: 30px;
+                border-color: black;
+                font-family: "Kalam", cursive;
+                font-size: 24px;
+                font-weight: 700;
+                font-style: normal;
+            }
+
+            .menu > ol > .menu-item:hover:after {
+                transform: scale(1);
+            }
+
+.menu-item {
+    position: relative;
+    line-height: 2.5rem;
+    text-align: center;
+}
+
+    .menu-item a {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: block;
+        font-family: "Kalam", cursive;
+        border: 10px;
+        border-radius: 30px;
+        border-color: black;
+        font-size: 24px;
+        font-weight: 700;
+        font-style: normal;
+        color: black;
+    }
+
+.sub-menu .menu-item {
+    padding: 0.75rem 0;
+    border: 10px;
+    border-radius: 15px;
+    border-color: black;
+    font-family: "Kalam", cursive;
+    font-size: 24px;
+    font-weight: 700;
+    font-style: normal;
+    background-image: url('/images/buttonback.jpg');
+    opacity: 0;
+    transform-origin: bottom;
+    animation: enter 0.2s ease forwards;
+}
+
+    .sub-menu .menu-item:nth-child(1) {
+        animation-duration: 0.2s;
+        animation-delay: 0s;
+    }
+
+    .sub-menu .menu-item:nth-child(2) {
+        animation-duration: 0.3s;
+        animation-delay: 0.1s;
+    }
+
+    .sub-menu .menu-item:nth-child(3) {
+        animation-duration: 0.4s;
+        animation-delay: 0.2s;
+    }
+
+    .sub-menu .menu-item:hover {
+        background: #F8B195;
+    }
+
+    .sub-menu .menu-item a {
+        padding: 0 0.75rem;
+    }
+
+
+
+.sub-menu {
+    padding: 5px;
+    position: absolute;
+    width: 100%;
+    color: black;
+    top: 100%;
+    left: 0;
+    display: none;
+    z-index: 1;
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    font-size:24px;
+    font-style: normal;
+}
+
+.menu-item:hover > .sub-menu {
+    display: block;
+}
+
+
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+    *:before, *:after {
+        box-sizing: inherit;
+    }
+
+a {
+    text-decoration: none;
+}
+
+@keyframes enter {
+    from {
+        opacity: 0;
+        transform: scaleY(0.98) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

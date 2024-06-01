@@ -1,0 +1,230 @@
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.nav {
+    background-color: red;
+    font-size: 25px;
+    font-weight: bolder;
+    color: burlywood;
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    font-style: normal;
+    margin-top: 25px; /* Ruimte tussen de knoppen */
+    box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.3);
+    text-shadow: -2px -2px 0 #141313, 2px -2px 0 #141313, -2px 2px 0 #141313, 2px 2px 0 #141313;
+}
+
+.nav__trigger-finger {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    display: flex;
+    background-image: url('/images/maillogo.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
+    background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige achtergrond bedekt */
+    background-position: center;
+    align-items: center;
+    width: 75px;
+    height: 100px;
+    margin: 40px;
+    color: white;
+}
+
+    .nav__trigger-finger::before {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 999;
+        display: flex;
+        background-image: url('/images/maillogo.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
+        background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige achtergrond bedekt */
+        background-position: center;
+        align-items: center;
+        width: 75px;
+        height: 100px;
+        margin: 40px;
+        color: white;
+    }
+
+.nav__trigger-fingerB {
+    float: right;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    display: flex;
+
+    background-image: url('/images/x.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
+    background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige achtergrond bedekt */
+    background-position: center;
+    align-items: center;
+    width: 75px;
+    height: 100px;
+    margin: 40px;
+    color: white;
+}
+
+    .nav__trigger-fingerB::before {
+        float: right;
+        top: 0;
+        right: 0;
+        z-index: 999;
+        display: flex;
+        background-image: url('/images/maillogo.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
+        background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige achtergrond bedekt */
+        background-position: center;
+        align-items: center;
+        width: 75px;
+        height: 75px;
+        margin: 40px;
+        color: white;
+    }
+
+
+.nav__trigger-fingerC {
+    align-items: center;
+    width: 75px;
+    height: 75px;
+    margin: 40px;
+    color: white;
+}
+
+    .nav__trigger-fingerC::before {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        display: flex;
+        background-image: url('/images/maillogo.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
+        background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige achtergrond bedekt */
+        background-position: center;
+        align-items: center;
+        width: 75px;
+        height: 100px;
+        margin: 40px;
+        color: white;
+    }
+
+.nav__trigger-input, .nav__submenu-trigger-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: fixed;
+}
+
+    .nav__trigger-input:focus + label {
+        color: white;
+    }
+
+        .nav__trigger-input:focus + label::before {
+            opacity: 1;
+        }
+
+    .nav__trigger-input:checked + label {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 999;
+        display: flex;
+        background-image: url('/images/x.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
+        background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige ach"outer-div"tergrond bedekt */
+        background-position: center;
+        align-items: center;
+        width: 75px;
+        height: 100px;
+        margin: 40px;
+        color: white;
+    }
+
+        .nav__trigger-input:checked + label span {
+            transform: rotate(45deg);
+        }
+
+
+    .nav__trigger-input:checked ~ ul {
+        z-index: 998;
+        transform: none;
+        transition: 0.5s cubic-bezier(0.75, 0, 0.25, 1);
+    }
+
+.nav__list {
+    border: 6px solid #141313;
+    border-radius: 30px;
+    position: fixed;
+    overflow: auto;
+    width: 60%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-color: red;
+    background-image: url('/images/tp2.jpg'); /* Vervang '/pad/naar/achtergrond-afbeelding.jpg' door het pad naar je eigen afbeelding */
+    background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige achtergrond bedekt */
+    background-position: center;
+    font-size: 5rem;
+    padding: 40px;
+    transform: translate(100vw) rotate(45deg);
+    transition: 0.2s cubic-bezier(0.75, 0, 0.25, 1);
+}
+
+.nav__item {
+    list-style: none;
+}
+
+    .nav__item + .nav__item {
+        margin-top: 20px;
+    }
+
+.nav__submenu-trigger-input:checked + label::after {
+    transform: translateY(0px);
+}
+
+.nav__submenu-trigger-input:checked ~ ul {
+    display: block;
+}
+
+.nav__submenu-trigger-input:focus + label::after {
+    transform: translateY(0px);
+}
+
+.nav__submenu-trigger-finger::after {
+}
+
+.nav__link {
+    text-decoration: none;
+    color: inherit;
+    font-size: 4rem;
+}
+
+.nav__list-child {
+    position: fixed;
+    font-size: 4rem;
+    margin-top: 15px;
+    padding-left: 3rem;
+}
+
+main {
+    padding: 6rem 4rem;
+}
+
+    main h1 {
+        font-size: 4rem;
+        font-weight: normal;
+    }
+
+        main h1 span {
+            color: black;
+        }
+
+    main p {
+        line-height: 1.5;
+        margin-top: 1.5rem;
+    }
